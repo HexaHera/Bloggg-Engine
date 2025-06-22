@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Blog Search Engine</title>
+  <link rel="icon" type="image/png" href="logo-icon.png">
+  <style>
+    :root {
+      --bg: #27374D;
+      --card: #526D82;
+      --accent: #9DB2BF;
+      --highlight: #DDE6ED;
+      --text: #d7f3f3;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 2.5em auto;
+      padding: 2.5em 2em 2em 2em;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 1.5em;
+    }
+
+    .header-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-logo img {
+      width: 64px;
+      height: 64px;
+    }
+
+    .header-title {
+      font-size: 2.25em;
+      font-weight: 700;
+      color: var(--highlight);
+      letter-spacing: 0.5px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      margin-bottom: 2em;
+    }
+
+    .search-icon {
+      width: 28px;
+      height: 28px;
+      opacity: 0.7;
+    }
+
+    #query {
+      flex: 1;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 0.7em 1em;
+      font-size: 1.1em;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    #query:focus {
+      border-color: var(--highlight);
+    }
+
+    #query::placeholder {
+      color: #fffbe6;
+      opacity: 0.7;
+    }
+
+    /* in case of suggestions, the background color must not changing */
+    #query:-webkit-autofill,
+    #query:-webkit-autofill:focus,
+    #query:-webkit-autofill:hover,
+    #query:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px var(--card) inset !important;
+      -webkit-text-fill-color: var(--text) !important;
+      caret-color: var(--text);
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    button {
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      padding: 0.7em 1.5em;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    button:hover {
+      background: #d7e1dc;
+    }
+
+    #results {
+      margin-top: 1.5em;
+    }
+
+    .result {
+      background: var(--card);
+      color: var(--text);
+      margin-bottom: 1.2em;
+      padding: 1.2em 1.2em 1.2em 1.2em;
+      border-radius: 12px;
+      border: 1px solid var(--accent);
+      display: flex;
+      gap: 1.2em;
+      align-items: flex-start;
+    }
+
+    .result-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      margin-top: 0.2em;
+      opacity: 0.85;
+    }
+
+    .result-content {
+      flex: 1;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.2em;
+    }
+
+    .result-title {
+      font-size: 1.15em;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .result-date {
+      font-size: 0.85em;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-left: 1em;
+    }
+
+    .result-title a {
+      color: var(--highlight);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .result-title a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .result-snippet {
+      color: var(--text);
+      margin: 0.4em 0 0.2em 0;
+      font-size: 1em;
+      opacity: 0.85;
+    }
+
+    .result-url {
+      color: var(--accent);
+      font-size: 0.98em;
+      word-break: break-all;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1em;
+      }
+
+      .header-title {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-logo">
+        <img src="logo-icon.png" alt="App Logo">
+      </div>
+      <span class="header-title">Personal Blog &amp; Article Search</span>
+    </div>
+    <form id="searchForm" class="search-bar">
+      <img src="search-icon.png" class="search-icon" alt="Search">
+      <input type="text" id="query" placeholder="Search for deep-dive blogs..." autofocus required>
+      <button type="submit">Search</button>
+    </form>
+    <div id="results" class="results-container"></div>
+  </div>
+
+  <script>
+    document.getElementById('searchForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const q = document.getElementById('query').value;
+      await search(q);
+    };
+
+    async function search(query) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '<p class="loading">Searching...</p>';
+
+      try {
+        const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const results = await response.json();
+
+        if (results && results.length > 0) {
+          let html = '';
+          results.forEach(item => {
+            const snippet = item.description ? `<div class="result-snippet">${item.description}</div>` : '';
+            const date = item.publication_date ? `<span class="result-date">${item.publication_date}</span>` : '';
+
+            html += `
+                            <div class="result">
+                                <img src="result-icon.png" class="result-icon">
+                                <div class="result-content">
+                                    <div class="result-header">
+                                        <span class="result-title">
+                                            <a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+                                        </span>
+                                        ${date}
+                                    </div>
+                                    ${snippet}
+                                    <div class="result-url">${item.url}</div>
+                                </div>
+                            </div>
+                        `;
+          });
+          resultsDiv.innerHTML = html;
+        } else {
+          resultsDiv.innerHTML = '<p>No results found.</p>';
+        }
+      } catch (error) {
+        console.error('Search error:', error);
+        resultsDiv.innerHTML = '<p class="error">An error occurred during the search.</p>';
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,1 +1,1 @@
-# Search Engine Module 
+# This file makes the `search_engine` directory a Python package. 
