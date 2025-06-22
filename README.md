@@ -1,85 +1,86 @@
-# Personal Blog Search Engine
+# Personal Blog & Article Search Engine
 
-A custom search engine that surfaces deep-dive personal blogs and insightful articles, filtering out generic SEO-filled corporate content.
+## Project Description
 
-## Project Overview
+I built this search engine to solve a personal frustration: finding authentic, high-quality content on the internet has become increasingly difficult. Standard search engines often prioritize heavily SEO-optimized corporate websites over insightful personal blogs and articles. This project is my attempt to create a filter for the web, surfacing only the kind of deep-dive, authentic content I actually want to read.
 
-This search engine is designed to find authentic personal blogs and articles that often get buried under corporate SEO content in traditional search engines. The goal is to create a search experience that prioritizes personal, authentic content over heavily SEO-optimized corporate pages.
+The system works by crawling a list of seed URLs, discovering new pages, and then using a series of fast, offline heuristics to determine if a page is a personal blog or article. The classified content is then fully indexed and made available through a clean, simple web interface.
 
-### Key Features
+## Features
 
-- **Personal Blog Detection**: ML-powered classification to identify authentic personal blogs
-- **Cost-Optimized ML**: Uses efficient models like Gemma-2B for classification
-- **Hierarchical Classification**: Domain analysis with fallback to header/footer analysis
-- **Web Crawling**: Automated collection of blog articles with rate limiting
-- **Search Interface**: Clean web interface for users
-- **Concurrent Processing**: Multi-threaded crawling for better performance
+-   **Heuristic-Based Classification:** To keep costs at zero and ensure high speed, the engine avoids AI models. Instead, it uses a hierarchy of reliable rules (analyzing URL structure, checking for platform footers like 'Powered by Ghost', and looking for comment sections) to accurately identify personal blogs.
+-   **Full-Text Search:** The search engine indexes the *entire text content* of every article, not just the title or meta description. This ensures that search results are highly relevant to the query.
+-   **Intelligent Ranking:** Results are ranked using the industry-standard Okapi BM25F algorithm, which intelligently scores documents based on term frequency and document length. Title matches are given a boost to prioritize relevance.
+-   **Scalable, Concurrent Crawling:** The architecture uses Redis as a message queue for URLs to be crawled. This allows multiple crawler processes to run concurrently—either on a single machine or distributed across several—dramatically speeding up the data collection process.
+-   **Highlighted Snippets:** The search results page displays contextual snippets from the article body with the search terms highlighted, showing exactly why a result is relevant.
 
-### Project Structure
+## Tech Stack
 
-```
-Engine/
-├── search_engine/     # Core search functionality
-├── classifier/        # ML classification models
-├── crawler/          # Web crawling components
-│   ├── web_crawler.py      # Main crawler class
-│   ├── crawler_manager.py  # Crawler orchestration
-│   └── test_crawler.py     # Crawler tests
-├── data/             # Data storage and processing
-│   ├── crawled/      # Crawled web content
-│   └── index/        # Search index
-├── frontend/         # Web interface
-├── index/            # Main entry point
-├── config.py         # Configuration settings
-├── requirements.txt  # Python dependencies
-└── README.md         # Project documentation
-```
+-   **Backend:** Python
+-   **Web Framework:** Flask
+-   **Search Indexing:** Whoosh
+-   **Distributed Task Queue:** Redis
+-   **HTML Parsing:** BeautifulSoup
+-   **Frontend:** HTML, CSS, JavaScript
 
-## Development Progress
+## Local Setup & Installation
 
-- [x] Project structure setup
-- [x] Dependencies installation
-- [x] Basic crawler skeleton (WebCrawler and CrawlerManager classes)
-- [ ] URL fetching and HTML downloading implementation
-- [ ] Content extraction and parsing
-- [ ] ML classifier development
-- [ ] Search engine core
-- [ ] Frontend interface
-- [ ] Integration and testing
+Follow these steps to run the project on your local machine.
 
-## Installation
+### 1. Prerequisites
 
-1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the application: `python index/main.py`
+-   Python 3.x
+-   Redis Server
 
-## Configuration
+If you are on macOS, the easiest way to install Redis is with Homebrew:
+`brew install redis`
+`brew services start redis`
 
-Edit `config.py` to customize:
-- Crawler settings (delay, timeout, max pages)
-- ML model parameters
-- Search configuration
-- Personal blog indicators
+For other operating systems, please follow the official Redis installation guide.
 
-## Testing
+### 2. Clone the Repository
+`git clone https://github.com/your-username/your-repo-name.git`
+`cd your-repo-name`
 
-Run the crawler tests to verify functionality:
-```bash
-cd crawler
-python test_crawler.py
-```
 
-## Current Status
+### 3. Install Dependencies
+Install the required Python libraries using pip:
+`pip install -r requirements.txt`
 
-The project currently has a solid foundation with:
-- Complete project structure
-- All dependencies installed and configured
-- Basic crawler skeleton with WebCrawler and CrawlerManager classes
-- Comprehensive test suite for crawler functionality
-- Configuration system for easy customization
+### 4. Seed the Crawler
+Before you can start crawling, you need to provide an initial list of URLs.
+1.  Open the `seed_urls.txt` file.
+2.  Add a few high-quality blog URLs that you want to start with (one URL per line).
+3.  Run the seeder script to populate the Redis queue:
+    `python3 run_pipeline.py --seed-only`
 
-Next steps involve implementing the actual crawling logic and content extraction.
+### 5. Run the Data Pipeline
+This is a three-step process to crawl, classify, and index the content.
 
-## Team
+-   **Step 1: Crawl the Web**
+    Run the crawler. You can run this command in multiple terminal windows to crawl in parallel and speed up the process.
+    `python3 search_engine/crawler.py`
+    Let this run for a while to collect a good amount of data. Press `CTRL+C` to stop the crawlers when you're done.
 
-This project is developed as part of a 1-4 member team focusing on AI/ML cost optimization and efficient web crawling. The development approach emphasizes incremental progress with regular commits to demonstrate the step-by-step building process. 
+-   **Step 2: Classify and Filter Content**
+    This script processes the raw downloaded pages and keeps only the ones identified as personal blogs or articles.
+    `python3 search_engine/classifier.py`
+
+-   **Step 3: Build the Search Index**
+    Finally, create the search index from the classified articles. The `--rebuild` flag ensures you start with a fresh index.
+    `python3 search_engine/indexer.py --rebuild`
+
+### 6. Start the Server
+Now you can start the Flask web server to use the search engine.
+`python3 search_api.py`
+
+Open your web browser and navigate to **`http://127.0.0.1:5050`** to see the application.
+
+## Demo
+
+This project is designed to be run locally. Once the server is running, you can share it with others on your local network by using your machine's local IP address instead of `127.0.0.1`.
+
+-   On macOS or Linux, find your IP with `ifconfig | grep "inet "`.
+-   On Windows, use `ipconfig`.
+
+The URL would look something like `http://192.168.1.10:5050`. 
