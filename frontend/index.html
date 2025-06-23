@@ -2,252 +2,364 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Personal Blog Search Engine</title>
-  <link rel="icon" type="image/png" href="logo-icon.png">
-  <style>
-    :root {
-      --bg: #27374D;
-      --card: #526D82;
-      --accent: #9DB2BF;
-      --highlight: #DDE6ED;
-      --text: #d7f3f3;
-    }
+    <meta charset="UTF-8">
+    <title>Personal Blog Search Engine</title>
+    <link rel="icon" type="image/png" href="logo-icon.png">
+    <style>
+        :root {
+            --bg: #27374D;
+            --card: #526D82;
+            --accent: #9DB2BF;
+            --highlight: #DDE6ED;
+            --text: #d7f3f3;
+        }
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
 
-    .container {
-      max-width: 700px;
-      margin: 2.5em auto;
-      padding: 2.5em 2em 2em 2em;
-    }
+        .container {
+            max-width: 700px;
+            margin: 2.5em auto;
+            padding: 2.5em 2em 2em 2em;
+        }
 
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      margin-bottom: 1.5em;
-    }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            margin-bottom: 1.5em;
+        }
 
-    .header-logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .header-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .header-logo img {
-      width: 64px;
-      height: 64px;
-    }
+        .header-logo img {
+            width: 64px;
+            height: 64px;
+        }
 
-    .header-title {
-      font-size: 2.25em;
-      font-weight: 700;
-      color: var(--highlight);
-      letter-spacing: 0.5px;
-    }
+        .header-title {
+            font-size: 2.25em;
+            font-weight: 700;
+            color: var(--highlight);
+            letter-spacing: 0.5px;
+        }
 
-    .search-bar {
-      display: flex;
-      align-items: center;
-      gap: 0.7em;
-      margin-bottom: 2em;
-    }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            margin-bottom: 2em;
+        }
 
-    .search-icon {
-      width: 28px;
-      height: 28px;
-      opacity: 0.7;
-    }
+        .search-icon {
+            width: 28px;
+            height: 28px;
+            opacity: 0.7;
+        }
 
-    #query {
-      flex: 1;
-      background: var(--card);
-      color: var(--text);
-      border: 1px solid var(--accent);
-      border-radius: 8px;
-      padding: 0.7em 1em;
-      font-size: 1.1em;
-      outline: none;
-      transition: border-color 0.2s;
-    }
+        #query {
+            flex: 1;
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 0.7em 1em;
+            font-size: 1.1em;
+            outline: none;
+            transition: border-color 0.2s;
+        }
 
-    #query:focus {
-      border-color: var(--highlight);
-    }
+        #query:focus {
+            border-color: var(--highlight);
+        }
 
-    #query::placeholder {
-      color: #fffbe6;
-      opacity: 0.7;
-    }
+        #query::placeholder {
+            color: #fffbe6;
+            opacity: 0.7;
+        }
 
-    /* in case of suggestions, the background color must not changing */
-    #query:-webkit-autofill,
-    #query:-webkit-autofill:focus,
-    #query:-webkit-autofill:hover,
-    #query:-webkit-autofill:active {
-      -webkit-box-shadow: 0 0 0 1000px var(--card) inset !important;
-      -webkit-text-fill-color: var(--text) !important;
-      caret-color: var(--text);
-      transition: background-color 5000s ease-in-out 0s;
-    }
+        /* in case of suggestions, the background color must not changing */
+        #query:-webkit-autofill,
+        #query:-webkit-autofill:focus,
+        #query:-webkit-autofill:hover,
+        #query:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 1000px var(--card) inset !important;
+            -webkit-text-fill-color: var(--text) !important;
+            caret-color: var(--text);
+            transition: background-color 5000s ease-in-out 0s;
+        }
 
-    button {
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-      border-radius: 8px;
-      padding: 0.7em 1.5em;
-      font-size: 1.1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-    }
+        button {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: 8px;
+            padding: 0.7em 1.5em;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
 
-    button:hover {
-      background: #d7e1dc;
-    }
+        button:hover {
+            background: #d7e1dc;
+        }
 
-    #results {
-      margin-top: 1.5em;
-    }
+        #results {
+            margin-top: 1.5em;
+        }
 
-    .result {
-      background: var(--card);
-      color: var(--text);
-      margin-bottom: 1.2em;
-      padding: 1.2em 1.2em 1.2em 1.2em;
-      border-radius: 12px;
-      border: 1px solid var(--accent);
-      display: flex;
-      gap: 1.2em;
-      align-items: flex-start;
-    }
+        .result {
+            background: var(--card);
+            color: var(--text);
+            margin-bottom: 1.2em;
+            padding: 1.2em 1.2em 1.2em 1.2em;
+            border-radius: 12px;
+            border: 1px solid var(--accent);
+            display: flex;
+            gap: 1.2em;
+            align-items: flex-start;
+        }
 
-    .result-icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      margin-top: 0.2em;
-      opacity: 0.85;
-    }
+        .result-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            margin-top: 0.2em;
+            opacity: 0.85;
+        }
 
-    .result-content {
-      flex: 1;
-    }
+        .result-content {
+            flex: 1;
+        }
 
-    .result-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.2em;
-    }
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.2em;
+        }
 
-    .result-title {
-      font-size: 1.15em;
-      font-weight: 600;
-      display: inline-block;
-    }
+        .result-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            display: inline-block;
+        }
 
-    .result-date {
-      font-size: 0.85em;
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-left: 1em;
-    }
+        .result-date {
+            font-size: 0.85em;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-left: 1em;
+        }
 
-    .result-title a {
-      color: var(--highlight);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+        .result-title a {
+            color: var(--highlight);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
 
-    .result-title a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
+        .result-title a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
 
-    .result-snippet {
-      color: var(--text);
-      margin: 0.4em 0 0.2em 0;
-      font-size: 1em;
-      opacity: 0.85;
-    }
+        .result-snippet {
+            color: var(--text);
+            margin: 0.4em 0 0.2em 0;
+            font-size: 1em;
+            opacity: 0.85;
+        }
 
-    .result-url {
-      color: var(--accent);
-      font-size: 0.98em;
-      word-break: break-all;
-      opacity: 0.9;
-    }
+        .result-url {
+            color: var(--accent);
+            font-size: 0.98em;
+            word-break: break-all;
+            opacity: 0.9;
+        }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 1em;
-      }
+        .result-count {
+            color: #d7f3f3;
+            font-size: 1.08em;
+            margin-bottom: 1.2em;
+            opacity: 0.7;
+        }
 
-      .header-title {
-        font-size: 1.2em;
-      }
-    }
-  </style>
+        @media (max-width: 600px) {
+            .container {
+                padding: 0.5em;
+                max-width: 98vw;
+            }
+
+            .header-title {
+                font-size: 1.1em;
+            }
+
+            .header-logo img {
+                width: 44px;
+                height: 44px;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                gap: 0.5em;
+            }
+
+            #query {
+                font-size: 1em;
+                padding: 0.6em 0.7em;
+            }
+
+            button {
+                width: 100%;
+                font-size: 1em;
+                padding: 0.6em 0;
+            }
+
+            .result {
+                flex-direction: column;
+                gap: 0.7em;
+                padding: 0.8em 0.7em;
+            }
+
+            .result-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .result-title {
+                font-size: 1em;
+            }
+
+            .result-date {
+                font-size: 0.8em;
+            }
+
+            .result-snippet {
+                font-size: 0.95em;
+            }
+
+            .result-url {
+                font-size: 0.9em;
+            }
+
+            .pagination-btn {
+                font-size: 0.95em;
+                padding: 0.3em 0.7em;
+            }
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5em;
+            margin: 2em 0 0.5em 0;
+        }
+
+        .pagination-btn {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: 6px;
+            padding: 0.4em 1em;
+            font-size: 1em;
+            cursor: pointer;
+            opacity: 0.85;
+            transition: background 0.2s;
+        }
+
+        .pagination-btn.active,
+        .pagination-btn:disabled {
+            background: var(--highlight);
+            color: var(--bg);
+            font-weight: bold;
+            cursor: default;
+            opacity: 1;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="header-logo">
-        <img src="logo-icon.png" alt="App Logo">
-      </div>
-      <span class="header-title">Personal Blog &amp; Article Search</span>
+    <div class="container">
+        <div class="header">
+            <div class="header-logo">
+                <img src="logo-icon.png" alt="App Logo">
+            </div>
+            <span class="header-title">Personal Blog &amp; Article Search</span>
+        </div>
+        <div class="tagline"
+            style="text-align:center; color:#d7f3f3; opacity:0.85; margin-top:0.3em; margin-bottom:1.7em; font-size:1.1em;">
+            Type a topic or article title to find authentic personal blog posts.
+        </div>
+        <form id="searchForm" class="search-bar">
+            <img src="search-icon.png" class="search-icon" alt="Search">
+            <input type="text" id="query" placeholder="Search for deep-dive blogs..." autofocus required>
+            <button type="submit">Search</button>
+        </form>
+        <div id="results" class="results-container"></div>
     </div>
-    <form id="searchForm" class="search-bar">
-      <img src="search-icon.png" class="search-icon" alt="Search">
-      <input type="text" id="query" placeholder="Search for deep-dive blogs..." autofocus required>
-      <button type="submit">Search</button>
-    </form>
-    <div id="results" class="results-container"></div>
-  </div>
 
-  <script>
-    document.getElementById('searchForm').onsubmit = async (e) => {
-      e.preventDefault();
-      const q = document.getElementById('query').value;
-      await search(q);
-    };
+    <script>
+        let lastQuery = '';
+        let lastPage = 1;
+        let lastPerPage = 20;
 
-    async function search(query) {
-      const resultsDiv = document.getElementById('results');
-      resultsDiv.innerHTML = '<p class="loading">Searching...</p>';
+        document.getElementById('searchForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const q = document.getElementById('query').value;
+            lastQuery = q;
+            lastPage = 1;
+            await search(q, 1);
+        };
 
-      try {
-        const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+        async function search(query, page = 1) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p class="loading">Searching...</p>';
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+            try {
+                const response = await fetch(`/search?q=${encodeURIComponent(query)}&page=${page}&limit=20`);
 
-        const results = await response.json();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-        if (results && results.length > 0) {
-          let html = '';
-          results.forEach(item => {
-            const snippet = item.description ? `<div class="result-snippet">${item.description}</div>` : '';
-            const date = item.publication_date ? `<span class="result-date">${item.publication_date}</span>` : '';
+                const data = await response.json();
+                const results = data.results || [];
+                const count = data.count || 0;
+                const perPage = data.per_page || 20;
+                const currentPage = data.page || 1;
+                const totalPages = Math.ceil(count / perPage);
+                lastPerPage = perPage;
+                lastPage = currentPage;
 
-            html += `
+                let html = '';
+                if (results && results.length > 0) {
+                    html += `<div class="result-count">Found ${count} result${count !== 1 ? 's' : ''} for your search.</div>`;
+                    results.forEach(item => {
+                        const snippet = item.description ? `<div class="result-snippet">${item.description}</div>` : '';
+                        const date = item.publication_date ? `<span class="result-date">${item.publication_date}</span>` : '';
+
+                        html += `
                             <div class="result">
                                 <img src="result-icon.png" class="result-icon">
                                 <div class="result-content">
@@ -262,17 +374,43 @@
                                 </div>
                             </div>
                         `;
-          });
-          resultsDiv.innerHTML = html;
-        } else {
-          resultsDiv.innerHTML = '<p>No results found.</p>';
+                    });
+                    // Pagination controls
+                    if (totalPages > 1) {
+                        html += renderPagination(currentPage, totalPages);
+                    }
+                    resultsDiv.innerHTML = html;
+                } else {
+                    resultsDiv.innerHTML = '<p class="no-results">No personal blog posts found for that query. Try a different keyword or check your spelling.</p>';
+                }
+            } catch (error) {
+                console.error('Search error:', error);
+                resultsDiv.innerHTML = '<p class="error">An error occurred during the search.</p>';
+            }
         }
-      } catch (error) {
-        console.error('Search error:', error);
-        resultsDiv.innerHTML = '<p class="error">An error occurred during the search.</p>';
-      }
-    }
-  </script>
+
+        function renderPagination(current, total) {
+            let html = '<div class="pagination">';
+            html += `<button class="pagination-btn" onclick="gotoPage(${current - 1})" ${current === 1 ? 'disabled' : ''}>Prev</button>`;
+            // Show up to 5 page numbers: current, 2 before, 2 after
+            let start = Math.max(1, current - 2);
+            let end = Math.min(total, current + 2);
+            if (current <= 3) end = Math.min(5, total);
+            if (current >= total - 2) start = Math.max(1, total - 4);
+            for (let i = start; i <= end; i++) {
+                html += `<button class="pagination-btn${i === current ? ' active' : ''}" onclick="gotoPage(${i})" ${i === current ? 'disabled' : ''}>${i}</button>`;
+            }
+            html += `<button class="pagination-btn" onclick="gotoPage(${current + 1})" ${current === total ? 'disabled' : ''}>Next</button>`;
+            html += '</div>';
+            return html;
+        }
+
+        // Expose gotoPage globally for inline onclick
+        window.gotoPage = function (page) {
+            if (page < 1) page = 1;
+            search(lastQuery, page);
+        };
+    </script>
 </body>
 
 </html>

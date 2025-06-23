@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search | Derek Sivers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/style3.css">
+<link rel="alternate" type="application/atom+xml" href="/en.atom">
+</head>
+<body id="about">
+<section id="masthead">
+<h1><a href="/" title="Derek Sivers">Derek Sivers</a></h1>
+</section>
+<main>
+<header>
+<h1>
+	Search:
+</h1>
+</header>
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+
+<div id="search"></div>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+</script>
+</body>
+</html>

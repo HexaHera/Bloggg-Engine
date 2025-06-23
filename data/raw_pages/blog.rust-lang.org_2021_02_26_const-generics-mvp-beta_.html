@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Const generics MVP hits beta! | Rust Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Empowering everyone to build reliable and efficient software.">
+     <!-- Twitter card -->
+     <meta name="twitter:card" content="summary">
+     <meta name="twitter:site" content="@rustlang">
+     <meta name="twitter:creator" content="@rustlang">
+     <meta name="twitter:title" content="Const generics MVP hits beta! | Rust Blog">
+     <meta name="twitter:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
+    
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Const generics MVP hits beta! | Rust Blog" />
+    <meta property="og:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/skeleton.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/tachyons.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/fonts.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/app.css"/>
+    <link rel="stylesheet" type="text/css" id="syntax-theme" />
+    
+    <!-- stylesheet for user agents without js -->
+    <noscript>
+        <link rel="stylesheet" href="https://blog.rust-lang.org/styles/noscript.css">
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+    </noscript>
+    
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blog.rust-lang.org/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://blog.rust-lang.org/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blog.rust-lang.org/images/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="https://blog.rust-lang.org/images/favicon.svg">
+    <link rel="manifest" href="https://blog.rust-lang.org/images/site.webmanifest">
+    <link rel="mask-icon" href="https://blog.rust-lang.org/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+     <!-- atom -->
+     <link type="application/atom+xml" rel="alternate" href="https://blog.rust-lang.org/feed.xml" title="Rust Blog" />
+    
+    <!-- theme switcher -->
+    <script src="https://blog.rust-lang.org/scripts/theme-switch.js"></script>
+  </head>
+  <body>
+    <nav class="flex flex-row justify-center justify-end-l items-center flex-wrap ph2 pl3-ns pr4-ns">
+      <div class="brand flex-auto w-100 w-auto-l self-start tc tl-l">
+        <a href="https://blog.rust-lang.org/">
+          <img class="v-mid ml0-l rust-logo" alt="Rust Logo" src="https://blog.rust-lang.org/images/rust-logo-blk.svg">
+          <span class="dib ml1 ml0-l">Rust Blog</span>
+        </a>
+      </div>
+    
+      <ul class="nav list w-100 w-auto-l flex flex-none flex-row flex-wrap justify-center justify-end-l items-center pv2 ph0 ph4-ns">
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org">Rust</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools/install">Install</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/learn">Learn</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools">Tools</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/governance">Governance</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/community">Community</a></li>
+        <button class="theme-icon" onclick="dropdown();">🖌
+          <ul id="theme-choice">
+            <li class="theme-item" onclick="changeThemeTo('light');">Light</li>
+            <li class="theme-item" onclick="changeThemeTo('dark');">Dark</li>
+            <li class="theme-item" onclick="changeThemeTo('system');">System</li>
+          </ul>
+        </button>
+        <script src="https://blog.rust-lang.org/scripts/theme-switch-post.js"></script>
+      </ul>
+    </nav><section id="Const generics MVP hits beta!" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>Const generics MVP hits beta!</h2>
+      <div class="highlight mt2 mb3"></div>
+    </header>
+
+    <div class="publish-date-author">Feb. 26, 2021 &middot; The const generics project group
+    
+    </div>
+
+    <div class="post">
+      <p>After more than 3 years since the <a href="https://github.com/rust-lang/rfcs/blob/master/text/2000-const-generics.md">original RFC for const generics</a> was accepted, <strong>the first version of const generics is now available in the Rust beta channel!</strong> It will be available in the 1.51 release, which is expected to be released on <strong>March 25th, 2021</strong>. Const generics is one of the <a href="https://blog.rust-lang.org/2020/12/16/rust-survey-2020.html">most highly anticipated</a> features coming to Rust, and we're excited for people to start taking advantage of the increased power of the language following this addition.</p>
+<p>Even if you don't know what const generics are (in which case, read on!), you've likely been benefitting from them: const generics are already employed in the Rust standard library to improve the ergonomics of arrays and diagnostics; more on that below.</p>
+<p>With const generics hitting beta, let's take a quick look over what's actually being stabilized, what this means practically, and what's next.</p>
+<h2 id="what-are-const-generics"><a class="anchor" href="#what-are-const-generics" aria-hidden="true"></a>
+What are const generics?</h2>
+<p>Const generics are generic arguments that range over constant values, rather than types or lifetimes. This allows, for instance, types to be parameterized by integers. In fact, there has been one example of const generic types since early on in Rust's development: the array types <code>[T; N]</code>, for some type <code>T</code> and <code>N: usize</code>. However, there has previously been no way to abstract over arrays of an arbitrary size: if you wanted to implement a trait for arrays of any size, you would have to do so manually for each possible value. For a long time, even the standard library methods for arrays were limited to arrays of length at most 32 due to this problem. This restriction was <a href="https://blog.rust-lang.org/2020/10/08/Rust-1.47.html#traits-on-larger-arrays">finally lifted in Rust 1.47</a> - a change that was made possible by const generics.</p>
+<p>Here's an example of a type and implementation making use of const generics: a type wrapping a pair of arrays of the same size.</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-struct z-rust"><span class="z-storage z-type z-struct z-rust">struct</span> </span><span class="z-meta z-struct z-rust"><span class="z-meta z-generic z-rust"><span class="z-entity z-name z-struct z-rust">ArrayPair</span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T, <span class="z-storage z-modifier z-rust">const</span> N<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span></span></span><span class="z-meta z-struct z-rust"> </span><span class="z-meta z-struct z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-struct z-rust"><span class="z-meta z-block z-rust">    <span class="z-variable z-other z-member z-rust">left</span><span class="z-punctuation z-separator z-type z-rust">:</span> [T; N],
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-struct z-rust"><span class="z-meta z-block z-rust">    <span class="z-variable z-other z-member z-rust">right</span><span class="z-punctuation z-separator z-type z-rust">:</span> [T; N],
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-struct z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-storage z-type z-impl z-rust">impl</span></span><span class="z-meta z-impl z-rust"><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T<span class="z-punctuation z-separator z-rust">:</span> Debug, <span class="z-storage z-modifier z-rust">const</span> N<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span></span><span class="z-meta z-impl z-rust"> Debug <span class="z-keyword z-other z-rust">for</span></span><span class="z-meta z-impl z-rust"> <span class="z-entity z-name z-impl z-rust">ArrayPair</span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T, N<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span> </span><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust">    <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ...
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<h3 id="current-restrictions"><a class="anchor" href="#current-restrictions" aria-hidden="true"></a>
+Current restrictions</h3>
+<p>The first iteration of const generics has been deliberately constrained: in other words, this version is the MVP (minimal viable product) for const generics. This decision is motivated both by the additional complexity of general const generics (the implementation for general const generics is not yet complete, but we feel const generics in 1.51 are already very useful), as well as by the desire to introduce a large feature gradually, to gain experience with any potential shortcomings and difficulties. We intend to lift these in future versions of Rust: see <a href="https://blog.rust-lang.org/2021/02/26/const-generics-mvp-beta/#what-s-next">what's next</a>.</p>
+<h4 id="only-integral-types-are-permitted-for-const-generics"><a class="anchor" href="#only-integral-types-are-permitted-for-const-generics" aria-hidden="true"></a>
+Only integral types are permitted for const generics</h4>
+<p>For now, the only types that may be used as the type of a const generic argument are the types of integers (i.e. signed and unsigned integers, including <code>isize</code> and <code>usize</code>) as well as <code>char</code> and <code>bool</code>. This covers a primary use case of const, namely abstracting over arrays. In the future, this restriction will be lifted to allow more complex types, such as <code>&amp;str</code> and user-defined types.</p>
+<h4 id="no-complex-generic-expressions-in-const-arguments"><a class="anchor" href="#no-complex-generic-expressions-in-const-arguments" aria-hidden="true"></a>
+No complex generic expressions in const arguments</h4>
+<p>Currently, const parameters may only be instantiated by const arguments of the following forms:</p>
+<ul>
+<li>A standalone const parameter.</li>
+<li>A literal (i.e. an integer, bool, or character).</li>
+<li>A concrete constant expression (enclosed by <code>{}</code>), involving no generic parameters.</li>
+</ul>
+<p>For example:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">foo</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-storage z-modifier z-rust">const</span> N<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">bar</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T, <span class="z-storage z-modifier z-rust">const</span> M<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-path z-rust">foo<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>M<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ok: `M` is a const parameter
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-path z-rust">foo<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>2021<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ok: `2021` is a literal
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-path z-rust">foo<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-invalid z-illegal z-rust">{</span></span><span class="z-constant z-numeric z-integer z-decimal z-rust">20</span> <span class="z-keyword z-operator z-arithmetic z-rust">*</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">100</span> <span class="z-keyword z-operator z-arithmetic z-rust">+</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">20</span> <span class="z-keyword z-operator z-arithmetic z-rust">*</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">10</span> <span class="z-keyword z-operator z-arithmetic z-rust">+</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span><span class="z-keyword z-operator z-comparison z-rust">&gt;</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ok: const expression contains no generic parameters
+</span></span><span class="z-source z-rust">    
+</span><span class="z-source z-rust">    <span class="z-meta z-path z-rust">foo<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-invalid z-illegal z-rust">{</span></span> M <span class="z-keyword z-operator z-arithmetic z-rust">+</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span> }<span class="z-keyword z-operator z-comparison z-rust">&gt;</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> error: const expression contains the generic parameter `M`
+</span></span><span class="z-source z-rust">    <span class="z-meta z-path z-rust">foo<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-invalid z-illegal z-rust">{</span></span> <span class="z-meta z-path z-rust">std<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">mem<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">size_of<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> }<span class="z-keyword z-operator z-comparison z-rust">&gt;</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> error: const expression contains the generic parameter `T`
+</span></span><span class="z-source z-rust">    
+</span><span class="z-source z-rust">    <span class="z-storage z-type z-rust">let</span> <span class="z-keyword z-operator z-rust">_</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-storage z-type z-rust">u8</span><span class="z-punctuation z-separator z-rust">;</span> M<span class="z-punctuation z-section z-group z-end z-rust">]</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ok: `M` is a const parameter
+</span></span><span class="z-source z-rust">    <span class="z-storage z-type z-rust">let</span> <span class="z-keyword z-operator z-rust">_</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-storage z-type z-rust">u8</span><span class="z-punctuation z-separator z-rust">;</span> <span class="z-meta z-path z-rust">std<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">mem<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">size_of<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> error: const expression contains the generic parameter `T`
+</span></span><span class="z-source z-rust">}
+</span></code></pre>
+<h2 id="by-value-array-iterator"><a class="anchor" href="#by-value-array-iterator" aria-hidden="true"></a>
+By-value array iterator</h2>
+<p>In addition to the language changes described above, we've also started adding methods to the standard library taking advantage of const generics. While most are not yet ready for stabilization in this version, there is one method that has been stabilized. <a href="https://doc.rust-lang.org/nightly/std/array/struct.IntoIter.html"><code>array::IntoIter</code></a> allows arrays to be iterated by value, rather than by reference, addressing a significant shortcoming. There is ongoing discussion about the possibility of implementing <code>IntoIterator</code> directly for arrays, though there are <a href="https://github.com/rust-lang/rust/pull/65819">backwards-compatibility concerns</a> that still have to be addressed. <code>IntoIter::new</code> acts as an interim solution that makes working with arrays significantly simpler.</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-keyword z-other z-rust">use</span> <span class="z-meta z-path z-rust">std<span class="z-punctuation z-accessor z-rust">::</span></span>array<span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">needs_vec</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">v</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-meta z-generic z-rust"><span class="z-support z-type z-rust">Vec</span><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-storage z-type z-rust">i32</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ...
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-storage z-type z-rust">let</span> arr <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-support z-macro z-rust">vec!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-constant z-numeric z-integer z-decimal z-rust">0</span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-support z-macro z-rust">vec!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-constant z-numeric z-integer z-decimal z-rust">1</span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">2</span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">3</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-support z-macro z-rust">vec!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-constant z-numeric z-integer z-decimal z-rust">3</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust"><span class="z-keyword z-control z-rust">for</span> elem <span class="z-keyword z-operator z-rust">in</span> <span class="z-meta z-path z-rust">array<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">IntoIter<span class="z-punctuation z-accessor z-rust">::</span></span>new<span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>arr</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-function z-rust">needs_vec</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>elem</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></code></pre>
+<h2 id="what-s-next"><a class="anchor" href="#what-s-next" aria-hidden="true"></a>
+What's next?</h2>
+<h3 id="const-generics-and-default-arguments"><a class="anchor" href="#const-generics-and-default-arguments" aria-hidden="true"></a>
+Const generics and default arguments</h3>
+<p>Generic parameters must currently come in a specific order: lifetimes, types, consts. However, this causes difficulties when one attempts to use default arguments alongside const parameters. For the compiler to know which generic argument is which, any default arguments need to be placed last. These two constraints - "types come before consts", and "defaults come last" - conflict with each other for definitions that have default type arguments <em>and</em> const parameters.</p>
+<p>The solution to this is to relax the ordering constraint so that const parameters may precede type arguments. However, there turn out to be subtleties involved in implementing this change, because the Rust compiler currently makes assumptions about parameter ordering that require some delicacy to remove.</p>
+<p>In light of similar design questions around defaults for const arguments, these are also currently not supported in version 1.51. However, fixing the parameter ordering issues above will also unblock const defaults.</p>
+<h3 id="const-generics-for-custom-types"><a class="anchor" href="#const-generics-for-custom-types" aria-hidden="true"></a>
+Const generics for custom types</h3>
+<p>For a type to be valid, in theory, as the type of a const parameter, we must be able to compare values of that type at compile-time. Furthermore, equality of values should be well-behaved (namely, it should be deterministic, reflexive, symmetric, and transitive). To guarantee these properties, the concept of <em>structural equality</em> was introduced in the <a href="https://github.com/rust-lang/rfcs/blob/master/text/2000-const-generics.md">const generics RFC</a>: essentially this includes any type with <code>#[derive(PartialEq, Eq)]</code> whose members also satisfy structural equality.</p>
+<p>There are <a href="https://github.com/rust-lang/rust/issues/74446">still some questions</a> concerning precisely how structural equality should behave, and <a href="https://github.com/rust-lang/compiler-team/issues/323">prerequisites for implementation</a>. Primitive types are significantly simpler, which has allowed us to stabilize const generics for these types before more general types.</p>
+<h3 id="const-generics-with-complex-expressions"><a class="anchor" href="#const-generics-with-complex-expressions" aria-hidden="true"></a>
+Const generics with complex expressions</h3>
+<p>There are several complexities involved in supporting complex expressions. A feature flag, <code>feature(const_evaluatable_checked)</code>, is available in the Nightly channel, which enables a version of complex expression support for const generics.</p>
+<p>One difficulty lies in the necessity of having some way to compare unevaluated constants, as the compiler does not automatically know that two syntactically identical expressions are actually equal. This involves a kind of symbolic reasoning about expressions, which is a complex problem in general.</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> The two expressions `N + 1` and `N + 1` are distinct
+</span></span><span class="z-source z-rust"><span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> entities in the compiler, so we need a way to check
+</span></span><span class="z-source z-rust"><span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> if they should be considered equal.
+</span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">foo</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-storage z-modifier z-rust">const</span> N<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> </span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-storage z-type z-rust">u8</span><span class="z-punctuation z-separator z-rust">;</span> N <span class="z-keyword z-operator z-arithmetic z-rust">+</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-constant z-numeric z-integer z-decimal z-rust">0</span><span class="z-punctuation z-separator z-rust">;</span> N <span class="z-keyword z-operator z-arithmetic z-rust">+</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></code></pre>
+<p>We also want a way to deal with potential errors when evaluating generic operations.</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">split_first</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T, <span class="z-storage z-modifier z-rust">const</span> N<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">arr</span><span class="z-punctuation z-separator z-rust">:</span> [T; N]</span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-punctuation z-section z-group z-begin z-rust">(</span>T, [T; N - 1]<span class="z-punctuation z-section z-group z-end z-rust">)</span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ...
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">generic_function</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-storage z-modifier z-rust">const</span> M<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">arr</span><span class="z-punctuation z-separator z-rust">:</span> [<span class="z-storage z-type z-rust">i32</span>; M]</span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ...
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> <span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>head<span class="z-punctuation z-separator z-rust">,</span> tail</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-support z-function z-rust">split_first</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>arr</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> ...
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>Without a way to restrict the possible values of <code>M</code> here, calling <code>generic_function::&lt;0&gt;()</code> would cause an error when evaluating <code>0 - 1</code> that is not caught at declaration time and so may unexpectedly fail for downstream users.</p>
+<p>There are <a href="https://github.com/rust-lang/rust/issues/68436">design questions</a> about how exactly to express these kinds of bounds, which need to be addressed before stabilising complex const arguments.</p>
+<h2 id="summary"><a class="anchor" href="#summary" aria-hidden="true"></a>
+Summary</h2>
+<p>With such a major new feature, there are likely to be a few rough edges. If you encounter any problems, even if it's as minor as a confusing error message, <a href="https://github.com/rust-lang/rust/issues/new/choose">please open an issue</a>! We want the user experience to be the best it can possibly be - and any issues now are likely to be even more important for the next iterations of const generics.</p>
+
+    </div>
+  </div>
+</section>
+    <footer class="footer">
+      <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+        <div class="row">
+          <div class="four columns mt3 mt0-l" id="get-help">
+            <h4>Get help!</h4>
+            <ul>
+              <li><a href="https://doc.rust-lang.org" target="_blank" rel="noopener">Documentation</a></li>
+              <li><a href="mailto:core-team@rust-lang.org">Contact the Rust Team</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Terms and policies</h4>
+            <ul>
+              <li><a href="https://www.rust-lang.org/policies/code-of-conduct">Code of Conduct</a></li>
+              <li><a href="https://www.rust-lang.org/policies/licenses">Licenses</a></li>
+              <li><a href="https://www.rust-lang.org/policies/media-guide">Logo Policy and Media Guide</a></li>
+              <li><a href="https://www.rust-lang.org/policies/security">Security Disclosures</a></li>
+              <li><a href="https://www.rust-lang.org/policies">All Policies</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Social</h4>
+            <div class="flex flex-row flex-wrap">
+              <a rel="me" href="https://social.rust-lang.org/@rust" target="_blank" rel="noopener" alt="mastodon link"><img src="https://blog.rust-lang.org/images/mastodon.svg" alt="mastodon logo" title="Mastodon"/></a>
+              <a rel="me" href="https://bsky.app/profile/rust-lang.org" target="_blank" rel="noopener" alt="Bluesky link"><img src="https://blog.rust-lang.org/images/bluesky.svg" alt="Bluesky logo" title="Bluesky"/></a>
+              <a href="https://www.youtube.com/channel/UCaYhcUwRBNscFNUKTjgPFiA" target="_blank" rel="noopener" alt="youtube link"><img style="padding-top: 6px; padding-bottom:6px" src="https://blog.rust-lang.org/images/youtube.svg" alt="youtube logo" title="YouTube"/></a>
+              <a href="https://discord.gg/rust-lang" target="_blank" rel="noopener" alt="discord link"><img src="https://blog.rust-lang.org/images/discord.svg" alt="discord logo" title="Discord"/></a>
+              <a href="https://github.com/rust-lang" target="_blank" rel="noopener" alt="github link"><img src="https://blog.rust-lang.org/images/github.svg" alt="github logo" title="GitHub"/></a>
+            </div>
+            <h4 class="mt4 mb3">RSS</h4>
+            <ul>
+              <li><a href="https://blog.rust-lang.org/feed.xml">Main Blog</a></li>
+              <li><a href="https://blog.rust-lang.org/inside-rust/feed.xml">"Inside Rust" Blog</a></li>
+            </ul>
+          </div>
+    
+        </div>
+        <div class="attribution">
+          Maintained by the Rust Team. See a typo?
+          <a href="https://github.com/rust-lang/blog.rust-lang.org/edit/master/content/const-generics-mvp-beta.md" target="_blank" rel="noopener">Send a fix here</a>!
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

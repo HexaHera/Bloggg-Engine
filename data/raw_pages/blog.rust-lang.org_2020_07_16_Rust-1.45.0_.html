@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Announcing Rust 1.45.0 | Rust Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Empowering everyone to build reliable and efficient software.">
+     <!-- Twitter card -->
+     <meta name="twitter:card" content="summary">
+     <meta name="twitter:site" content="@rustlang">
+     <meta name="twitter:creator" content="@rustlang">
+     <meta name="twitter:title" content="Announcing Rust 1.45.0 | Rust Blog">
+     <meta name="twitter:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
+    
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Announcing Rust 1.45.0 | Rust Blog" />
+    <meta property="og:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/skeleton.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/tachyons.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/fonts.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/app.css"/>
+    <link rel="stylesheet" type="text/css" id="syntax-theme" />
+    
+    <!-- stylesheet for user agents without js -->
+    <noscript>
+        <link rel="stylesheet" href="https://blog.rust-lang.org/styles/noscript.css">
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+    </noscript>
+    
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blog.rust-lang.org/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://blog.rust-lang.org/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blog.rust-lang.org/images/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="https://blog.rust-lang.org/images/favicon.svg">
+    <link rel="manifest" href="https://blog.rust-lang.org/images/site.webmanifest">
+    <link rel="mask-icon" href="https://blog.rust-lang.org/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+     <!-- atom -->
+     <link type="application/atom+xml" rel="alternate" href="https://blog.rust-lang.org/feed.xml" title="Rust Blog" />
+    
+    <!-- theme switcher -->
+    <script src="https://blog.rust-lang.org/scripts/theme-switch.js"></script>
+  </head>
+  <body>
+    <nav class="flex flex-row justify-center justify-end-l items-center flex-wrap ph2 pl3-ns pr4-ns">
+      <div class="brand flex-auto w-100 w-auto-l self-start tc tl-l">
+        <a href="https://blog.rust-lang.org/">
+          <img class="v-mid ml0-l rust-logo" alt="Rust Logo" src="https://blog.rust-lang.org/images/rust-logo-blk.svg">
+          <span class="dib ml1 ml0-l">Rust Blog</span>
+        </a>
+      </div>
+    
+      <ul class="nav list w-100 w-auto-l flex flex-none flex-row flex-wrap justify-center justify-end-l items-center pv2 ph0 ph4-ns">
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org">Rust</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools/install">Install</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/learn">Learn</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools">Tools</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/governance">Governance</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/community">Community</a></li>
+        <button class="theme-icon" onclick="dropdown();">🖌
+          <ul id="theme-choice">
+            <li class="theme-item" onclick="changeThemeTo('light');">Light</li>
+            <li class="theme-item" onclick="changeThemeTo('dark');">Dark</li>
+            <li class="theme-item" onclick="changeThemeTo('system');">System</li>
+          </ul>
+        </button>
+        <script src="https://blog.rust-lang.org/scripts/theme-switch-post.js"></script>
+      </ul>
+    </nav><section id="Announcing Rust 1.45.0" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>Announcing Rust 1.45.0</h2>
+      <div class="highlight mt2 mb3"></div>
+    </header>
+
+    <div class="publish-date-author">July 16, 2020 &middot; The Rust Release Team
+    
+    </div>
+
+    <div class="post">
+      <p>The Rust team is happy to announce a new version of Rust, 1.45.0. Rust is a
+programming language that is empowering everyone to build reliable and
+efficient software.</p>
+<p>If you have a previous version of Rust installed via rustup, getting Rust
+1.45.0 is as easy as:</p>
+<pre class="z-code"><code><span class="z-text z-plain">$ rustup update stable
+</span></code></pre>
+<p>If you don't have it already, you can <a href="https://www.rust-lang.org/install.html">get <code>rustup</code></a> from the
+appropriate page on our website, and check out the <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1450-2020-07-16">detailed release notes for
+1.45.0</a> on GitHub.</p>
+<h2 id="what-s-in-1-45-0-stable"><a class="anchor" href="#what-s-in-1-45-0-stable" aria-hidden="true"></a>
+What's in 1.45.0 stable</h2>
+<p>There are two big changes to be aware of in Rust 1.45.0: a fix for some
+long-standing unsoundness when casting between integers and floats, and the
+stabilization of the final feature needed for one of the more popular web
+frameworks to work on stable Rust.</p>
+<h2 id="fixing-unsoundness-in-casts"><a class="anchor" href="#fixing-unsoundness-in-casts" aria-hidden="true"></a>
+Fixing unsoundness in casts</h2>
+<p><a href="https://github.com/rust-lang/rust/issues/10184">Issue 10184</a> was originally
+opened back in October of 2013, a year and a half before Rust 1.0. As you may
+know, <code>rustc</code> uses <a href="http://llvm.org/">LLVM</a> as a compiler backend. When you
+write code like this:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-modifier z-rust">pub</span> <span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">cast</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">x</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">f32</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-storage z-type z-rust">u8</span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    x <span class="z-keyword z-operator z-rust">as</span> <span class="z-storage z-type z-rust">u8</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>The Rust compiler in Rust 1.44.0 and before would produce LLVM-IR that looks
+like this:</p>
+<pre class="z-code"><code><span class="z-text z-plain">define i8 @_ZN10playground4cast17h1bdf307357423fcfE(float %x) unnamed_addr #0 {
+</span><span class="z-text z-plain">start:
+</span><span class="z-text z-plain">  %0 = fptoui float %x to i8
+</span><span class="z-text z-plain">  ret i8 %0
+</span><span class="z-text z-plain">}
+</span></code></pre>
+<p>That <code>fptoui</code> implements the cast, it is short for "floating point to
+unsigned integer."</p>
+<p>But there's a problem here. From <a href="https://llvm.org/docs/LangRef.html#fptoui-to-instruction">the
+docs</a>:</p>
+<blockquote>
+<p>The ‘fptoui’ instruction converts its floating-point operand into the
+nearest (rounding towards zero) unsigned integer value. If the value cannot
+fit in ty2, the result is a poison value.</p>
+</blockquote>
+<p>Now, unless you happen to dig into the depths of compilers regularly, you may
+not understand what that means. It's full of jargon, but there's a simpler
+explanation: if you cast a floating point number that's large to an integer
+that's small, you get undefined behavior.</p>
+<p>That means that this, for example, was not well-defined:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">cast</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">x</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">f32</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-storage z-type z-rust">u8</span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    x <span class="z-keyword z-operator z-rust">as</span> <span class="z-storage z-type z-rust">u8</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">main</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> f <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-constant z-numeric z-float z-rust">300.</span><span class="z-constant z-numeric z-float z-rust">0</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> x <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-support z-function z-rust">cast</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>f</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-macro z-rust">println!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>x: <span class="z-constant z-other z-placeholder z-rust">{}</span><span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-separator z-rust">,</span> x<span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>On Rust 1.44.0, this happens to print "x: 0" on my machine. But it could
+print anything, or do anything: this is undefined behavior. But the <code>unsafe</code>
+keyword is not used within this block of code. This is what we call a
+"soundness" bug, that is, it is a bug where the compiler does the wrong thing.
+We tag these bugs as
+<a href="https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+label%3A%22I-unsound+%F0%9F%92%A5%22">I-unsound</a>
+on our issue tracker, and take them very seriously.</p>
+<p>This bug took a long time to resolve, though. The reason is that it was very
+unclear what the correct path forward was.</p>
+<p>In the end, the decision was made to do this:</p>
+<ul>
+<li><code>as</code> would perform a "saturating cast".</li>
+<li>A new <code>unsafe</code> cast would be added if you wanted to skip the checks.</li>
+</ul>
+<p>This is very similar to array access, for example:</p>
+<ul>
+<li><code>array[i]</code> will check to make sure that <code>array</code> has at least <code>i + 1</code> elements.</li>
+<li>You can use <code>unsafe { array.get_unchecked(i) }</code> to skip the check.</li>
+</ul>
+<p>So, what's a saturating cast? Let's look at a slightly modified example:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">cast</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">x</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">f32</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-storage z-type z-rust">u8</span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    x <span class="z-keyword z-operator z-rust">as</span> <span class="z-storage z-type z-rust">u8</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">main</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> too_big <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-constant z-numeric z-float z-rust">300.</span><span class="z-constant z-numeric z-float z-rust">0</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> too_small <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-keyword z-operator z-arithmetic z-rust">-</span><span class="z-constant z-numeric z-float z-rust">100.</span><span class="z-constant z-numeric z-float z-rust">0</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> nan <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-storage z-type z-rust">f32</span><span class="z-meta z-path z-rust"><span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-constant z-other z-rust">NAN</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-macro z-rust">println!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>too_big_casted = <span class="z-constant z-other z-placeholder z-rust">{}</span><span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-separator z-rust">,</span> <span class="z-support z-function z-rust">cast</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>too_big</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-macro z-rust">println!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>too_small_casted = <span class="z-constant z-other z-placeholder z-rust">{}</span><span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-separator z-rust">,</span> <span class="z-support z-function z-rust">cast</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>too_small</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-macro z-rust">println!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>not_a_number_casted = <span class="z-constant z-other z-placeholder z-rust">{}</span><span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-separator z-rust">,</span> <span class="z-support z-function z-rust">cast</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>nan</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>This will print:</p>
+<pre class="z-code"><code><span class="z-text z-plain">too_big_casted = 255
+</span><span class="z-text z-plain">too_small_casted = 0
+</span><span class="z-text z-plain">not_a_number_casted = 0
+</span></code></pre>
+<p>That is, numbers that are too big turn into the largest possible value.
+Numbers that are too small produce the smallest possible value (which is
+zero). NaN produces zero.</p>
+<p>The new API to cast in an unsafe manner is:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-storage z-type z-rust">let</span> x<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">f32</span> <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-constant z-numeric z-float z-rust">1.</span><span class="z-constant z-numeric z-float z-rust">0</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust"><span class="z-storage z-type z-rust">let</span> y<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">u8</span> <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-storage z-modifier z-rust">unsafe</span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span> x<span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">to_int_unchecked</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></code></pre>
+<p>But as always, you should only use this method as a last resort. Just like
+with array access, the compiler can often optimize the checks away, making
+the safe and unsafe versions equivalent when the compiler can prove it.</p>
+<h2 id="stabilizing-function-like-procedural-macros-in-expressions-patterns-and-statements"><a class="anchor" href="#stabilizing-function-like-procedural-macros-in-expressions-patterns-and-statements" aria-hidden="true"></a>
+Stabilizing function-like procedural macros in expressions, patterns, and statements</h2>
+<p>In <a href="https://blog.rust-lang.org/2018/10/25/Rust-1.30.0.html">Rust 1.30.0</a>, we stabilized
+"function-like procedural macros in item position." For example, <a href="https://gitlab.gnome.org/federico/gnome-class">the
+<code>gnome-class</code> crate</a>:</p>
+<blockquote>
+<p>Gnome-class is a procedural macro for Rust.  Within the macro, we
+define a mini-language which looks as Rust-y as possible, and that has
+extensions to let you define GObject subclasses, their properties,
+signals, interface implementations, and the rest of GObject's
+features.  The goal is to require no unsafe code on your part.</p>
+</blockquote>
+<p>This looks like this:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-support z-macro z-rust">gobject_gen!</span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust">    class MyClass<span class="z-punctuation z-separator z-rust">:</span> GObject <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        foo<span class="z-punctuation z-separator z-rust">:</span> <span class="z-meta z-generic z-rust">Cell<span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-storage z-type z-rust">i32</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        bar<span class="z-punctuation z-separator z-rust">:</span> <span class="z-meta z-generic z-rust">RefCell<span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-support z-type z-rust">String</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust">
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-impl z-rust"><span class="z-storage z-type z-impl z-rust">impl</span> </span><span class="z-meta z-impl z-rust"><span class="z-entity z-name z-impl z-rust">MyClass</span> </span><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust">        <span class="z-invalid z-illegal z-rust">virtual</span> <span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">my_virtual_method</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-keyword z-operator z-rust">&amp;</span><span class="z-variable z-parameter z-rust">self</span>, <span class="z-variable z-parameter z-rust">x</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">i32</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">            <span class="z-keyword z-operator z-range z-rust">...</span> <span class="z-invalid z-illegal z-rust">do</span> something with x <span class="z-keyword z-operator z-range z-rust">...</span>
+</span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">        </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></code></pre>
+<p>The "in item position" bit is some jargon, but basically what this means is that
+you could only invoke <code>gobject_gen!</code> in certain places in your code.</p>
+<p>Rust 1.45.0 adds the ability to invoke procedural macros in three new places:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> imagine we have a procedural macro named &quot;mac&quot;
+</span></span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-support z-macro z-rust">mac!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> item position, this was what was stable before
+</span></span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> but these three are new:
+</span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">main</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">  <span class="z-storage z-type z-rust">let</span> expr <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-support z-macro z-rust">mac!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> expression position
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">  <span class="z-keyword z-control z-rust">match</span> expr <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">      <span class="z-support z-macro z-rust">mac!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> pattern position
+</span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">  </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">  <span class="z-support z-macro z-rust">mac!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> statement position
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>Being able to use macros in more places is interesting, but there's another
+reason why many Rustaceans have been waiting for this feature for a long time:
+<a href="https://rocket.rs">Rocket</a>. Initially released in December of 2016, Rocket is
+a popular web framework for Rust often described as one of the best things the
+Rust ecosystem has to offer. Here's the "hello world" example from its upcoming
+release:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">macro_use</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span> <span class="z-keyword z-other z-rust">extern</span> <span class="z-keyword z-other z-rust">crate</span> rocket<span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">get</span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span></span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>/&lt;name&gt;/&lt;age&gt;<span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span></span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span></span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">hello</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">name</span><span class="z-punctuation z-separator z-rust">:</span> String, <span class="z-variable z-parameter z-rust">age</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">u8</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> String</span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-macro z-rust">format!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>Hello, <span class="z-constant z-other z-placeholder z-rust">{}</span> year old named <span class="z-constant z-other z-placeholder z-rust">{}</span>!<span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-separator z-rust">,</span> age<span class="z-punctuation z-separator z-rust">,</span> name<span class="z-punctuation z-section z-group z-end z-rust">)</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">launch</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">rocket</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-meta z-path z-rust">rocket<span class="z-punctuation z-accessor z-rust">::</span></span>Rocket</span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-path z-rust">rocket<span class="z-punctuation z-accessor z-rust">::</span></span>ignite<span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">mount</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span>/hello<span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-support z-macro z-rust">routes!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span>hello<span class="z-punctuation z-section z-group z-end z-rust">]</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>Until today, Rocket depended on nightly-only features to deliver on its promise
+of flexibility and ergonomics. In fact, as can be seen on the <a href="https://rocket.rs/v0.4">project's
+homepage</a>, the same example above in the current version
+of Rocket requires the <code>proc_macro_hygiene</code> feature to compile. However, as you
+may guess from the feature's name, today it ships in stable! <a href="https://github.com/SergioBenitez/Rocket/issues/19">This
+issue</a> tracked the history of
+nightly-only features in Rocket. Now, they're all checked off!</p>
+<p>This next version of Rocket is still in the works, but when released, many folks
+will be very happy :)</p>
+<h3 id="library-changes"><a class="anchor" href="#library-changes" aria-hidden="true"></a>
+Library changes</h3>
+<p>In Rust 1.45.0, the following APIs were stabilized:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/stable/std/sync/struct.Arc.html#method.as_ptr"><code>Arc::as_ptr</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/collections/struct.BTreeMap.html#method.remove_entry"><code>BTreeMap::remove_entry</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/rc/struct.Rc.html#method.as_ptr"><code>Rc::as_ptr</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/rc/struct.Weak.html#method.as_ptr"><code>rc::Weak::as_ptr</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/rc/struct.Weak.html#method.from_raw"><code>rc::Weak::from_raw</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/rc/struct.Weak.html#method.into_raw"><code>rc::Weak::into_raw</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/primitive.str.html#method.strip_prefix"><code>str::strip_prefix</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/primitive.str.html#method.strip_suffix"><code>str::strip_suffix</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/sync/struct.Weak.html#method.as_ptr"><code>sync::Weak::as_ptr</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/sync/struct.Weak.html#method.from_raw"><code>sync::Weak::from_raw</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/sync/struct.Weak.html#method.into_raw"><code>sync::Weak::into_raw</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/char/constant.UNICODE_VERSION.html"><code>char::UNICODE_VERSION</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/proc_macro/struct.Span.html#method.resolved_at"><code>Span::resolved_at</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/proc_macro/struct.Span.html#method.located_at"><code>Span::located_at</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/proc_macro/struct.Span.html#method.mixed_site"><code>Span::mixed_site</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/os/unix/process/trait.CommandExt.html#tymethod.arg0"><code>unix::process::CommandExt::arg0</code></a></li>
+</ul>
+<p>Additionally, you can <a href="https://github.com/rust-lang/rust/pull/72413/">use <code>char</code> with
+ranges</a>, to iterate over
+codepoints:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-keyword z-control z-rust">for</span> ch <span class="z-keyword z-operator z-rust">in</span> <span class="z-string z-quoted z-single z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&#39;</span>a<span class="z-punctuation z-definition z-string z-end z-rust">&#39;</span></span><span class="z-keyword z-operator z-range z-rust">..</span><span class="z-keyword z-operator z-assignment z-rust">=</span><span class="z-string z-quoted z-single z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&#39;</span>z<span class="z-punctuation z-definition z-string z-end z-rust">&#39;</span></span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-macro z-rust">print!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-string z-quoted z-double z-rust"><span class="z-punctuation z-definition z-string z-begin z-rust">&quot;</span><span class="z-constant z-other z-placeholder z-rust">{}</span><span class="z-punctuation z-definition z-string z-end z-rust">&quot;</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-separator z-rust">,</span> ch<span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span><span class="z-source z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span><span class="z-source z-rust"><span class="z-support z-macro z-rust">println!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust"><span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> Prints &quot;abcdefghijklmnopqrstuvwxyz&quot;
+</span></span></code></pre>
+<p>For a full list of changes, see <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1450-2020-07-16">the full release notes</a>.</p>
+<h3 id="other-changes"><a class="anchor" href="#other-changes" aria-hidden="true"></a>
+Other changes</h3>
+<p>There are other changes in the Rust 1.45.0 release: check out what changed in
+<a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1450-2020-07-16">Rust</a>, <a href="https://doc.rust-lang.org/nightly/cargo/CHANGELOG.html#cargo-145-2020-07-16">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-145">Clippy</a>.</p>
+<h2 id="contributors-to-1-45-0"><a class="anchor" href="#contributors-to-1-45-0" aria-hidden="true"></a>
+Contributors to 1.45.0</h2>
+<p>Many people came together to create Rust 1.45.0. We couldn't have done it
+without all of you. <a href="https://thanks.rust-lang.org/rust/1.45.0/">Thanks!</a></p>
+
+    </div>
+  </div>
+</section>
+    <footer class="footer">
+      <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+        <div class="row">
+          <div class="four columns mt3 mt0-l" id="get-help">
+            <h4>Get help!</h4>
+            <ul>
+              <li><a href="https://doc.rust-lang.org" target="_blank" rel="noopener">Documentation</a></li>
+              <li><a href="mailto:core-team@rust-lang.org">Contact the Rust Team</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Terms and policies</h4>
+            <ul>
+              <li><a href="https://www.rust-lang.org/policies/code-of-conduct">Code of Conduct</a></li>
+              <li><a href="https://www.rust-lang.org/policies/licenses">Licenses</a></li>
+              <li><a href="https://www.rust-lang.org/policies/media-guide">Logo Policy and Media Guide</a></li>
+              <li><a href="https://www.rust-lang.org/policies/security">Security Disclosures</a></li>
+              <li><a href="https://www.rust-lang.org/policies">All Policies</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Social</h4>
+            <div class="flex flex-row flex-wrap">
+              <a rel="me" href="https://social.rust-lang.org/@rust" target="_blank" rel="noopener" alt="mastodon link"><img src="https://blog.rust-lang.org/images/mastodon.svg" alt="mastodon logo" title="Mastodon"/></a>
+              <a rel="me" href="https://bsky.app/profile/rust-lang.org" target="_blank" rel="noopener" alt="Bluesky link"><img src="https://blog.rust-lang.org/images/bluesky.svg" alt="Bluesky logo" title="Bluesky"/></a>
+              <a href="https://www.youtube.com/channel/UCaYhcUwRBNscFNUKTjgPFiA" target="_blank" rel="noopener" alt="youtube link"><img style="padding-top: 6px; padding-bottom:6px" src="https://blog.rust-lang.org/images/youtube.svg" alt="youtube logo" title="YouTube"/></a>
+              <a href="https://discord.gg/rust-lang" target="_blank" rel="noopener" alt="discord link"><img src="https://blog.rust-lang.org/images/discord.svg" alt="discord logo" title="Discord"/></a>
+              <a href="https://github.com/rust-lang" target="_blank" rel="noopener" alt="github link"><img src="https://blog.rust-lang.org/images/github.svg" alt="github logo" title="GitHub"/></a>
+            </div>
+            <h4 class="mt4 mb3">RSS</h4>
+            <ul>
+              <li><a href="https://blog.rust-lang.org/feed.xml">Main Blog</a></li>
+              <li><a href="https://blog.rust-lang.org/inside-rust/feed.xml">"Inside Rust" Blog</a></li>
+            </ul>
+          </div>
+    
+        </div>
+        <div class="attribution">
+          Maintained by the Rust Team. See a typo?
+          <a href="https://github.com/rust-lang/blog.rust-lang.org/edit/master/content/Rust-1.45.0.md" target="_blank" rel="noopener">Send a fix here</a>!
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

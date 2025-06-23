@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Announcing Rust 1.37.0 | Rust Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Empowering everyone to build reliable and efficient software.">
+     <!-- Twitter card -->
+     <meta name="twitter:card" content="summary">
+     <meta name="twitter:site" content="@rustlang">
+     <meta name="twitter:creator" content="@rustlang">
+     <meta name="twitter:title" content="Announcing Rust 1.37.0 | Rust Blog">
+     <meta name="twitter:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
+    
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Announcing Rust 1.37.0 | Rust Blog" />
+    <meta property="og:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/skeleton.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/tachyons.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/fonts.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/app.css"/>
+    <link rel="stylesheet" type="text/css" id="syntax-theme" />
+    
+    <!-- stylesheet for user agents without js -->
+    <noscript>
+        <link rel="stylesheet" href="https://blog.rust-lang.org/styles/noscript.css">
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+    </noscript>
+    
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blog.rust-lang.org/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://blog.rust-lang.org/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blog.rust-lang.org/images/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="https://blog.rust-lang.org/images/favicon.svg">
+    <link rel="manifest" href="https://blog.rust-lang.org/images/site.webmanifest">
+    <link rel="mask-icon" href="https://blog.rust-lang.org/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+     <!-- atom -->
+     <link type="application/atom+xml" rel="alternate" href="https://blog.rust-lang.org/feed.xml" title="Rust Blog" />
+    
+    <!-- theme switcher -->
+    <script src="https://blog.rust-lang.org/scripts/theme-switch.js"></script>
+  </head>
+  <body>
+    <nav class="flex flex-row justify-center justify-end-l items-center flex-wrap ph2 pl3-ns pr4-ns">
+      <div class="brand flex-auto w-100 w-auto-l self-start tc tl-l">
+        <a href="https://blog.rust-lang.org/">
+          <img class="v-mid ml0-l rust-logo" alt="Rust Logo" src="https://blog.rust-lang.org/images/rust-logo-blk.svg">
+          <span class="dib ml1 ml0-l">Rust Blog</span>
+        </a>
+      </div>
+    
+      <ul class="nav list w-100 w-auto-l flex flex-none flex-row flex-wrap justify-center justify-end-l items-center pv2 ph0 ph4-ns">
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org">Rust</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools/install">Install</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/learn">Learn</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools">Tools</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/governance">Governance</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/community">Community</a></li>
+        <button class="theme-icon" onclick="dropdown();">🖌
+          <ul id="theme-choice">
+            <li class="theme-item" onclick="changeThemeTo('light');">Light</li>
+            <li class="theme-item" onclick="changeThemeTo('dark');">Dark</li>
+            <li class="theme-item" onclick="changeThemeTo('system');">System</li>
+          </ul>
+        </button>
+        <script src="https://blog.rust-lang.org/scripts/theme-switch-post.js"></script>
+      </ul>
+    </nav><section id="Announcing Rust 1.37.0" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>Announcing Rust 1.37.0</h2>
+      <div class="highlight mt2 mb3"></div>
+    </header>
+
+    <div class="publish-date-author">Aug. 15, 2019 &middot; The Rust Release Team
+    
+    </div>
+
+    <div class="post">
+      <p>The Rust team is happy to announce a new version of Rust, 1.37.0. Rust is a programming language that is empowering everyone to build reliable and efficient software.</p>
+<p>If you have a previous version of Rust installed via rustup, getting Rust 1.37.0 is as easy as:</p>
+<pre class="z-code"><code><span class="z-text z-plain">$ rustup update stable
+</span></code></pre>
+<p>If you don't have it already, you can <a href="https://www.rust-lang.org/install.html">get <code>rustup</code></a> from the appropriate page on our website, and check out the <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1370-2019-08-15">detailed release notes for 1.37.0</a> on GitHub.</p>
+<h2 id="what-s-in-1-37-0-stable"><a class="anchor" href="#what-s-in-1-37-0-stable" aria-hidden="true"></a>
+What's in 1.37.0 stable</h2>
+<p>The highlights of Rust 1.37.0 include referring to <code>enum</code> variants through <code>type</code> aliases, built-in <code>cargo vendor</code>, unnamed <code>const</code> items, profile-guided optimization, a <code>default-run</code> key in Cargo, and <code>#[repr(align(N))]</code> on <code>enum</code>s. Read on for a few highlights, or see the <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1370-2019-08-15">detailed release notes</a> for additional information.</p>
+<h3 id="referring-to-enum-variants-through-type-aliases"><a class="anchor" href="#referring-to-enum-variants-through-type-aliases" aria-hidden="true"></a>
+Referring to <code>enum</code> variants through <code>type</code> aliases</h3>
+<p>With Rust 1.37.0, you can now refer to <code>enum</code> variants through type aliases. For example:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-storage z-type z-type z-rust">type</span> <span class="z-entity z-name z-type z-rust">ByteOption</span> <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-meta z-generic z-rust"><span class="z-support z-type z-rust">Option</span><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-storage z-type z-rust">u8</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">increment_or_zero</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">x</span><span class="z-punctuation z-separator z-rust">:</span> ByteOption</span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-storage z-type z-rust">u8</span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-keyword z-control z-rust">match</span> x <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-meta z-path z-rust">ByteOption<span class="z-punctuation z-accessor z-rust">::</span></span>Some<span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>y</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-keyword z-operator z-rust">=&gt;</span> y <span class="z-keyword z-operator z-arithmetic z-rust">+</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-meta z-path z-rust">ByteOption<span class="z-punctuation z-accessor z-rust">::</span></span>None <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">0</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>In implementations, <code>Self</code> acts like a type alias. So in Rust 1.37.0, you can also refer to <code>enum</code> variants with <code>Self::Variant</code>:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-storage z-type z-impl z-rust">impl</span> </span><span class="z-meta z-impl z-rust"><span class="z-entity z-name z-impl z-rust">Coin</span> </span><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">value_in_cents</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-keyword z-operator z-rust">&amp;</span><span class="z-variable z-parameter z-rust">self</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-storage z-type z-rust">u8</span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">        <span class="z-keyword z-control z-rust">match</span> <span class="z-variable z-language z-rust">self</span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">            <span class="z-storage z-type z-rust">Self</span><span class="z-meta z-path z-rust"><span class="z-punctuation z-accessor z-rust">::</span></span>Penny <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">1</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">            <span class="z-storage z-type z-rust">Self</span><span class="z-meta z-path z-rust"><span class="z-punctuation z-accessor z-rust">::</span></span>Nickel <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">5</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">            <span class="z-storage z-type z-rust">Self</span><span class="z-meta z-path z-rust"><span class="z-punctuation z-accessor z-rust">::</span></span>Dime <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">10</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">            <span class="z-storage z-type z-rust">Self</span><span class="z-meta z-path z-rust"><span class="z-punctuation z-accessor z-rust">::</span></span>Quarter <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">25</span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-impl z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>To be more exact, Rust now allows you to refer to <code>enum</code> variants through <em>"type-relative resolution"</em>, <code>&lt;MyType&lt;..&gt;&gt;::Variant</code>. More details are available in <a href="https://github.com/rust-lang/rust/pull/61682/#issuecomment-502472847">the stabilization report</a>.</p>
+<h3 id="built-in-cargo-support-for-vendored-dependencies"><a class="anchor" href="#built-in-cargo-support-for-vendored-dependencies" aria-hidden="true"></a>
+Built-in Cargo support for vendored dependencies</h3>
+<p>After being available <a href="https://crates.io/crates/cargo-vendor">as a separate crate</a> for years, the <code>cargo vendor</code> command is now integrated directly into Cargo. The command fetches all your project's dependencies unpacking them into the <code>vendor/</code> directory, and shows the configuration snippet required to use the vendored code during builds.</p>
+<p>There are multiple cases where <code>cargo vendor</code> is already used in production: the Rust compiler <code>rustc</code> uses it to ship all its dependencies in release tarballs, and projects with monorepos use it to commit the dependencies' code in source control.</p>
+<h3 id="using-unnamed-const-items-for-macros"><a class="anchor" href="#using-unnamed-const-items-for-macros" aria-hidden="true"></a>
+Using unnamed <code>const</code> items for macros</h3>
+<p>You can now create <a href="https://github.com/rust-lang/rust/pull/61347/">unnamed <code>const</code> items</a>. Instead of giving your constant an explicit name, simply name it <code>_</code> instead. For example, in the <code>rustc</code> compiler we find:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-comment z-line z-documentation z-rust"><span class="z-punctuation z-definition z-comment z-rust">///</span> Type size assertion where the first parameter
+</span></span><span class="z-source z-rust"><span class="z-comment z-line z-documentation z-rust"><span class="z-punctuation z-definition z-comment z-rust">///</span> is a type and the second is the expected size.
+</span></span><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">macro_export</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-meta z-macro z-rust"><span class="z-support z-function z-rust">macro_rules!</span> <span class="z-entity z-name z-macro z-rust">static_assert_size</span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span></span></span><span class="z-meta z-macro z-rust"><span class="z-meta z-block z-rust">
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-macro z-rust"><span class="z-meta z-block z-rust">    <span class="z-meta z-group z-macro-matcher z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-variable z-parameter z-macro z-rust">$ty</span><span class="z-punctuation z-separator z-rust">:</span><span class="z-storage z-type z-rust">ty</span>, <span class="z-variable z-parameter z-macro z-rust">$size</span><span class="z-punctuation z-separator z-rust">:</span><span class="z-storage z-type z-rust">expr</span><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-meta z-block z-macro-body z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-macro z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-macro-body z-rust">        <span class="z-storage z-type z-rust">const</span> <span class="z-keyword z-operator z-rust">_</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-separator z-rust">;</span> <span class="z-variable z-other z-rust">$size</span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span> <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-separator z-rust">;</span> <span class="z-meta z-path z-rust"><span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">std<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">mem<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">size_of<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-variable z-other z-rust">$ty</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-macro z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-macro-body z-rust">        <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span>    ^ Note the underscore here.
+</span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-macro z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-macro-body z-rust">    <span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-macro z-rust"><span class="z-meta z-block z-rust"></span></span><span class="z-meta z-macro z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span><span class="z-source z-rust">
+</span><span class="z-source z-rust"><span class="z-support z-macro z-rust">static_assert_size!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-meta z-generic z-rust"><span class="z-support z-type z-rust">Option</span><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-meta z-generic z-rust"><span class="z-support z-type z-rust">Box</span><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-support z-type z-rust">String</span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">8</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> 1.
+</span></span><span class="z-source z-rust"><span class="z-support z-macro z-rust">static_assert_size!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-storage z-type z-rust">usize</span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">8</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span> <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> 2.
+</span></span></code></pre>
+<p>Notice the second <code>static_assert_size!(..)</code>: thanks to the use of unnamed constants, you can define new items without naming conflicts. Previously you would have needed to write <code>static_assert_size!(MY_DUMMY_IDENTIFIER, usize, 8);</code>. Instead, with Rust 1.37.0, it now becomes easier to create ergonomic and reusable declarative and procedural macros for static analysis purposes.</p>
+<h3 id="profile-guided-optimization"><a class="anchor" href="#profile-guided-optimization" aria-hidden="true"></a>
+Profile-guided optimization</h3>
+<p>The <code>rustc</code> compiler now comes with <a href="https://github.com/rust-lang/rust/pull/61268/">support for Profile-Guided Optimization (PGO)</a> via the <code>-C profile-generate</code> and <code>-C profile-use</code> flags.</p>
+<p><a href="https://en.wikipedia.org/wiki/Profile-guided_optimization">Profile-Guided Optimization</a> allows the compiler to optimize code based on feedback from real workloads. It works by compiling the program to optimize in two steps:</p>
+<ol>
+<li>First, the program is built with instrumentation inserted by the compiler. This is done by passing the <code>-C profile-generate</code> flag to <code>rustc</code>. The instrumented program then needs to be run on sample data and will write the profiling data to a file.</li>
+<li>Then, the program is built <em>again</em>, this time feeding the collected profiling data back into <code>rustc</code> by using the <code>-C profile-use</code> flag. This build will make use of the collected data to allow the compiler to make better decisions about code placement, inlining, and other optimizations.</li>
+</ol>
+<p>For more in-depth information on Profile-Guided Optimization, please refer to the corresponding <a href="https://doc.rust-lang.org/rustc/profile-guided-optimization.html">chapter in the rustc book</a>.</p>
+<h3 id="choosing-a-default-binary-in-cargo-projects"><a class="anchor" href="#choosing-a-default-binary-in-cargo-projects" aria-hidden="true"></a>
+Choosing a default binary in Cargo projects</h3>
+<p><a href="https://doc.rust-lang.org/cargo/commands/cargo-run.html"><code>cargo run</code></a> is great for quickly testing CLI applications. When multiple binaries are present in the same package, you have to explicitly declare the name of the binary you want to run with the <code>--bin</code> flag. This makes <code>cargo run</code> not as ergonomic as we'd like, especially when a binary is called more often than the others.</p>
+<p>Rust 1.37.0 addresses the issue by adding <a href="https://doc.rust-lang.org/cargo/reference/manifest.html#the-default-run-field"><code>default-run</code></a>, a new key in <code>Cargo.toml</code>. When the key is declared in the <code>[package]</code> section, <code>cargo run</code> will default to the chosen binary if the <code>--bin</code> flag is not passed.</p>
+<h3 id="repr-align-n-on-enums"><a class="anchor" href="#repr-align-n-on-enums" aria-hidden="true"></a>
+<code>#[repr(align(N))]</code> on <code>enum</code>s</h3>
+<p><a href="https://doc.rust-lang.org/reference/type-layout.html#the-alignment-modifiers">The <code>#[repr(align(N))]</code> attribute</a> can be used to raise the <a href="https://doc.rust-lang.org/reference/type-layout.html#size-and-alignment">alignment</a> of a type definition. Previously, the attribute was only allowed on <code>struct</code>s and <code>union</code>s. With Rust 1.37.0, the attribute can now also be used <a href="https://github.com/rust-lang/rust/pull/61229">on <code>enum</code> definitions</a>. For example, the following type <code>Align16</code> would, as expected, report <code>16</code> as the alignment whereas the natural alignment without <code>#[repr(align(16))]</code> would be <code>4</code>:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">repr</span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span></span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-meta z-function-call z-rust"><span class="z-variable z-function z-rust">align</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span></span><span class="z-meta z-function-call z-rust">16</span><span class="z-meta z-function-call z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span></span></span></span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span></span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-meta z-enum z-rust"><span class="z-storage z-type z-enum z-rust">enum</span> <span class="z-entity z-name z-enum z-rust">Align16</span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-enum z-rust"><span class="z-meta z-block z-rust">    Foo <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span> foo<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">u32</span> </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-enum z-rust"><span class="z-meta z-block z-rust">    Bar <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span> bar<span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">u32</span> </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-enum z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>The semantics of using <code>#[repr(align(N))</code> on an <code>enum</code> is the same as defining a wrapper struct <code>AlignN&lt;T&gt;</code> with that alignment and then using <code>AlignN&lt;MyEnum&gt;</code>:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-annotation z-rust"><span class="z-punctuation z-definition z-annotation z-rust">#</span><span class="z-punctuation z-section z-group z-begin z-rust">[</span><span class="z-variable z-annotation z-rust">repr</span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span></span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-meta z-function-call z-rust"><span class="z-variable z-function z-rust">align</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span></span><span class="z-meta z-function-call z-rust">N</span><span class="z-meta z-function-call z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span></span></span></span><span class="z-meta z-annotation z-parameters z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span></span><span class="z-punctuation z-section z-group z-end z-rust">]</span></span>
+</span><span class="z-source z-rust"><span class="z-meta z-struct z-rust"><span class="z-storage z-type z-struct z-rust">struct</span> </span><span class="z-meta z-struct z-rust"><span class="z-meta z-generic z-rust"><span class="z-entity z-name z-struct z-rust">AlignN</span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>T<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span></span></span><span class="z-meta z-struct z-rust"></span><span class="z-meta z-struct z-rust"><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>T</span><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></code></pre>
+<h3 id="library-changes"><a class="anchor" href="#library-changes" aria-hidden="true"></a>
+Library changes</h3>
+<p>In Rust 1.37.0 there have been a number of standard library stabilizations:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/io/struct.BufReader.html#method.buffer"><code>BufReader::buffer</code></a> and <a href="https://doc.rust-lang.org/std/io/struct.BufWriter.html#method.buffer"><code>BufWriter::buffer</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/cell/struct.Cell.html#method.from_mut"><code>Cell::from_mut</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/cell/struct.Cell.html#method.as_slice_of_cells"><code>Cell::as_slice_of_cells</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/iter/trait.DoubleEndedIterator.html#method.nth_back"><code>DoubleEndedIterator::nth_back</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.xor"><code>Option::xor</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/primitive.u8.html#method.reverse_bits"><code>{i,u}{8,16,32,64,128,size}::reverse_bits</code></a> and <a href="https://doc.rust-lang.org/std/num/struct.Wrapping.html#method.reverse_bits"><code>Wrapping::reverse_bits</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/primitive.slice.html#method.copy_within"><code>slice::copy_within</code></a></li>
+</ul>
+<h3 id="other-changes"><a class="anchor" href="#other-changes" aria-hidden="true"></a>
+Other changes</h3>
+<p>There are other changes in the Rust 1.37 release: check out what changed in <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1370-2019-08-15">Rust</a>, <a href="https://doc.rust-lang.org/nightly/cargo/CHANGELOG.html#cargo-137-2019-08-15">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-137">Clippy</a>.</p>
+<h2 id="contributors-to-1-37-0"><a class="anchor" href="#contributors-to-1-37-0" aria-hidden="true"></a>
+Contributors to 1.37.0</h2>
+<p>Many people came together to create Rust 1.37.0. We couldn't have done it
+without all of you. <a href="https://thanks.rust-lang.org/rust/1.37.0/">Thanks!</a></p>
+<h2 id="new-sponsors-of-rust-infrastructure"><a class="anchor" href="#new-sponsors-of-rust-infrastructure" aria-hidden="true"></a>
+New sponsors of Rust infrastructure</h2>
+<p>We'd like to thank two new sponsors of Rust's infrastructure who provided the resources needed to make Rust 1.37.0 happen: Amazon Web Services (AWS) and Microsoft Azure.</p>
+<ul>
+<li>AWS has provided hosting for release artifacts (compilers, libraries, tools, and source code), serving those artifacts to users through CloudFront, preventing regressions with Crater on EC2, and managing other Rust-related infrastructure hosted on AWS.</li>
+<li>Microsoft Azure has sponsored builders for Rust’s CI infrastructure, notably the extremely resource intensive rust-lang/rust repository.</li>
+</ul>
+
+    </div>
+  </div>
+</section>
+    <footer class="footer">
+      <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+        <div class="row">
+          <div class="four columns mt3 mt0-l" id="get-help">
+            <h4>Get help!</h4>
+            <ul>
+              <li><a href="https://doc.rust-lang.org" target="_blank" rel="noopener">Documentation</a></li>
+              <li><a href="mailto:core-team@rust-lang.org">Contact the Rust Team</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Terms and policies</h4>
+            <ul>
+              <li><a href="https://www.rust-lang.org/policies/code-of-conduct">Code of Conduct</a></li>
+              <li><a href="https://www.rust-lang.org/policies/licenses">Licenses</a></li>
+              <li><a href="https://www.rust-lang.org/policies/media-guide">Logo Policy and Media Guide</a></li>
+              <li><a href="https://www.rust-lang.org/policies/security">Security Disclosures</a></li>
+              <li><a href="https://www.rust-lang.org/policies">All Policies</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Social</h4>
+            <div class="flex flex-row flex-wrap">
+              <a rel="me" href="https://social.rust-lang.org/@rust" target="_blank" rel="noopener" alt="mastodon link"><img src="https://blog.rust-lang.org/images/mastodon.svg" alt="mastodon logo" title="Mastodon"/></a>
+              <a rel="me" href="https://bsky.app/profile/rust-lang.org" target="_blank" rel="noopener" alt="Bluesky link"><img src="https://blog.rust-lang.org/images/bluesky.svg" alt="Bluesky logo" title="Bluesky"/></a>
+              <a href="https://www.youtube.com/channel/UCaYhcUwRBNscFNUKTjgPFiA" target="_blank" rel="noopener" alt="youtube link"><img style="padding-top: 6px; padding-bottom:6px" src="https://blog.rust-lang.org/images/youtube.svg" alt="youtube logo" title="YouTube"/></a>
+              <a href="https://discord.gg/rust-lang" target="_blank" rel="noopener" alt="discord link"><img src="https://blog.rust-lang.org/images/discord.svg" alt="discord logo" title="Discord"/></a>
+              <a href="https://github.com/rust-lang" target="_blank" rel="noopener" alt="github link"><img src="https://blog.rust-lang.org/images/github.svg" alt="github logo" title="GitHub"/></a>
+            </div>
+            <h4 class="mt4 mb3">RSS</h4>
+            <ul>
+              <li><a href="https://blog.rust-lang.org/feed.xml">Main Blog</a></li>
+              <li><a href="https://blog.rust-lang.org/inside-rust/feed.xml">"Inside Rust" Blog</a></li>
+            </ul>
+          </div>
+    
+        </div>
+        <div class="attribution">
+          Maintained by the Rust Team. See a typo?
+          <a href="https://github.com/rust-lang/blog.rust-lang.org/edit/master/content/Rust-1.37.0.md" target="_blank" rel="noopener">Send a fix here</a>!
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

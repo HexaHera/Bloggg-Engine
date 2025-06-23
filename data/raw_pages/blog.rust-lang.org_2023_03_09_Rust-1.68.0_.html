@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Announcing Rust 1.68.0 | Rust Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Empowering everyone to build reliable and efficient software.">
+     <!-- Twitter card -->
+     <meta name="twitter:card" content="summary">
+     <meta name="twitter:site" content="@rustlang">
+     <meta name="twitter:creator" content="@rustlang">
+     <meta name="twitter:title" content="Announcing Rust 1.68.0 | Rust Blog">
+     <meta name="twitter:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
+    
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Announcing Rust 1.68.0 | Rust Blog" />
+    <meta property="og:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/skeleton.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/tachyons.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/fonts.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/app.css"/>
+    <link rel="stylesheet" type="text/css" id="syntax-theme" />
+    
+    <!-- stylesheet for user agents without js -->
+    <noscript>
+        <link rel="stylesheet" href="https://blog.rust-lang.org/styles/noscript.css">
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+    </noscript>
+    
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blog.rust-lang.org/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://blog.rust-lang.org/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blog.rust-lang.org/images/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="https://blog.rust-lang.org/images/favicon.svg">
+    <link rel="manifest" href="https://blog.rust-lang.org/images/site.webmanifest">
+    <link rel="mask-icon" href="https://blog.rust-lang.org/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+     <!-- atom -->
+     <link type="application/atom+xml" rel="alternate" href="https://blog.rust-lang.org/feed.xml" title="Rust Blog" />
+    
+    <!-- theme switcher -->
+    <script src="https://blog.rust-lang.org/scripts/theme-switch.js"></script>
+  </head>
+  <body>
+    <nav class="flex flex-row justify-center justify-end-l items-center flex-wrap ph2 pl3-ns pr4-ns">
+      <div class="brand flex-auto w-100 w-auto-l self-start tc tl-l">
+        <a href="https://blog.rust-lang.org/">
+          <img class="v-mid ml0-l rust-logo" alt="Rust Logo" src="https://blog.rust-lang.org/images/rust-logo-blk.svg">
+          <span class="dib ml1 ml0-l">Rust Blog</span>
+        </a>
+      </div>
+    
+      <ul class="nav list w-100 w-auto-l flex flex-none flex-row flex-wrap justify-center justify-end-l items-center pv2 ph0 ph4-ns">
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org">Rust</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools/install">Install</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/learn">Learn</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools">Tools</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/governance">Governance</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/community">Community</a></li>
+        <button class="theme-icon" onclick="dropdown();">🖌
+          <ul id="theme-choice">
+            <li class="theme-item" onclick="changeThemeTo('light');">Light</li>
+            <li class="theme-item" onclick="changeThemeTo('dark');">Dark</li>
+            <li class="theme-item" onclick="changeThemeTo('system');">System</li>
+          </ul>
+        </button>
+        <script src="https://blog.rust-lang.org/scripts/theme-switch-post.js"></script>
+      </ul>
+    </nav><section id="Announcing Rust 1.68.0" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>Announcing Rust 1.68.0</h2>
+      <div class="highlight mt2 mb3"></div>
+    </header>
+
+    <div class="publish-date-author">Mar. 9, 2023 &middot; The Rust Release Team
+    
+    </div>
+
+    <div class="post">
+      <p>The Rust team is happy to announce a new version of Rust, 1.68.0. Rust is a
+programming language empowering everyone to build reliable and efficient
+software.</p>
+<p>If you have a previous version of Rust installed via rustup, you can get 1.68.0
+with:</p>
+<pre class="z-code"><code><span class="z-text z-plain">$ rustup update stable
+</span></code></pre>
+<p>If you don't have it already, you can <a href="https://www.rust-lang.org/install.html">get
+<code>rustup</code></a> from the appropriate page on
+our website, and check out the <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1680-2023-03-09">detailed release notes for
+1.68.0</a>
+on GitHub.</p>
+<p>If you'd like to help us out by testing future releases, you might consider
+updating locally to use the beta channel (<code>rustup default beta</code>) or the nightly
+channel (<code>rustup default nightly</code>). Please
+<a href="https://github.com/rust-lang/rust/issues/new/choose">report</a> any bugs you
+might come across!</p>
+<h2 id="what-s-in-1-68-0-stable"><a class="anchor" href="#what-s-in-1-68-0-stable" aria-hidden="true"></a>
+What's in 1.68.0 stable</h2>
+<h3 id="cargo-s-sparse-protocol"><a class="anchor" href="#cargo-s-sparse-protocol" aria-hidden="true"></a>
+Cargo's sparse protocol</h3>
+<p>Cargo's "sparse" registry protocol has been stabilized for reading the index of
+crates, along with infrastructure at <code>https://index.crates.io/</code> for those
+published in the primary crates.io registry. The prior git protocol (which is
+still the default) clones a repository that indexes <em>all</em> crates available in
+the registry, but this has started to hit scaling limitations, with noticeable
+delays while updating that repository. The new protocol should provide a
+significant performance improvement when accessing crates.io, as it will only
+download information about the subset of crates that you actually use.</p>
+<p>To use the sparse protocol with crates.io, set the environment variable
+<code>CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse</code>, or edit your
+<a href="https://doc.rust-lang.org/cargo/reference/config.html"><code>.cargo/config.toml</code> file</a>
+to add:</p>
+<pre data-lang="toml" class="language-toml z-code"><code class="language-toml" data-lang="toml"><span class="z-source z-toml"><span class="z-punctuation z-definition z-table z-begin z-toml">[</span><span class="z-meta z-tag z-table z-toml"><span class="z-entity z-name z-table z-toml">registries</span><span class="z-punctuation z-separator z-table z-toml">.</span><span class="z-entity z-name z-table z-toml">crates-io</span></span><span class="z-punctuation z-definition z-table z-end z-toml">]</span>
+</span><span class="z-source z-toml"><span class="z-meta z-tag z-key z-toml"><span class="z-entity z-name z-tag z-toml">protocol</span></span> <span class="z-punctuation z-definition z-key-value z-toml">=</span> <span class="z-string z-quoted z-double z-basic z-toml"><span class="z-punctuation z-definition z-string z-begin z-toml">&quot;</span>sparse<span class="z-punctuation z-definition z-string z-end z-toml">&quot;</span></span>
+</span></code></pre>
+<p>The sparse protocol is currently planned to become the default for crates.io in
+the 1.70.0 release in a few months. For more information, please see the prior
+<a href="https://blog.rust-lang.org/inside-rust/2023/01/30/cargo-sparse-protocol.html">announcement</a>
+on the Inside Rust Blog, as well as
+<a href="https://rust-lang.github.io/rfcs/2789-sparse-index.html">RFC 2789</a>
+and the current
+<a href="https://doc.rust-lang.org/stable/cargo/reference/registry-index.html#sparse-protocol">documentation</a>
+in the Cargo Book.</p>
+<h3 id="local-pin-construction"><a class="anchor" href="#local-pin-construction" aria-hidden="true"></a>
+Local <code>Pin</code> construction</h3>
+<p>The new <a href="https://doc.rust-lang.org/stable/std/pin/macro.pin.html"><code>pin!</code></a> macro
+constructs a <code>Pin&lt;&amp;mut T&gt;</code> from a <code>T</code> expression, anonymously captured in local
+state. This is often called stack-pinning, but that "stack" could also be the
+captured state of an <code>async fn</code> or block. This macro is similar to some crates,
+like <a href="https://docs.rs/tokio/1/tokio/macro.pin.html"><code>tokio::pin!</code></a>, but the
+standard library can take advantage of <code>Pin</code> internals and <a href="https://doc.rust-lang.org/stable/reference/destructors.html#temporary-lifetime-extension">temporary lifetime
+extension</a>
+for a more expression-like macro.</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-comment z-line z-documentation z-rust"><span class="z-punctuation z-definition z-comment z-rust">///</span> Runs a future to completion.
+</span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">block_on</span></span><span class="z-meta z-generic z-rust"><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>F<span class="z-punctuation z-separator z-rust">:</span> Future<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-variable z-parameter z-rust">future</span><span class="z-punctuation z-separator z-rust">:</span> F</span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-meta z-path z-rust"><span class="z-storage z-type z-rust"><span class="z-storage z-type z-rust">F</span><span class="z-punctuation z-accessor z-rust">::</span></span></span>Output</span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> waker_that_unparks_thread <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-support z-macro z-rust">todo!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> <span class="z-storage z-modifier z-rust">mut</span> cx <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-meta z-path z-rust">Context<span class="z-punctuation z-accessor z-rust">::</span></span>from_waker<span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-keyword z-operator z-bitwise z-rust">&amp;</span>waker_that_unparks_thread</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-comment z-line z-double-slash z-rust"><span class="z-punctuation z-definition z-comment z-rust">//</span> Pin the future so it can be polled.
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> <span class="z-storage z-modifier z-rust">mut</span> pinned_future <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-support z-macro z-rust">pin!</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>future</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-keyword z-control z-rust">loop</span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-keyword z-control z-rust">match</span> pinned_future<span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">as_mut</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">poll</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-keyword z-operator z-bitwise z-rust">&amp;</span><span class="z-storage z-modifier z-rust">mut</span> cx</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">            <span class="z-meta z-path z-rust">Poll<span class="z-punctuation z-accessor z-rust">::</span></span>Pending <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-meta z-path z-rust">thread<span class="z-punctuation z-accessor z-rust">::</span></span>park<span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">            <span class="z-meta z-path z-rust">Poll<span class="z-punctuation z-accessor z-rust">::</span></span>Ready<span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>result</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span> <span class="z-keyword z-operator z-rust">=&gt;</span> <span class="z-keyword z-control z-rust">return</span> result<span class="z-punctuation z-separator z-rust">,</span>
+</span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>In this example, the original <code>future</code> will be moved into a temporary local,
+referenced by the new <code>pinned_future</code> with type <code>Pin&lt;&amp;mut F&gt;</code>, and that pin is
+subject to the normal borrow checker to make sure it can't outlive that local.</p>
+<h3 id="default-alloc-error-handler"><a class="anchor" href="#default-alloc-error-handler" aria-hidden="true"></a>
+Default <code>alloc</code> error handler</h3>
+<p>When allocation fails in Rust, APIs like <code>Box::new</code> and <code>Vec::push</code> have no way
+to indicate that failure, so some divergent execution path needs to be taken.
+When using the <code>std</code> crate, the program will print to <code>stderr</code> and abort.
+As of Rust 1.68.0, binaries which include <code>std</code> will continue to have
+this behavior. Binaries which do not include <code>std</code>, only including <code>alloc</code>, will now <code>panic!</code>
+on allocation failure, which may be further adjusted via a <code>#[panic_handler]</code> if desired.</p>
+<p>In the future, it's likely that the behavior for <code>std</code> will also be changed to match that of <code>alloc</code>-only binaries.</p>
+<h3 id="stabilized-apis"><a class="anchor" href="#stabilized-apis" aria-hidden="true"></a>
+Stabilized APIs</h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/stable/std/pin/macro.pin.html"><code>{core,std}::pin::pin!</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/primitive.f32.html#impl-From%3Cbool%3E-for-f32"><code>impl From&lt;bool&gt; for {f32,f64}</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/path/constant.MAIN_SEPARATOR_STR.html"><code>std::path::MAIN_SEPARATOR_STR</code></a></li>
+<li><a href="https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html#impl-DerefMut-for-PathBuf"><code>impl DerefMut for PathBuf</code></a></li>
+</ul>
+<p>These APIs are now stable in const contexts:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/stable/std/collections/struct.VecDeque.html#method.new"><code>VecDeque::new</code></a></li>
+</ul>
+<h3 id="other-changes"><a class="anchor" href="#other-changes" aria-hidden="true"></a>
+Other changes</h3>
+<ul>
+<li>As <a href="https://blog.rust-lang.org/2023/01/09/android-ndk-update-r25.html">previously announced</a>,
+Android platform support in Rust is now targeting NDK r25, which corresponds to
+a minimum supported API level of 19 (KitKat).</li>
+</ul>
+<p>Check out everything that changed in
+<a href="https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-1680-2023-03-09">Rust</a>,
+<a href="https://doc.rust-lang.org/nightly/cargo/CHANGELOG.html#cargo-168-2023-03-09">Cargo</a>,
+and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-168">Clippy</a>.</p>
+<h3 id="contributors-to-1-68-0"><a class="anchor" href="#contributors-to-1-68-0" aria-hidden="true"></a>
+Contributors to 1.68.0</h3>
+<p>Many people came together to create Rust 1.68.0.
+We couldn't have done it without all of you.
+<a href="https://thanks.rust-lang.org/rust/1.68.0/">Thanks!</a></p>
+
+    </div>
+  </div>
+</section>
+    <footer class="footer">
+      <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+        <div class="row">
+          <div class="four columns mt3 mt0-l" id="get-help">
+            <h4>Get help!</h4>
+            <ul>
+              <li><a href="https://doc.rust-lang.org" target="_blank" rel="noopener">Documentation</a></li>
+              <li><a href="mailto:core-team@rust-lang.org">Contact the Rust Team</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Terms and policies</h4>
+            <ul>
+              <li><a href="https://www.rust-lang.org/policies/code-of-conduct">Code of Conduct</a></li>
+              <li><a href="https://www.rust-lang.org/policies/licenses">Licenses</a></li>
+              <li><a href="https://www.rust-lang.org/policies/media-guide">Logo Policy and Media Guide</a></li>
+              <li><a href="https://www.rust-lang.org/policies/security">Security Disclosures</a></li>
+              <li><a href="https://www.rust-lang.org/policies">All Policies</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Social</h4>
+            <div class="flex flex-row flex-wrap">
+              <a rel="me" href="https://social.rust-lang.org/@rust" target="_blank" rel="noopener" alt="mastodon link"><img src="https://blog.rust-lang.org/images/mastodon.svg" alt="mastodon logo" title="Mastodon"/></a>
+              <a rel="me" href="https://bsky.app/profile/rust-lang.org" target="_blank" rel="noopener" alt="Bluesky link"><img src="https://blog.rust-lang.org/images/bluesky.svg" alt="Bluesky logo" title="Bluesky"/></a>
+              <a href="https://www.youtube.com/channel/UCaYhcUwRBNscFNUKTjgPFiA" target="_blank" rel="noopener" alt="youtube link"><img style="padding-top: 6px; padding-bottom:6px" src="https://blog.rust-lang.org/images/youtube.svg" alt="youtube logo" title="YouTube"/></a>
+              <a href="https://discord.gg/rust-lang" target="_blank" rel="noopener" alt="discord link"><img src="https://blog.rust-lang.org/images/discord.svg" alt="discord logo" title="Discord"/></a>
+              <a href="https://github.com/rust-lang" target="_blank" rel="noopener" alt="github link"><img src="https://blog.rust-lang.org/images/github.svg" alt="github logo" title="GitHub"/></a>
+            </div>
+            <h4 class="mt4 mb3">RSS</h4>
+            <ul>
+              <li><a href="https://blog.rust-lang.org/feed.xml">Main Blog</a></li>
+              <li><a href="https://blog.rust-lang.org/inside-rust/feed.xml">"Inside Rust" Blog</a></li>
+            </ul>
+          </div>
+    
+        </div>
+        <div class="attribution">
+          Maintained by the Rust Team. See a typo?
+          <a href="https://github.com/rust-lang/blog.rust-lang.org/edit/master/content/Rust-1.68.0.md" target="_blank" rel="noopener">Send a fix here</a>!
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

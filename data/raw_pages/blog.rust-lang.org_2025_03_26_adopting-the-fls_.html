@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Adopting the FLS | Rust Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Empowering everyone to build reliable and efficient software.">
+     <!-- Twitter card -->
+     <meta name="twitter:card" content="summary">
+     <meta name="twitter:site" content="@rustlang">
+     <meta name="twitter:creator" content="@rustlang">
+     <meta name="twitter:title" content="Adopting the FLS | Rust Blog">
+     <meta name="twitter:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
+    
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Adopting the FLS | Rust Blog" />
+    <meta property="og:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/skeleton.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/tachyons.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/fonts.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/app.css"/>
+    <link rel="stylesheet" type="text/css" id="syntax-theme" />
+    
+    <!-- stylesheet for user agents without js -->
+    <noscript>
+        <link rel="stylesheet" href="https://blog.rust-lang.org/styles/noscript.css">
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+    </noscript>
+    
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blog.rust-lang.org/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://blog.rust-lang.org/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blog.rust-lang.org/images/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="https://blog.rust-lang.org/images/favicon.svg">
+    <link rel="manifest" href="https://blog.rust-lang.org/images/site.webmanifest">
+    <link rel="mask-icon" href="https://blog.rust-lang.org/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+     <!-- atom -->
+     <link type="application/atom+xml" rel="alternate" href="https://blog.rust-lang.org/feed.xml" title="Rust Blog" />
+    
+    <!-- theme switcher -->
+    <script src="https://blog.rust-lang.org/scripts/theme-switch.js"></script>
+  </head>
+  <body>
+    <nav class="flex flex-row justify-center justify-end-l items-center flex-wrap ph2 pl3-ns pr4-ns">
+      <div class="brand flex-auto w-100 w-auto-l self-start tc tl-l">
+        <a href="https://blog.rust-lang.org/">
+          <img class="v-mid ml0-l rust-logo" alt="Rust Logo" src="https://blog.rust-lang.org/images/rust-logo-blk.svg">
+          <span class="dib ml1 ml0-l">Rust Blog</span>
+        </a>
+      </div>
+    
+      <ul class="nav list w-100 w-auto-l flex flex-none flex-row flex-wrap justify-center justify-end-l items-center pv2 ph0 ph4-ns">
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org">Rust</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools/install">Install</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/learn">Learn</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools">Tools</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/governance">Governance</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/community">Community</a></li>
+        <button class="theme-icon" onclick="dropdown();">🖌
+          <ul id="theme-choice">
+            <li class="theme-item" onclick="changeThemeTo('light');">Light</li>
+            <li class="theme-item" onclick="changeThemeTo('dark');">Dark</li>
+            <li class="theme-item" onclick="changeThemeTo('system');">System</li>
+          </ul>
+        </button>
+        <script src="https://blog.rust-lang.org/scripts/theme-switch-post.js"></script>
+      </ul>
+    </nav><section id="Adopting the FLS" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>Adopting the FLS</h2>
+      <div class="highlight mt2 mb3"></div>
+    </header>
+
+    <div class="publish-date-author">Mar. 26, 2025 &middot; TC
+     on behalf of <a href="https://www.rust-lang.org/governance/teams/lang#team-spec">the Spec Team</a> 
+    </div>
+
+    <div class="post">
+      <h1 id="adopting-the-fls"><a class="anchor" href="#adopting-the-fls" aria-hidden="true"></a>
+Adopting the FLS</h1>
+<p>Some years ago, Ferrous Systems and AdaCore worked together to assemble a description of Rust called the FLS<sup class="footnote-reference" id="fr-fls-1"><a href="#fn-fls">1</a></sup>.  Ferrous Systems has since been faithfully maintaining and updating this document for new versions of Rust, and they've successfully used it to qualify toolchains based on Rust for use in safety-critical industries.  Seeing this success, others have also begun to rely on the FLS for their own qualification efforts when building with Rust.</p>
+<p>The members of the Rust Project are passionate about shipping high quality tools that enable people to build reliable software at scale.  Such software is exactly the kind needed by those in safety-critical industries, and consequently we've become increasingly interested in better understanding and serving the needs of these customers of our language and of our tools.</p>
+<p>It's in that light that we're pleased to announce that we'll be adopting the FLS into the Rust Project as part of our ongoing specification efforts.  This adoption is being made possible by Ferrous Systems.  We're grateful to them for the work they've done in making the FLS fit for qualification purposes, in promoting its use and the use of Rust generally in safety-critical industries, and now, for working with us to take the next step and to bring it into the Project.</p>
+<p>With this adoption, we look forward to better integrating the FLS with the processes of the Project and to providing ongoing and increased assurances to all those who use Rust in safety-critical industries and, in particular, to those who use the FLS as part of their qualification efforts.</p>
+<p>This adoption would not have been possible without the efforts of the Rust Foundation, and in particular of Joel Marcey, the Director of Technology at the Foundation, who has worked tirelessly to facilitate this on our behalf.  We're grateful to him and to the Foundation for this support.  The Foundation has published its own <a href="https://rustfoundation.org/media/ferrous-systems-donates-ferrocene-language-specification-to-rust-project/">post</a> about this adoption.</p>
+<h2 id="i-m-relying-on-the-fls-today-what-should-i-expect"><a class="anchor" href="#i-m-relying-on-the-fls-today-what-should-i-expect" aria-hidden="true"></a>
+I'm relying on the FLS today; what should I expect?</h2>
+<p>We'll be bringing the FLS within the Project, so expect some URLs to change.  We plan to release updates to the FLS in much the same way as they have been happening up until now.</p>
+<p>We're sensitive to the fact that big changes to this document can result in costs for those using it for qualification purposes, and we don't have any immediate plans for big changes here.</p>
+<h2 id="what-s-this-mean-for-the-rust-reference"><a class="anchor" href="#what-s-this-mean-for-the-rust-reference" aria-hidden="true"></a>
+What's this mean for the Rust Reference?</h2>
+<p>The <a href="https://github.com/rust-lang/reference">Reference</a> is still the Reference.  Adopting the FLS does not change the status of the Reference, and we plan to continue to improve and expand the Reference as we've been doing.</p>
+<p>We'll of course be looking for ways that the Reference can support the FLS, and that the FLS can support the Reference, and in the long term, we're hopeful we can find ways to bring these two documents closer together.</p>
+<footer class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-fls">
+<p>The FLS stood for the "Ferrocene Language Specification".  The minimal fork of Rust that Ferrous Systems qualifies and ships to their customers is called "Ferrocene", hence the name.  We'll be dropping the expansion and just calling it the FLS within the Project. <a href="#fr-fls-1">↩</a></p>
+</li>
+</ol>
+</footer>
+
+    </div>
+  </div>
+</section>
+    <footer class="footer">
+      <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+        <div class="row">
+          <div class="four columns mt3 mt0-l" id="get-help">
+            <h4>Get help!</h4>
+            <ul>
+              <li><a href="https://doc.rust-lang.org" target="_blank" rel="noopener">Documentation</a></li>
+              <li><a href="mailto:core-team@rust-lang.org">Contact the Rust Team</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Terms and policies</h4>
+            <ul>
+              <li><a href="https://www.rust-lang.org/policies/code-of-conduct">Code of Conduct</a></li>
+              <li><a href="https://www.rust-lang.org/policies/licenses">Licenses</a></li>
+              <li><a href="https://www.rust-lang.org/policies/media-guide">Logo Policy and Media Guide</a></li>
+              <li><a href="https://www.rust-lang.org/policies/security">Security Disclosures</a></li>
+              <li><a href="https://www.rust-lang.org/policies">All Policies</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Social</h4>
+            <div class="flex flex-row flex-wrap">
+              <a rel="me" href="https://social.rust-lang.org/@rust" target="_blank" rel="noopener" alt="mastodon link"><img src="https://blog.rust-lang.org/images/mastodon.svg" alt="mastodon logo" title="Mastodon"/></a>
+              <a rel="me" href="https://bsky.app/profile/rust-lang.org" target="_blank" rel="noopener" alt="Bluesky link"><img src="https://blog.rust-lang.org/images/bluesky.svg" alt="Bluesky logo" title="Bluesky"/></a>
+              <a href="https://www.youtube.com/channel/UCaYhcUwRBNscFNUKTjgPFiA" target="_blank" rel="noopener" alt="youtube link"><img style="padding-top: 6px; padding-bottom:6px" src="https://blog.rust-lang.org/images/youtube.svg" alt="youtube logo" title="YouTube"/></a>
+              <a href="https://discord.gg/rust-lang" target="_blank" rel="noopener" alt="discord link"><img src="https://blog.rust-lang.org/images/discord.svg" alt="discord logo" title="Discord"/></a>
+              <a href="https://github.com/rust-lang" target="_blank" rel="noopener" alt="github link"><img src="https://blog.rust-lang.org/images/github.svg" alt="github logo" title="GitHub"/></a>
+            </div>
+            <h4 class="mt4 mb3">RSS</h4>
+            <ul>
+              <li><a href="https://blog.rust-lang.org/feed.xml">Main Blog</a></li>
+              <li><a href="https://blog.rust-lang.org/inside-rust/feed.xml">"Inside Rust" Blog</a></li>
+            </ul>
+          </div>
+    
+        </div>
+        <div class="attribution">
+          Maintained by the Rust Team. See a typo?
+          <a href="https://github.com/rust-lang/blog.rust-lang.org/edit/master/content/adopting-the-fls.md" target="_blank" rel="noopener">Send a fix here</a>!
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

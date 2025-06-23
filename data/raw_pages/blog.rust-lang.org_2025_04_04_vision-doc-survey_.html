@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Help us create a vision for Rust&#x27;s future | Rust Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Empowering everyone to build reliable and efficient software.">
+     <!-- Twitter card -->
+     <meta name="twitter:card" content="summary">
+     <meta name="twitter:site" content="@rustlang">
+     <meta name="twitter:creator" content="@rustlang">
+     <meta name="twitter:title" content="Help us create a vision for Rust&#x27;s future | Rust Blog">
+     <meta name="twitter:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
+    
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Help us create a vision for Rust&#x27;s future | Rust Blog" />
+    <meta property="og:description" content="Empowering everyone to build reliable and efficient software.">
+    <meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/skeleton.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/tachyons.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/fonts.css"/>
+    <link rel="stylesheet" href="https://blog.rust-lang.org/styles/app.css"/>
+    <link rel="stylesheet" type="text/css" id="syntax-theme" />
+    
+    <!-- stylesheet for user agents without js -->
+    <noscript>
+        <link rel="stylesheet" href="https://blog.rust-lang.org/styles/noscript.css">
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+        <link rel="stylesheet" type="text/css" href="/styles/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+    </noscript>
+    
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blog.rust-lang.org/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://blog.rust-lang.org/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://blog.rust-lang.org/images/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="https://blog.rust-lang.org/images/favicon.svg">
+    <link rel="manifest" href="https://blog.rust-lang.org/images/site.webmanifest">
+    <link rel="mask-icon" href="https://blog.rust-lang.org/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    
+     <!-- atom -->
+     <link type="application/atom+xml" rel="alternate" href="https://blog.rust-lang.org/feed.xml" title="Rust Blog" />
+    
+    <!-- theme switcher -->
+    <script src="https://blog.rust-lang.org/scripts/theme-switch.js"></script>
+  </head>
+  <body>
+    <nav class="flex flex-row justify-center justify-end-l items-center flex-wrap ph2 pl3-ns pr4-ns">
+      <div class="brand flex-auto w-100 w-auto-l self-start tc tl-l">
+        <a href="https://blog.rust-lang.org/">
+          <img class="v-mid ml0-l rust-logo" alt="Rust Logo" src="https://blog.rust-lang.org/images/rust-logo-blk.svg">
+          <span class="dib ml1 ml0-l">Rust Blog</span>
+        </a>
+      </div>
+    
+      <ul class="nav list w-100 w-auto-l flex flex-none flex-row flex-wrap justify-center justify-end-l items-center pv2 ph0 ph4-ns">
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org">Rust</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools/install">Install</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/learn">Learn</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/tools">Tools</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/governance">Governance</a></li>
+        <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="https://www.rust-lang.org/community">Community</a></li>
+        <button class="theme-icon" onclick="dropdown();">🖌
+          <ul id="theme-choice">
+            <li class="theme-item" onclick="changeThemeTo('light');">Light</li>
+            <li class="theme-item" onclick="changeThemeTo('dark');">Dark</li>
+            <li class="theme-item" onclick="changeThemeTo('system');">System</li>
+          </ul>
+        </button>
+        <script src="https://blog.rust-lang.org/scripts/theme-switch-post.js"></script>
+      </ul>
+    </nav><section id="Help us create a vision for Rust&#x27;s future" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>Help us create a vision for Rust&#x27;s future</h2>
+      <div class="highlight mt2 mb3"></div>
+    </header>
+
+    <div class="publish-date-author">Apr. 4, 2025 &middot; Jack Huey
+     on behalf of <a href="https://rust-lang.zulipchat.com/#narrow/channel/486265-vision-doc-2025">Vision Doc Team</a> 
+    </div>
+
+    <div class="post">
+      <p>tl;dr: Please take our <a href="https://www.surveyhero.com/c/fuznhxp3">survey here</a></p>
+<p>Rust turns 10 this year. It's a good time to step back and assess where we are at and to get aligned around where we should be going. Where is Rust succeeding at <em>empowering everyone to build reliable, efficient software</em> (as it says on our webpage)? Where are there opportunities to do better? To that end, we have taken on the <a href="https://rust-lang.github.io/rust-project-goals/2025h1/rust-vision-doc.html">goal of authoring a Rust Vision RFC</a>, with the first milestone being to prepare a draft for review at the upcoming Rust All Hands.</p>
+<h3 id="goals-and-non-goals"><a class="anchor" href="#goals-and-non-goals" aria-hidden="true"></a>
+Goals and non-goals</h3>
+<p>The vision RFC has <strong>two goals</strong></p>
+<ul>
+<li>to build a shared understanding of <strong>where we are</strong> and</li>
+<li>to identify <strong>where we should be going</strong> at a high-level.</li>
+</ul>
+<p>The vision RFC also has a <strong>non-goal</strong>, which is to provide specific designs or feature recommendations. We'll have plenty of time to write detailed RFCs for that. The vision RFC will instead focus more on higher-level recommendations and on understanding what people need and want from Rust in various domains.</p>
+<p>We hope that by answering the above questions, we will then be able to evolve Rust with more confidence. It will also help Rust users (and would-be users) to understand what Rust is for and where it is going.</p>
+<h3 id="community-and-technology-are-both-in-scope"><a class="anchor" href="#community-and-technology-are-both-in-scope" aria-hidden="true"></a>
+Community <em>and</em> technology are both in scope</h3>
+<p>The scope of the vision RFC is not limited to the technical design of Rust. It will also cover topics like</p>
+<ul>
+<li>the experience of open-source maintainers and contributors, both for the Rust project and for Rust crates;</li>
+<li>integrating global Rust communities across the world;</li>
+<li>and building momentum and core libraries for particular domains, like embedded, CLI, or gamedev.</li>
+</ul>
+<h3 id="gathering-data"><a class="anchor" href="#gathering-data" aria-hidden="true"></a>
+Gathering data</h3>
+<p>To answer the questions we have set, we need to gather data - we want to do our best <em>not</em> to speculate. This is going to come in two main formats:</p>
+<ol>
+<li><strong>A <a href="https://www.surveyhero.com/c/fuznhxp3">survey</a></strong> about peoples' experiences with Rust (see below). Unlike the Annual Rust survey, the questions are open-ended and free-form, and cover somewhat different topics. This also allows us to gather a list of people to potentially interview.</li>
+<li><strong>Interviews</strong> of people from various backgrounds and domains. In an ideal world, we would interview everyone who wants to be interviewed, but in reality we're going to try to interview as many people as we can to form a diverse and representative set.</li>
+</ol>
+<p>While we have some idea of who we want to talk to, we may be missing some! We're hoping that the survey will not only help us connect to the people that we want to talk to, but also potentially help us uncover people we haven't yet thought of. We are currently planning to talk to</p>
+<ul>
+<li>Rust users, novice to expert;</li>
+<li>Rust non-users (considering or not);</li>
+<li>Companies using (or considering) Rust, from startup to enterprise;</li>
+<li>Global or language-based Rust affinity groups;</li>
+<li>Domain-specific groups;</li>
+<li>Crate maintainers, big and small;</li>
+<li>Project maintainers and contributors, volunteer or professional;</li>
+<li>Rust Foundation staff.</li>
+</ul>
+<h3 id="our-roadmap-and-timeline"><a class="anchor" href="#our-roadmap-and-timeline" aria-hidden="true"></a>
+Our roadmap and timeline</h3>
+<p>Our current "end goal" is to author and open a vision RFC sometime during the second half of the year, likely in the fall. For this kind of RFC, though, the journey is really more important than the destination. We plan to author several drafts along the way and take feedback, both from Rust community members and from the public at large. The first milestone we are targeting is to prepare an <strong>initial report for review at the <a href="https://blog.rust-lang.org/inside-rust/2024/09/02/all-hands.html">Rust All Hands</a> in May</strong>. To that end, the data gathering process starts <em>now</em> with the <a href="https://www.surveyhero.com/c/fuznhxp3">survey</a>, but we intend to spend the month of April conducting interviews (and more after that).</p>
+<h3 id="how-you-can-help"><a class="anchor" href="#how-you-can-help" aria-hidden="true"></a>
+How you can help</h3>
+<p>For starters, fill out our <a href="https://www.surveyhero.com/c/fuznhxp3">survey here</a>. This survey has three sections</p>
+<ol>
+<li>To put the remaining responses into context, the survey asks a few demographic questions to allow us to ensure we are getting good representation across domains, experience, and backgrounds.</li>
+<li>It asks a series of questions about your experiences with Rust. As mentioned before, this survey is quite different from the Annual Rust survey. If you have experiences in the context of a company or organization, please feel free to share those (submitting this separately is best)!</li>
+<li>It asks for recommendations as to whom we ought to speak to. Please only recommend yourself or people/companies/groups for which you have a specific contact.</li>
+</ol>
+<p><em>Note: <strong>The first part of the survey will only be shared publicly in aggregate, the second may be made public directly, and the third section will not be made public.</strong> For interviews, we can be more flexible with what information is shared publicly or not.</em></p>
+<p>Of course, other than taking the survey, you can also <em>share</em> it with people. We <em>really</em> want to reach people that may not otherwise see it through our typical channels. So, even better if you can help us do that!</p>
+<p>Finally, if you are active in the Rust maintainer community, feel free to join the <a href="https://rust-lang.zulipchat.com/#narrow/channel/486265-vision-doc-2025"><code>#vision-doc-2025</code></a> channel on Zulip and say hello.</p>
+
+    </div>
+  </div>
+</section>
+    <footer class="footer">
+      <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+        <div class="row">
+          <div class="four columns mt3 mt0-l" id="get-help">
+            <h4>Get help!</h4>
+            <ul>
+              <li><a href="https://doc.rust-lang.org" target="_blank" rel="noopener">Documentation</a></li>
+              <li><a href="mailto:core-team@rust-lang.org">Contact the Rust Team</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Terms and policies</h4>
+            <ul>
+              <li><a href="https://www.rust-lang.org/policies/code-of-conduct">Code of Conduct</a></li>
+              <li><a href="https://www.rust-lang.org/policies/licenses">Licenses</a></li>
+              <li><a href="https://www.rust-lang.org/policies/media-guide">Logo Policy and Media Guide</a></li>
+              <li><a href="https://www.rust-lang.org/policies/security">Security Disclosures</a></li>
+              <li><a href="https://www.rust-lang.org/policies">All Policies</a></li>
+            </ul>
+          </div>
+          <div class="four columns mt3 mt0-l">
+            <h4>Social</h4>
+            <div class="flex flex-row flex-wrap">
+              <a rel="me" href="https://social.rust-lang.org/@rust" target="_blank" rel="noopener" alt="mastodon link"><img src="https://blog.rust-lang.org/images/mastodon.svg" alt="mastodon logo" title="Mastodon"/></a>
+              <a rel="me" href="https://bsky.app/profile/rust-lang.org" target="_blank" rel="noopener" alt="Bluesky link"><img src="https://blog.rust-lang.org/images/bluesky.svg" alt="Bluesky logo" title="Bluesky"/></a>
+              <a href="https://www.youtube.com/channel/UCaYhcUwRBNscFNUKTjgPFiA" target="_blank" rel="noopener" alt="youtube link"><img style="padding-top: 6px; padding-bottom:6px" src="https://blog.rust-lang.org/images/youtube.svg" alt="youtube logo" title="YouTube"/></a>
+              <a href="https://discord.gg/rust-lang" target="_blank" rel="noopener" alt="discord link"><img src="https://blog.rust-lang.org/images/discord.svg" alt="discord logo" title="Discord"/></a>
+              <a href="https://github.com/rust-lang" target="_blank" rel="noopener" alt="github link"><img src="https://blog.rust-lang.org/images/github.svg" alt="github logo" title="GitHub"/></a>
+            </div>
+            <h4 class="mt4 mb3">RSS</h4>
+            <ul>
+              <li><a href="https://blog.rust-lang.org/feed.xml">Main Blog</a></li>
+              <li><a href="https://blog.rust-lang.org/inside-rust/feed.xml">"Inside Rust" Blog</a></li>
+            </ul>
+          </div>
+    
+        </div>
+        <div class="attribution">
+          Maintained by the Rust Team. See a typo?
+          <a href="https://github.com/rust-lang/blog.rust-lang.org/edit/master/content/vision-doc-survey.md" target="_blank" rel="noopener">Send a fix here</a>!
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

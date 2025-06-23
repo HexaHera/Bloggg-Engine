@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <generator uri="https://blog.rust-lang.org/inside-rust/" version="0.1.0">Inside Rust Blog</generator>
+    <link href="https://blog.rust-lang.org/inside-rust/feed.xml" rel="self" type="application/atom+xml" />
+    <link href="https://blog.rust-lang.org/inside-rust/" rel="alternate" type="text/html" />
+    <id>https://blog.rust-lang.org/inside-rust/</id>
+    <title>Inside Rust Blog</title>
+    <subtitle>Want to follow along with Rust development? Curious how you might get involved? Take a look!</subtitle>
+    <author>
+        <name>Maintained by the Rust Teams.</name>
+        <uri>https://github.com/rust-lang/blog.rust-lang.org/</uri>
+    </author>
+    <updated>2025-06-21T22:59:59+00:00</updated>
+
+    
+    <entry>
+        <title>Announcing the Clippy feature freeze</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/06/21/announcing-the-clippy-feature-freeze/" type="text/html" title="Announcing the Clippy feature freeze" />
+        <published>2025-06-21T00:00:00+00:00</published>
+        <updated>2025-06-21T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/06/21/announcing-the-clippy-feature-freeze/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/06/21/announcing-the-clippy-feature-freeze/">&lt;p&gt;The Clippy project will be on feature-freeze for 12 weeks, starting from Rust
+1.89.0 beta (June 26th 2025) to September 18th 2025 (Rust 1.89.0 stable
+release). During this time no new features will be accepted, only bug fixes.&lt;/p&gt;
+&lt;p&gt;This &lt;em&gt;feature freeze&lt;/em&gt; comes from a lack of the necessary capacity needed
+to maintain all the current lints (over 750 of them 😱) and still add new ones.
+We need to care for the Clippy project the same way that Clippy cares about our
+code, and note that every single one of them needs maintaining and accounting
+for current and future changes in the compiler as a whole.&lt;/p&gt;
+&lt;p&gt;As a team we’ll focus on making contributing the best it can be, and mark the
+issues that could be great as a starting point to get familiar with the project.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;what-can-i-expect-as-a-user&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#what-can-i-expect-as-a-user&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+What can I expect as a user?&lt;/h2&gt;
+&lt;p&gt;As a user you can expect to have more accurate lints, with less false positives
+and more edge cases covered. A bump into Clippy’s toolchain would not involve
+the same risk for false positives as it has been until now. We hope that by
+upping the standard for lints all around the project we can allow users to
+expect even more from the already great linter.&lt;/p&gt;
+&lt;p&gt;If you have a lint which you want to be implemented, you can still open an
+issue for it, but PRs adding new lints won&#x27;t be reviewed during the feature
+freeze. Instead, they will be put into a queue and reviewed (and merged) after
+the feature freeze is over.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Open pull requests that add new lints and are in a &lt;strong&gt;very&lt;/strong&gt; advanced state
+might still get reviewed and/or merged during the feature freeze.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id&#x3D;&quot;can-i-help&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#can-i-help&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Can I help?&lt;/h2&gt;
+&lt;p&gt;As always, any help on the project is very appreciated. Apart from opening bug
+reports, you can follow &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust-clippy/blob/master/CONTRIBUTING.md&quot;&gt;our contributing guidelines&lt;/a&gt; and check &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust-clippy/issues/15086&quot;&gt;our suggested
+good first issues&lt;/a&gt; for opening pull requests. Everything from fixing diagnostic
+issues and improving documentation, to fixing application-wide crashes
+really helps Clippy get into the excellent state that our users deserve.&lt;/p&gt;
+&lt;p&gt;If you need direct help when fixing a bug, don&#x27;t hesitate to open a thread on
+&lt;a href&#x3D;&quot;https://rust-lang.zulipchat.com/#narrow/channel/257328-clippy&quot;&gt;Zulip&lt;/a&gt; and/or open a draft PR with the questions you have in order to start
+the feedback stream.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;conclusion&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#conclusion&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Conclusion&lt;/h2&gt;
+&lt;p&gt;Thanks a lot for all these years of supporting Clippy, we hope that via this
+little feature hiatus we can achieve the excellence that the Rust user base
+deserves.&lt;/p&gt;
+</content>
+
+        <author>
+            <name>blyxyas</name>
+        </author>
+    </entry>
+    <entry>
+        <title>June 2025 Leadership Council Update</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/06/11/leadership-council-update/" type="text/html" title="June 2025 Leadership Council Update" />
+        <published>2025-06-11T00:00:00+00:00</published>
+        <updated>2025-06-11T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/06/11/leadership-council-update/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/06/11/leadership-council-update/">&lt;p&gt;Hello again from the Rust Leadership Council!
+We wanted to share an update on what the Council has been working on since &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/03/17/leadership-council-update/&quot;&gt;our last update&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;accomplishments-so-far&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#accomplishments-so-far&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Accomplishments so far&lt;/h2&gt;
+&lt;h3 id&#x3D;&quot;welcome-josh-stone-to-the-council&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#welcome-josh-stone-to-the-council&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Welcome Josh Stone to the Council&lt;/h3&gt;
+&lt;p&gt;As &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/03/26/leadership-council-repr-selection/&quot;&gt;announced in March&lt;/a&gt;, Josh Stone joined the Council representing the compiler team.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;program-manager&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#program-manager&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Program manager&lt;/h3&gt;
+&lt;p&gt;We&#x27;ve seen a lot of returns from good Project-directed program management. In support of this valuable work — so that we can do more with it while making it more sustainable — we allocated funds to the Edition and Goals teams to hire a program manager. TC and Joel interviewed a large number of candidates, and we&#x27;re excited to announce that the Project, with logistical support from the Foundation, has brought on &lt;a href&#x3D;&quot;https://github.com/tomassedovic&quot;&gt;Tomas Sedovic&lt;/a&gt;. He&#x27;s hit the ground running, joining many team calls in the past week, and supporting the teams with record keeping and communication — which is good for the transparency and effective functioning of our work — and with logistics such as the coordination of meetings and follow-up with contributors. Going forward, we&#x27;re expecting this work to help us and our teams across the Project better manage the many ongoing initiatives that are of importance to us.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;all-hands&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#all-hands&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+All-hands&lt;/h3&gt;
+&lt;p&gt;More than 150 people attended the all-hands event in May at &lt;a href&#x3D;&quot;https://rustweek.org/&quot;&gt;RustWeek 2025&lt;/a&gt; in the Netherlands. We&#x27;ve received a lot of positive feedback about the event, as it was a great opportunity to get people from across the org to have focused discussions.&lt;/p&gt;
+&lt;p&gt;The project was able to sponsor this event with $100,000 in funding for the event, with an additional $90,000 for travel and tickets. We are looking to see if we can secure funding to be able to continue these events in the future.&lt;/p&gt;
+&lt;p&gt;Many thanks to &lt;a href&#x3D;&quot;https://github.com/m-ou-se/&quot;&gt;Mara Bos&lt;/a&gt; who was instrumental in organizing this event and making it a success.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;additional-items&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#additional-items&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Additional items&lt;/h3&gt;
+&lt;p&gt;And a few other items:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/cuviper&quot;&gt;Josh Stone&lt;/a&gt; has volunteered to be on the RustConf Program Committee to help select talks for &lt;a href&#x3D;&quot;https://rustconf.com/&quot;&gt;RustConf 2025&lt;/a&gt;. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/163&quot;&gt;leadership-council#163&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/traviscross&quot;&gt;TC&lt;/a&gt; has volunteered to be a substitute for the June Foundation board meeting. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/176&quot;&gt;leadership-council#176&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Approved creating the Vision Doc team, which is working to create a document that identifies key opportunities for Rust over the next 3-5 years. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/165&quot;&gt;leadership-council#165&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Approved placing the Rust logo in the RISC-V landscape page. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/164&quot;&gt;leadership-council#164&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Approved a clarification of the definition of &quot;expatriated crates&quot; as part of our crate publishing policy. &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust-forge/pull/840&quot;&gt;rust-forge#840&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The social media team set up a &lt;a href&#x3D;&quot;https://bsky.app/profile/rust-lang.org&quot;&gt;Bluesky account&lt;/a&gt; for posting official announcements. The Rust Project also has an official &lt;a href&#x3D;&quot;https://social.rust-lang.org/@rust&quot;&gt;Mastodon account&lt;/a&gt; as well.&lt;/li&gt;
+&lt;li&gt;Added the Foundation directors as a &quot;team&quot; in the team database. &lt;a href&#x3D;&quot;https://github.com/rust-lang/team/pull/1786&quot;&gt;team#1786&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Approved the infra team to set it up so that team leads can directly approve modifications to their team files. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/171&quot;&gt;leadership-council#171&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Added some clarification on the approval process for posting on the official Rust blog. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/173&quot;&gt;leadership-council#173&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Added some basic onboarding documentation for the project as a whole. &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust-forge/pull/846&quot;&gt;rust-forge#846&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Clarified that the council does not need to be involved with transferring the Docker team out of the launching pad and into the infra team. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/124&quot;&gt;leadership-council#124&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id&#x3D;&quot;ongoing-work&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#ongoing-work&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Ongoing work&lt;/h2&gt;
+&lt;p&gt;There are various efforts underway on projects that have had significant discussions since the last update, but have not concluded with any decisions, yet.
+They are:&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;shape-of-rust&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#shape-of-rust&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Shape of Rust&lt;/h3&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https://github.com/jamesmunns&quot;&gt;James Munns&lt;/a&gt; has continued to develop his ideas for a &quot;Rust Society&quot; to find a home for certain kinds of community groups and special interest groups. We&#x27;ve received great feedback during the all-hands to help further refine these ideas, and James is continuing to work on how this might be structured. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/159&quot;&gt;leadership-council#159&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;One idea for how this might shape up is to re-charter the launching pad to be something more permanent for cross-cutting, long-lived teams (like the &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/141&quot;&gt;Security Response Working Group&lt;/a&gt;). &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/170&quot;&gt;leadership-council#170&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;foundation-budget&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#foundation-budget&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Foundation budget&lt;/h3&gt;
+&lt;p&gt;As part of &lt;a href&#x3D;&quot;https://rustfoundation.org/media/1m-microsoft-donation-to-fund-key-rust-foundation-project-priorities/&quot;&gt;Microsoft&#x27;s donation&lt;/a&gt;, the Council has had $650k available to spend at its discretion. There are three recent budget items that the Council has been considering:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Renewing the Compiler Ops contract for another six months. In the past six months we have spent about $20k out of the initial $30k that we reserved for this position. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/181&quot;&gt;leadership-council#181&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Planning for spending of the &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/blob/main/policies/spending/travel.md&quot;&gt;travel budget&lt;/a&gt;. We reserved $75k per year for travel expenses and event tickets. In 2024 we only spent about $16k, but due to the larger all-hands event this year we have spent $90k in the first half of the year. Combining those means there is about $44k left for the remainder of the year. We are considering what this means for the rest of the year, and how we can plan for what we can reserve in 2026. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/182&quot;&gt;leadership-council#182&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Planning for 2026. At present the Council only has about $50k left unreserved. We could consider holding that for the travel budget next year, or to fund other things. We&#x27;ll be having some discussions with the Foundation about other funding possibilities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id&#x3D;&quot;additional-items-1&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#additional-items-1&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Additional items&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;We have continued to have discussions on how to have better communication between the Council, Foundation directors, and the Foundation staff.&lt;/li&gt;
+&lt;li&gt;A question came to the Council about the possibility of having explicit team membership durations. This came out of some discussions about how to address burnout, and would have other benefits such as having clearer team structures. &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/issues/175&quot;&gt;leadership-council#175&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id&#x3D;&quot;meeting-minutes&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#meeting-minutes&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Meeting minutes&lt;/h2&gt;
+&lt;p&gt;We publish minutes from all Council meetings to the &lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/tree/main/minutes&quot;&gt;Leadership Council repo&lt;/a&gt;.
+Links to the minutes since our last update are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/blob/main/minutes/sync-meeting/2025-03-14.md&quot;&gt;March 14, 2025&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/blob/main/minutes/sync-meeting/2025-03-28.md&quot;&gt;March 28, 2025&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/blob/main/minutes/sync-meeting/2025-04-11.md&quot;&gt;April 11, 2025&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/blob/main/minutes/sync-meeting/2025-04-25.md&quot;&gt;April 25, 2025&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/blob/main/minutes/sync-meeting/2025-05-09.md&quot;&gt;May 9, 2025&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/leadership-council/blob/main/minutes/sync-meeting/2025-05-23.md&quot;&gt;May 23, 2025&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+
+        <author>
+            <name>Eric Huss</name>
+        </author>
+    </entry>
+    <entry>
+        <title>A glance at compiler team operations</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/06/05/a-glance-at-the-team-compiler-operations/" type="text/html" title="A glance at compiler team operations" />
+        <published>2025-06-05T00:00:00+00:00</published>
+        <updated>2025-06-05T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/06/05/a-glance-at-the-team-compiler-operations/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/06/05/a-glance-at-the-team-compiler-operations/">&lt;p&gt;Hello everyone! This blog post will probably be a bit different. I will outline the work of a perhaps less visible structure in the Compiler Team: &lt;a href&#x3D;&quot;https://www.rust-lang.org/governance/teams/compiler#team-compiler-ops&quot;&gt;the &quot;operations&quot; team&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am Antonio. I&#x27;ve been helping the Rust Project for a couple of years, and recently I gave a short talk at RustWeek 2025 about my experience. Since then I received encouragement to expand a little more about it.&lt;/p&gt;
+&lt;p&gt;It all started with the &quot;prioritization&quot; working group (which some of you &lt;a href&#x3D;&quot;https://blog.rust-lang.org/2020/09/14/wg-prio-call-for-contributors&quot;&gt;may remember&lt;/a&gt;). This core work was — and is still — to stay on top of the regressions filed in the main &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/issues&quot;&gt;Rust Project git repository&lt;/a&gt; and do initial triage to assess priority, bisect, and ping relevant people. High priority regressions should be fixed by the next release (following our six-week cadence). We want to do our best to release stable compilers and libraries without unexpected breaking changes. Prioritizing regressions often requires technical context, and the continued support of Compiler Team members is essential to this work. Thanks to everyone!&lt;/p&gt;
+&lt;p&gt;Gradually this work organically grew. There was room to freely explore a relatively young space: improving the organization and workflows of the Compiler Team. In hindsight, &lt;a href&#x3D;&quot;https://smallcultfollowing.com/babysteps/&quot;&gt;Niko&lt;/a&gt; and &lt;a href&#x3D;&quot;https://santiagopastorino.com&quot;&gt;Santiago&lt;/a&gt; had great intuition and planted these seeds. I am the gardener that is looking after these young but robust trees.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;expanding-the-work-and-formalizing-compiler-team-operations-ops&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#expanding-the-work-and-formalizing-compiler-team-operations-ops&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Expanding the work and formalizing Compiler Team Operations (&quot;Ops&quot;)&lt;/h2&gt;
+&lt;p&gt;Today this work has expanded quite a bit and forked multiple branches. All this is made possible by creating and funding the &quot;operations&quot; role, which allowed us to focus on these improvements.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Follow decisional processes&lt;/strong&gt;: the Compiler Team (not dissimilar to other teams) formalized some decisional processes (&lt;a href&#x3D;&quot;https://forge.rust-lang.org/compiler/proposals-and-stabilization.html#how-do-i-submit-an-mcp&quot;&gt;MCPs&lt;/a&gt;, &lt;a href&#x3D;&quot;https://forge.rust-lang.org/compiler/proposals-and-stabilization.html#targets&quot;&gt;FCPs&lt;/a&gt;, and &lt;a href&#x3D;&quot;https://forge.rust-lang.org/libs/maintaining-std.html#when-is-an-rfc-needed&quot;&gt;RFCs&lt;/a&gt;) to provide tools for contributors to make proposals. Process itself can only do so much when everyone is doing 10 things at the same time, so someone needs to ensure that these processes move forward and ask questions if things are blocked.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monitoring pull request reviews&lt;/strong&gt;: Compiler Team members have a finite amount of time and are fending off an &lt;em&gt;infinite&lt;/em&gt; amount of incoming contributions to review, follow-up on, and help bring to completion. The Rust Project is a community work, so it is fundamental to ensure that contributions are not abandoned or forgotten. Staying on top of these contributions, sending reminders, and ensuring that they don&#x27;t get stale is part of the basic machinery that keeps the project rolling.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Organization of design/triage meetings&lt;/strong&gt;: the Compiler Team meets every week to review the most important things. Sometimes it is asked for dedicated time to help design a specific feature. Doing the minutiae around organizing these meetings takes a non-negligible amount of time!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Improve tooling and documentation&lt;/strong&gt;: the Compiler Team wouldn&#x27;t go far without some ancillary tooling to help with these tasks. These tools need maintenance and evolution, like every piece of software. Documentation — it goes without saying — can always be improved, and it&#x27;s part of our &quot;welcome flyer&quot; when a contributor shows at the door.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All this sounds like, after all, there is a lot more than &lt;em&gt;just&lt;/em&gt; looking at regressions! So it was time to evolve what was a seminal working group and build the foundation for a more formal structure in charge of the &quot;operations&quot; of the compiler team — a field that for me encompasses a lot that is not hacking on the compiler or designing features. The idea of &quot;operations&quot; comes from the Language Team (see &lt;a href&#x3D;&quot;https://github.com/rust-lang/team/pull/1091&quot;&gt;team#1091&lt;/a&gt;) and I happily &quot;stole&quot; it. Having homogeneous structures across the Project is a good thing.&lt;/p&gt;
+&lt;p&gt;The scope of &quot;operations&quot; expands as the Compiler Team itself expands (it now has almost 60 members and counting!) and all this puts a premium on coordination work. The Rust Project (that celebrated its &lt;a href&#x3D;&quot;https://blog.rust-lang.org/2025/05/15/Rust-1.87.0/&quot;&gt;10th anniversary of the 1.0 release&lt;/a&gt;) is entering a new phase, and the organizational part must keep up. If we squint enough, there is a lot of work ahead.&lt;/p&gt;
+&lt;p&gt;During the last many months, we reorganized the Compiler Team into a single entity, closed all the old working groups that were no longer active, and unified all the documentation into the same place (the &lt;a href&#x3D;&quot;https://forge.rust-lang.org/compiler/&quot;&gt;Forge&lt;/a&gt;). We are constantly working on small quality of life improvements and automation bits that reduce the burden on contributors.&lt;/p&gt;
+&lt;p&gt;Every team in the Rust Project has its own workflows, so I can only speak for the Compiler Team, but we are implementing more automation around processes. At RustWeek 2025 there were discussions around possible &quot;joint&quot; points for teams — more inter-team communication, shared processes, etc. — we are moving in a direction where we can make some &quot;assumptions&quot; about how a team works and where things are. For example every team cranking out code uses the same process to handle regressions and backports.&lt;/p&gt;
+&lt;p&gt;In the future we would like to tackle further common frictions points, such as the onboarding of new contributors. A recurring question is &quot;who should I talk to in order to learn more about X?&quot;, and the answer to this requires work in multiple areas (documentation, the website, our Zulip instance, etc.).&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;collaboration&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#collaboration&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Collaboration&lt;/h2&gt;
+&lt;p&gt;The word &quot;team&quot; appears many times in this blog post, so I leave the most important thing to the last. Nothing would be possible without the great help and initiative of other enthusiastic Project members that, in the true spirit of F/OSS, figure out how to experiment and improve things. Among others, I want to especially acknowledge the work of &lt;a href&#x3D;&quot;https://github.com/urgau&quot;&gt;Urgau&lt;/a&gt;, &lt;a href&#x3D;&quot;https://github.com/jieyouxu&quot;&gt;Jieyou Xu&lt;/a&gt;, &lt;a href&#x3D;&quot;https://github.com/jackh726&quot;&gt;Jack Huey&lt;/a&gt;, and &lt;a href&#x3D;&quot;https://github.com/kobzol&quot;&gt;Jakub Beránek&lt;/a&gt; — people on whose shoulders I stand — and &lt;a href&#x3D;&quot;https://github.com/wesleywiser&quot;&gt;Wesley Wiser&lt;/a&gt; and &lt;a href&#x3D;&quot;https://github.com/davidtwco&quot;&gt;David Wood&lt;/a&gt; for being the best team leads one could wish for.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;conclusion&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#conclusion&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Conclusion&lt;/h2&gt;
+&lt;p&gt;In this blog post I&#x27;ve tried to shed light on work that is perhaps less visible outside of the Rust Project. The work of Compiler Team Ops is needed. It makes things work better for everyone, and — looking ahead — will help the whole Rust Project grow sustainably.&lt;/p&gt;
+</content>
+
+        <author>
+            <name>apiraino</name>
+        </author>
+    </entry>
+    <entry>
+        <title>Announcing five new members of the compiler team</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/05/30/compiler-team-new-members/" type="text/html" title="Announcing five new members of the compiler team" />
+        <published>2025-05-30T00:00:00+00:00</published>
+        <updated>2025-05-30T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/05/30/compiler-team-new-members/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/05/30/compiler-team-new-members/">&lt;p&gt;It&#x27;s been around six months since &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2024/11/12/compiler-team-new-members/&quot;&gt;we last announced new members of the compiler
+team&lt;/a&gt; and there&#x27;s already new members to announce:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/Kobzol&quot;&gt;Kobzol&lt;/a&gt;, team member
+&lt;ul&gt;
+&lt;li&gt;Kobzol is a prolific member of the infrastructure team and has also been making great
+contributions to the team&#x27;s performance triaging, our transition to lld as well as many varied
+improvements to the compiler itself.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/ZuseZ4&quot;&gt;ZuseZ4&lt;/a&gt;, team member
+&lt;ul&gt;
+&lt;li&gt;ZuseZ4 is the maintainer of the &lt;a href&#x3D;&quot;https://enzyme.mit.edu/&quot;&gt;Enzyme&lt;/a&gt; logic in our LLVM backend and
+our new automatic differentiation support.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/jdonszelmann&quot;&gt;jdonszelmann&lt;/a&gt;, team member
+&lt;ul&gt;
+&lt;li&gt;jdonszelmann has been making significant contributions to how we represent attributes in the HIR
+and helped organise the Rust All Hands this year, enabling the team to meet in person.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/madsmtm&quot;&gt;madsmtm&lt;/a&gt;, team member
+&lt;ul&gt;
+&lt;li&gt;madsmtm is our Apple and iOS target maintainer and expert on the issues and regressions that
+come up with these targets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/mati865&quot;&gt;mati865&lt;/a&gt;, team member
+&lt;ul&gt;
+&lt;li&gt;mati865 is likewise our maintainer of the Windows GNULLVM targets and has been instrumental in
+doing reviews and fixes in support of these targets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thanks to all of our new members for their contributions!&lt;/p&gt;
+</content>
+
+        <author>
+            <name>davidtwco and wesleywiser</name>
+        </author>
+    </entry>
+    <entry>
+        <title>Redesigning the Initial Bootstrap Sequence</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/" type="text/html" title="Redesigning the Initial Bootstrap Sequence" />
+        <published>2025-05-29T00:00:00+00:00</published>
+        <updated>2025-05-29T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/">&lt;blockquote&gt;
+&lt;p&gt;Revisions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(2025-05-30) This blog post was edited to clarify distribution packagers will not be observably impacted (i.e. distribution packages will still be able to build &lt;code&gt;N + 1&lt;/code&gt; version of Rust using version &lt;code&gt;N&lt;/code&gt; of Rust).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This blog post accompanies an &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/119899&quot;&gt;upcoming major change to the &lt;code&gt;rust-lang/rust&lt;/code&gt; build system&lt;/a&gt; (see also &lt;a href&#x3D;&quot;https://github.com/rust-lang/compiler-team/issues/619&quot;&gt;Major Change Proposal 619&lt;/a&gt;). This will have no impact on the distributed artifacts from &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust&quot;&gt;rust-lang/rust&lt;/a&gt;, but the way we build those artifacts is changing.&lt;/p&gt;
+&lt;p&gt;This blog post focuses on motivation for the change and attempts to build a mental model for how the system works, rather than deep diving on workflow changes. See the &lt;a href&#x3D;&quot;https://rustc-dev-guide.rust-lang.org/building/bootstrapping/what-bootstrapping-does.html&quot;&gt;rustc-dev-guide&lt;/a&gt; for details on how you might need to change your workflow with these changes. Note that rustc-dev-guide pages will have updated content once the implementation PR merges.&lt;/p&gt;
+&lt;h1 id&#x3D;&quot;tl-dr-what-is-being-changed&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#tl-dr-what-is-being-changed&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+TL;DR: What is being changed?&lt;/h1&gt;
+&lt;p&gt;We are &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/119899&quot;&gt;redesigning the bootstrap sequence for the Rust toolchain&lt;/a&gt;. The standard library will move from supporting being built by both the previous toolchain version and the current version to only supporting the current version. This does not change the artifacts we distribute to end users of Rust.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Rust toolchain as a whole, both currently and after this change, supports being built with just two minor versions of Rust: the previous version and its own version. For example, Rust 1.85.1 requires one of 1.84.0, 1.85.0, or 1.85.1 toolchains to build its source code into the 1.85.1 distributed artifacts.&lt;/p&gt;
+&lt;p&gt;In other words, distribution packagers are not observably affected, it is only the workflows of contributors who work on the compiler and standard library that will be impacted.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Current bootstrap sequence&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/./stage0-current.svg&quot; alt&#x3D;&quot;Current stage 0 bootstrap sequence&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Redesigned  bootstrap sequence&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/./stage0-next.svg&quot; alt&#x3D;&quot;Redesigned stage 0 bootstrap sequence&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The following section is a quick primer on the concept of bootstrapping and the terminology we use in this blog post.&lt;/p&gt;
+&lt;h1 id&#x3D;&quot;preliminary&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#preliminary&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+A quick primer on bootstrapping and terminology used in this blog post&lt;/h1&gt;
+&lt;p&gt;This section is intended to explain some basic bootstrapping concepts to make it easier for contributors to understand the upcoming bootstrap changes. You can &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/#motivation&quot;&gt;skip this section&lt;/a&gt; if you are already familiar with &lt;a href&#x3D;&quot;https://rustc-dev-guide.rust-lang.org/building/bootstrapping/intro.html&quot;&gt;the &lt;code&gt;bootstrap&lt;/code&gt; build system&lt;/a&gt; itself.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;intro-to-bootstrapping&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#intro-to-bootstrapping&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+What is bootstrapping?&lt;/h2&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https://en.wikipedia.org/wiki/Bootstrapping_(compilers)&quot;&gt;&lt;em&gt;Bootstrapping&lt;/em&gt;&lt;/a&gt; is the process of producing a newer version of a compiler with an older version of itself. Usually, bootstrap processes involve the concept of &lt;em&gt;stages&lt;/em&gt;, where a compiler and associated artifacts from a stage is used to build the compiler of the next stage. For example, a stage 2 compiler is built from a stage 1 compiler and associated stage 1 artifacts. The stage number is named after the compiler in question.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;bootstrapping-rust&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#bootstrapping-rust&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Bootstrapping &lt;code&gt;rustc&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Building a C++ compiler toolchain like &lt;a href&#x3D;&quot;https://gcc.gnu.org/install/build.html&quot;&gt;&lt;code&gt;gcc&lt;/code&gt;&lt;/a&gt; or &lt;a href&#x3D;&quot;https://llvm.org/docs/AdvancedBuilds.html#bootstrap-builds&quot;&gt;&lt;code&gt;clang&lt;/code&gt;&lt;/a&gt; doesn&#x27;t usually involving building their standard libraries from source, but instead will link against a pre-built standard library across all bootstrap stages. Typically, this specified standard library is the system standard library.&lt;sup class&#x3D;&quot;footnote-reference&quot; id&#x3D;&quot;fr-adapted-1&quot;&gt;&lt;a href&#x3D;&quot;#fn-adapted&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The Rust toolchain as a whole, both currently and after this change, supports being built with just two minor versions of Rust: the previous version and its own version. For example, Rust 1.85.1 requires one of 1.84.0, 1.85.0, or 1.85.1 toolchains to build its source code into the 1.85.1 distributed artifacts.&lt;/p&gt;
+&lt;p&gt;Rust has historically always built the majority of in-tree source code against the in-tree standard library&#x27;s API. This meant that the in-tree copy of the standard library had to support being built with both the previous release (e.g., 1.84) and the new release (e.g., 1.85), requiring extensive &lt;code&gt;cfg(bootstrap)&lt;/code&gt; annotations to be compatible with the unstable API of the compiler (primarily changes in intrinsics and lang items).&lt;/p&gt;
+&lt;p&gt;The choice to require std to be built with two different compiler toolchains is largely historical. We don&#x27;t have specific rationale available, but expect it to have made more sense when the standard library API was rapidly evolving and the compiler was unable to use crates.io dependencies for functionality.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;terminology&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#terminology&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Terminology&lt;/h2&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/./naive-bootstrap-stage.svg&quot; alt&#x3D;&quot;Naive bootstrap stage&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Let us call these &lt;em&gt;intra&lt;/em&gt;-stage steps of stage &lt;code&gt;N - 1&lt;/code&gt; compiler building stage &lt;code&gt;N - 1&lt;/code&gt; standard library a &lt;strong&gt;bootstrap sequence&lt;/strong&gt;, i.e. the sequence of intra-stage steps involved in producing stage &lt;code&gt;N - 1&lt;/code&gt; artifacts required to build the stage &lt;code&gt;N&lt;/code&gt; compiler.&lt;/p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/./naive-bootstrap-stage-bootstrap-sequence.svg&quot; alt&#x3D;&quot;Bootstrap sequence&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;We must also have a base case, a starting compiler, to build newer compilers with. Indeed, the &lt;em&gt;initial&lt;/em&gt; compiler is also called the &lt;em&gt;stage 0 compiler&lt;/em&gt;. The &lt;em&gt;initial&lt;/em&gt; bootstrap stage is called &lt;em&gt;stage 0&lt;/em&gt;.&lt;/p&gt;
+&lt;h1 id&#x3D;&quot;motivation&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#motivation&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Motivation&lt;/h1&gt;
+&lt;p&gt;But the naive model we presented above isn&#x27;t complete.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; has elected a design choice where the compiler, &lt;code&gt;rustc&lt;/code&gt;, and the standard library (&quot;std&quot;) are tightly coupled. &lt;em&gt;Intrinsics&lt;/em&gt; and &lt;em&gt;lang items&lt;/em&gt; form a broad interface between the compiler and the standard library. When intrinsics or lang items are modified, both sides need to be adjusted.&lt;/p&gt;
+&lt;p&gt;Currently, the standard library must support being built with two different compilers, the in-tree compiler and the initial stage 0 compiler&lt;sup class&#x3D;&quot;footnote-reference&quot; id&#x3D;&quot;fr-initial-compiler-1&quot;&gt;&lt;a href&#x3D;&quot;#fn-initial-compiler&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. All such changes to intrinsics and lang items thus need to use &lt;code&gt;cfg(bootstrap)&lt;/code&gt; to gate code that can be built by the in-tree compiler vs the stage 0 compiler. This causes a lot of churn for contributors wanting to introduce, modify or remove intrinsics and lang items (particularly when creating new releases).&lt;/p&gt;
+&lt;p&gt;The &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/119899&quot;&gt;stage 0 bootstrap sequence redesign&lt;/a&gt; aims to mitigate such churn and implementation complexity in the standard library by having the standard library only support &lt;em&gt;one&lt;/em&gt; version of the compiler.&lt;/p&gt;
+&lt;p&gt;To better understand this redesign, we will:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/#current-model&quot;&gt;Explain how the current stage 0 bootstrapping sequence works&lt;/a&gt;, and&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/#new-model&quot;&gt;Explain how the new stage 0 bootstrapping sequence works after the redesign&lt;/a&gt;, and&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/#better&quot;&gt;Explain the benefits of the redesigned stage 0 bootstrapping sequence&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id&#x3D;&quot;current-model&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#current-model&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+The current stage 0 bootstrap sequence&lt;/h1&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/./stage0-current.svg&quot; alt&#x3D;&quot;Current stage 0 bootstrap sequence&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Currently, &lt;a href&#x3D;&quot;https://rustc-dev-guide.rust-lang.org/building/bootstrapping/intro.html&quot;&gt;bootstrap&lt;/a&gt; downloads a pre-built beta rustc as the initial compiler (stage 0 rustc).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To produce a stage 1 rustc, we need to produce a stage 0 std. This stage 0 std is built from in-tree standard library sources with &lt;code&gt;cfg(bootstrap)&lt;/code&gt; active.&lt;/li&gt;
+&lt;li&gt;To produce a stage 2 rustc, we need to produce a stage 1 std. However, this is where things get weird. The stage 1 std is built from the &lt;em&gt;same&lt;/em&gt; in-tree standard library sources (but with &lt;code&gt;cfg(bootstrap)&lt;/code&gt; inactive). This is what we meant by &quot;the standard library has to support being buildable by two compiler versions.&quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id&#x3D;&quot;new-model&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#new-model&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+The redesigned stage 0 bootstrap sequence&lt;/h1&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/05/29/redesigning-the-initial-bootstrap-sequence/./stage0-next.svg&quot; alt&#x3D;&quot;Redesigned stage 0 bootstrap sequence&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;In the &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/119899&quot;&gt;redesigned stage 0 bootstrapping sequence&lt;/a&gt; we instead download &lt;em&gt;both&lt;/em&gt; the pre-built beta rustc as the stage 0 compiler, and the pre-built beta std as the stage 0 std, &lt;em&gt;instead&lt;/em&gt; of building stage 0 std from in-tree sources.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When producing a stage 1 rustc, we already have the stage 0 std (as it is the pre-built std).&lt;/li&gt;
+&lt;li&gt;When producing a stage 2 rustc, the stage 1 std is then the std built from in-tree std sources with the stage 1 rustc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id&#x3D;&quot;better&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#better&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Why is the redesigned stage 0 bootstrap sequence better?&lt;/h1&gt;
+&lt;p&gt;There are several benefits of the redesigned stage 0 bootstrap sequence:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We no longer have to use &lt;code&gt;cfg(bootstrap)&lt;/code&gt; in the standard library sources for intrinsics and lang items to distinguish when being built by the beta rustc vs the in-tree rustc, because the standard library now only has to be buildable by exactly one compiler version (the current stage rustc).&lt;/li&gt;
+&lt;li&gt;Rebasing no longer has to rebuild everything. As the standard library is now built &lt;em&gt;after&lt;/em&gt; the compiler instead of before, all dependencies and compiler crates that are unmodified can be cached when switching &lt;code&gt;git&lt;/code&gt; branches. It&#x27;s only necessary to rebuild everything after bootstrap bumps every 6 weeks as part of the release cycle.&lt;/li&gt;
+&lt;li&gt;Modifying the standard library no longer has to rebuild everything. After the redesign, it is now possible to add documentation comments to functions in the standard library without having to rebuild the compiler and then also rebuild std a second time. &lt;code&gt;--keep-stage-std&#x3D;0&lt;/code&gt; is no longer needed.&lt;/li&gt;
+&lt;li&gt;It aligns better with how other rust programs are built. We no longer have a &quot;strange&quot; setup where the stage 1 compiler was built from a &lt;em&gt;beta&lt;/em&gt; rustc with an &lt;em&gt;in-tree&lt;/em&gt; std. Now, the stage 1 compiler is built from a beta rustc and a beta std.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id&#x3D;&quot;in-terms-of-bootstrap-invocations-and-bootstrap-config-what-does-this-redesign-mean&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#in-terms-of-bootstrap-invocations-and-bootstrap-config-what-does-this-redesign-mean&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+In terms of bootstrap invocations and bootstrap config, what does this redesign mean?&lt;/h1&gt;
+&lt;p&gt;The minimum stage to check, build and test the standard library is now stage 1. &lt;code&gt;./x {check,build,test} library --stage&#x3D;0&lt;/code&gt; are now no-ops; switch to &lt;code&gt;--stage 1&lt;/code&gt; instead. &lt;code&gt;--keep-stage-std&#x3D;0&lt;/code&gt; is a no-op.&lt;/p&gt;
+&lt;p&gt;For &lt;code&gt;profile &#x3D; &quot;library&quot;&lt;/code&gt; users, like aforementioned, the default check, build, and test stage are now bumped to 1. &lt;code&gt;download-rustc &#x3D; &quot;if-unchanged&quot;&lt;/code&gt; is enabled by default, which downloads a pre-built CI rustc instead of building the compiler if there are no compiler changes, allowing you to build the standard library without building the compiler.&lt;/p&gt;
+&lt;h1 id&#x3D;&quot;what-does-this-mean-for-contributors-working-on-the-standard-library-and-the-compiler&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#what-does-this-mean-for-contributors-working-on-the-standard-library-and-the-compiler&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+What does this mean for contributors working on the standard library and the compiler?&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Contributors will now no longer need to use &lt;code&gt;cfg(bootstrap)&lt;/code&gt; for intrinsics and lang items.&lt;/li&gt;
+&lt;li&gt;Contributors may (rarely) need to use &lt;code&gt;cfg(bootstrap)&lt;/code&gt; in compiler code if they wish to experiment with unstable library features &lt;sup class&#x3D;&quot;footnote-reference&quot; id&#x3D;&quot;fr-dogfood-unstable-lib-features-1&quot;&gt;&lt;a href&#x3D;&quot;#fn-dogfood-unstable-lib-features&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id&#x3D;&quot;faqs&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#faqs&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Frequently asked questions (FAQs)&lt;/h1&gt;
+&lt;h2 id&#x3D;&quot;faqs-shift-cfg-bootstrap&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#faqs-shift-cfg-bootstrap&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Doesn&#x27;t this just shift &lt;code&gt;cfg(bootstrap)&lt;/code&gt; from library code to compiler code?&lt;/h2&gt;
+&lt;p&gt;Not quite. &lt;code&gt;cfg(bootstrap)&lt;/code&gt; usage in standard library code for using new intrinsics / lang items (as in the current bootstrap sequence) is much more common than potential &lt;code&gt;cfg(bootstrap)&lt;/code&gt; usage in compiler code for experimenting with unstable library features (as in the redesigned bootstrap sequence). This is because the standard library must be changed for new compiler-provided lang items and intrinsics, but the compiler does not (need to) depend on recently added standard library APIs.&lt;/p&gt;
+&lt;p&gt;Additionally, the compiler only needs to add &lt;code&gt;cfg(bootstrap)&lt;/code&gt; for anything in the standard library that has changed its unstable API and which is used in the compiler.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Example: Implementing a trait solving feature which requires adding core lang items&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This will involve adding a new lang item in the compiler (e.g. &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/blob/5af801b687e6e8b860ae970e725c8b9a3820d0ce/compiler/rustc_hir/src/lang_items.rs#L165&quot;&gt;&lt;code&gt;compiler/rustc_hir/src/lang_items.rs&lt;/code&gt;&lt;/a&gt;) and the standard library. Prior to the redesign, the usage of the lang item in the standard library requires &lt;code&gt;cfg(not(bootstrap))&lt;/code&gt; since the beta compiler does not know about the new lang item. Recall that the standard library has to support being built by both the beta compiler and the in-tree compiler! After the redesign, &lt;code&gt;cfg(not(bootstrap))&lt;/code&gt; usage of the lang item in the standard library is not needed since the standard library is only buildable by the in-tree compiler that adds the new lang item.&lt;/p&gt;
+&lt;p&gt;A stage 2 compiler is &lt;strong&gt;not&lt;/strong&gt; required to test the new feature, as the stage 1 library using the lang item is built by the stage 1 compiler, which is the compiler where the new lang item is added!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id&#x3D;&quot;will-this-affect-distribution-packagers&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#will-this-affect-distribution-packagers&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Will this affect distribution packagers?&lt;/h2&gt;
+&lt;p&gt;No, this change will not have observable changes for distribution packagers. Distribution packagers will still be able to build e.g. 1.85.0 distribution artifacts with a 1.84.0, 1.84.1 or 1.85.0 toolchain.&lt;/p&gt;
+&lt;h1 id&#x3D;&quot;questions-feedback-bugs&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#questions-feedback-bugs&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Questions, feedback, bugs?&lt;/h1&gt;
+&lt;p&gt;You can leave a comment in the &lt;a href&#x3D;&quot;https://rust-lang.zulipchat.com/#narrow/channel/326414-t-infra.2Fbootstrap/topic/Stage.200.20std.20redesign.20support.20thread/with/515096924&quot;&gt;zulip support thread for the initial bootstrap sequence redesign effort&lt;/a&gt;&lt;/p&gt;
+&lt;footer class&#x3D;&quot;footnotes&quot;&gt;
+&lt;ol class&#x3D;&quot;footnotes-list&quot;&gt;
+&lt;li id&#x3D;&quot;fn-adapted&quot;&gt;
+&lt;p&gt;Much of this is adapted from jyn&#x27;s excellent blog post &lt;a href&#x3D;&quot;https://jyn.dev/bootstrapping-rust-in-2023/&quot;&gt;&lt;em&gt;Why is Rust&#x27;s build system uniquely hard to use?&lt;/em&gt;&lt;/a&gt;. &lt;a href&#x3D;&quot;#fr-adapted-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id&#x3D;&quot;fn-initial-compiler&quot;&gt;
+&lt;p&gt;For the vast majority of contributors, the stage 0 &quot;initial&quot; compiler is going to be the beta compiler. However, it is possible to override the initial compiler, such as when further optimizing a compiler through PGO/BOLT. In this blog post, we make a simplifying assumption that the stage 0 compiler is the beta compiler, even though this is not universally true. &lt;a href&#x3D;&quot;#fr-initial-compiler-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id&#x3D;&quot;fn-dogfood-unstable-lib-features&quot;&gt;
+&lt;p&gt;Newly added unstable library feature may need to wait until a beta bump before it is usable by the compiler. &lt;a href&#x3D;&quot;#fr-dogfood-unstable-lib-features-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/footer&gt;
+</content>
+
+        <author>
+            <name>Jieyou Xu</name>
+        </author>
+    </entry>
+    <entry>
+        <title>April 2025 Project Director Update</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/04/22/project-director-update/" type="text/html" title="April 2025 Project Director Update" />
+        <published>2025-04-22T00:00:00+00:00</published>
+        <updated>2025-04-22T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/04/22/project-director-update/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/04/22/project-director-update/">&lt;p&gt;This is the fifth blog post in &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2024/12/17/project-director-update.html&quot;&gt;the series started December
+2024&lt;/a&gt; where us Rust
+Foundation Project Directors will be sharing the highlights from last month’s Rust Foundation Board
+meeting. You’ll find the &lt;a href&#x3D;&quot;https://rustfoundation.org/resource/march-2025-board-meeting/&quot;&gt;full March 2025
+minutes&lt;/a&gt; on the Rust Foundation’s
+site!&lt;/p&gt;
+&lt;p&gt;Highlights from the March meeting include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The 2025 Foundation budget is in good shape, but Bec and other Foundation staff are working on
+ensuring the Foundation can continue funding efforts similarly in 2026 amidst the economic
+uncertainty much of the world is also facing right now. The Foundation is always looking for more
+members; if you’re reading this and the company you work for uses Rust and isn’t yet a member,
+&lt;a href&#x3D;&quot;https://rustfoundation.org/get-involved/&quot;&gt;please reach out&lt;/a&gt;!&lt;/li&gt;
+&lt;li&gt;Jon Bauman attended the ISO C++ meeting as part of &lt;a href&#x3D;&quot;https://rustfoundation.org/media/welcoming-rust-c-interoperability-engineer-jon-bauman-to-the-rust-foundation-team/&quot;&gt;his work on the C++ interoperability
+initiative&lt;/a&gt;, and as a result, some C++ committee members will be attending &lt;a href&#x3D;&quot;https://rustweek.org/&quot;&gt;Rust
+Week&lt;/a&gt; in May to continue the collaboration!&lt;/li&gt;
+&lt;li&gt;Speaking of Rust Week, the Foundation has awarded around 30 travel grants for Rust Project
+members to attend. Thank you for this support!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As always, if you have any comments, questions, or suggestions, please
+email all of the project directors via project-directors at rust-lang.org or join us in &lt;a href&#x3D;&quot;https://rust-lang.zulipchat.com/#narrow/channel/335408-foundation&quot;&gt;the
+#foundation channel on the Rust Zulip&lt;/a&gt;.&lt;/p&gt;
+</content>
+
+        <author>
+            <name>Carol Nichols</name>
+        </author>
+    </entry>
+    <entry>
+        <title>This Month in Our Test Infra: March 2025 issue</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/04/13/test-infra-mar-2025/" type="text/html" title="This Month in Our Test Infra: March 2025 issue" />
+        <published>2025-04-13T00:00:00+00:00</published>
+        <updated>2025-04-13T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/04/13/test-infra-mar-2025/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/04/13/test-infra-mar-2025/">&lt;h1 id&#x3D;&quot;this-month-in-our-test-infra-march-2025-issue&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#this-month-in-our-test-infra-march-2025-issue&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+This Month in Our Test Infra: March 2025 issue&lt;/h1&gt;
+&lt;!-- time period: 2025-03-11 through 2025-04-13 --&gt;
+&lt;p&gt;This is a quick summary of the changes in the test infrastructure for the &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust&quot;&gt;rust-lang/rust&lt;/a&gt; repository&lt;sup class&#x3D;&quot;footnote-reference&quot; id&#x3D;&quot;fr-scope-1&quot;&gt;&lt;a href&#x3D;&quot;#fn-scope&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
+between &lt;strong&gt;2025-03-11&lt;/strong&gt; and &lt;strong&gt;2025-04-13&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;During this period, there are some significant changes to &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt; and &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/bootstrap&quot;&gt;bootstrap&lt;/a&gt; that contributors should be aware of.&lt;/p&gt;
+&lt;p&gt;As usual, if you encounter bugs or UX issues when using our test infrastructure, please &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/issues/new&quot;&gt;file an issue&lt;/a&gt;. Bugs and papercuts can&#x27;t be fixed if we don&#x27;t know about them!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thanks to everyone who contributed to our test infra!&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;highlights&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#highlights&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Highlights&lt;/h2&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-supports-matching-diagnostics-on-lines-below&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-supports-matching-diagnostics-on-lines-below&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now supports matching diagnostics on lines below&lt;/h3&gt;
+&lt;p&gt;UI error annotations previously could match against diagnostics emitted for previous lines (&lt;code&gt;//~^&lt;/code&gt;) or same line (&lt;code&gt;//~&lt;/code&gt;), but couldn&#x27;t express matching against diagnostics emitted for subsequent lines. Following &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139100&quot;&gt;#139100&lt;/a&gt;, test writers can now use &lt;code&gt;//~v&lt;/code&gt; to match against diagnostics emitted for subsequent lines. This is particularly useful for e.g. parser tests where the test file may be exercising lexer/parser diagnostics and the test file itself is not syntactically valid (so can&#x27;t use comments &lt;em&gt;afterwards&lt;/em&gt; to match against &lt;em&gt;previous&lt;/em&gt; lines).&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;rs&quot; class&#x3D;&quot;language-rs z-code&quot;&gt;&lt;code class&#x3D;&quot;language-rs&quot; data-lang&#x3D;&quot;rs&quot;&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt; tests/ui/parser/issues/issue-103451.rs
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-struct z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-storage z-type z-struct z-rust&quot;&gt;struct&lt;/span&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-struct z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-entity z-name z-struct z-rust&quot;&gt;R&lt;/span&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-struct z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-begin z-rust&quot;&gt;{&lt;/span&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-end z-rust&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;~vv ERROR this file contains an unclosed delimiter
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-struct z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-storage z-type z-struct z-rust&quot;&gt;struct&lt;/span&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-struct z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-entity z-name z-struct z-rust&quot;&gt;S&lt;/span&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-struct z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-begin z-rust&quot;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-struct z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;    &lt;span class&#x3D;&quot;z-variable z-other z-member z-rust&quot;&gt;x&lt;/span&gt;&lt;span class&#x3D;&quot;z-punctuation z-separator z-type z-rust&quot;&gt;:&lt;/span&gt; [&lt;span class&#x3D;&quot;z-storage z-type z-rust&quot;&gt;u8&lt;/span&gt;; R
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-supports-precise-and-exhaustive-matching-on-diagnostics-without-line-information-associated-with-the-main-test-file&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-supports-precise-and-exhaustive-matching-on-diagnostics-without-line-information-associated-with-the-main-test-file&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now supports precise and exhaustive matching on diagnostics without line information associated with the main test file&lt;/h3&gt;
+&lt;p&gt;Previously, test writers had to resort to &lt;code&gt;//@ error-pattern&lt;/code&gt; to match against diagnostics which do not have associated line information in the main test file. Now, test writers may use &lt;code&gt;//~? DIAGNOSTIC_KIND diagnostic_message&lt;/code&gt; to match against a diagnostic with diagnostic kind &lt;code&gt;DIAGNOSTIC_KIND&lt;/code&gt; (e.g. &lt;code&gt;ERROR&lt;/code&gt; or &lt;code&gt;HELP&lt;/code&gt;) with message &lt;code&gt;diagnostic_message&lt;/code&gt;. See &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138865&quot;&gt;compiletest: Support matching on diagnostics without a span #138865&lt;/a&gt;. &lt;code&gt;//~?&lt;/code&gt; may appear on any line of the test, but are conventionally placed at the end.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;rs&quot; class&#x3D;&quot;language-rs z-code&quot;&gt;&lt;code class&#x3D;&quot;language-rs&quot; data-lang&#x3D;&quot;rs&quot;&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt; tests/ui/invalid-module-declaration/invalid-module-declaration.rs
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-module z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-storage z-type z-module z-rust&quot;&gt;mod&lt;/span&gt; &lt;span class&#x3D;&quot;z-entity z-name z-module z-rust&quot;&gt;auxiliary&lt;/span&gt; &lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-begin z-rust&quot;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-module z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;    &lt;span class&#x3D;&quot;z-meta z-module z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-storage z-type z-module z-rust&quot;&gt;mod&lt;/span&gt; &lt;span class&#x3D;&quot;z-entity z-name z-module z-rust&quot;&gt;foo&lt;/span&gt;&lt;span class&#x3D;&quot;z-punctuation z-terminator z-rust&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-module z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-end z-rust&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-storage z-type z-function z-rust&quot;&gt;fn&lt;/span&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-entity z-name z-function z-rust&quot;&gt;main&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-parameters z-begin z-rust&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-parameters z-end z-rust&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-begin z-rust&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-end z-rust&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;~? ERROR file not found for module &#x60;baz&#x60;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Compared to &lt;code&gt;//@ error-pattern&lt;/code&gt;, &lt;code&gt;//~?&lt;/code&gt; error annotations are &lt;strong&gt;precise&lt;/strong&gt; and &lt;strong&gt;exhaustive&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Precise&lt;/strong&gt;: &lt;code&gt;//~?&lt;/code&gt; annotations will not match against diagnostics that do have line information.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Exhaustive&lt;/strong&gt;: if multiple diagnostics lacking line information in the main test file are present, then all of them need to be annotated with &lt;code&gt;//~?&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Combined, &lt;code&gt;//~?&lt;/code&gt; helps to prevent accidentally blessing away diagnostics that don&#x27;t have associated line information on the main test file.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;//@ error-pattern&lt;/code&gt; are still useful for e.g. runtime error messages that do not have specific spans, or compile time messages that require imprecise matching due to multiline platform-specific diagnostics. &lt;code&gt;//~?&lt;/code&gt; should be preferred where suitable.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;notable-changes&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#notable-changes&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Notable changes&lt;/h2&gt;
+&lt;p&gt;This section is intended to be like &quot;compatibility notes&quot; but for human test writers.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;in-preparation-of-stage-0-std-redesign-it-is-now-possible-to-use-stage-0-libtest-for-compiletest&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#in-preparation-of-stage-0-std-redesign-it-is-now-possible-to-use-stage-0-libtest-for-compiletest&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+In preparation of stage 0 std redesign, it is now possible to use stage 0 libtest for &lt;code&gt;compiletest&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/119899&quot;&gt;stage 0 std redesign&lt;/a&gt; means that building the library tree would require a stage 1 compiler. &lt;code&gt;compiletest&lt;/code&gt; is somewhat strange in that it currently depends on in-tree libtest -- meaning that with the stage 0 std redesign, changes to the compiler tree would necessitate rebuilding &lt;code&gt;compiletest&lt;/code&gt;, causing more friction for compiler development cycle. To mitigate this, bootstrap &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139386&quot;&gt;now supports a new configuration option to switch &lt;code&gt;compiletest&lt;/code&gt; to depend on stage 0 libtest instead of in-tree libtest&lt;/a&gt;, so that changes to &lt;code&gt;compiler/&lt;/code&gt; tree would not cause &lt;code&gt;compiletest&lt;/code&gt; to rebuild.&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;toml&quot; class&#x3D;&quot;language-toml z-code&quot;&gt;&lt;code class&#x3D;&quot;language-toml&quot; data-lang&#x3D;&quot;toml&quot;&gt;&lt;span class&#x3D;&quot;z-source z-toml&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-table z-begin z-toml&quot;&gt;[&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-tag z-table z-toml&quot;&gt;&lt;span class&#x3D;&quot;z-entity z-name z-table z-toml&quot;&gt;build&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-table z-end z-toml&quot;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-toml&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-tag z-key z-toml&quot;&gt;&lt;span class&#x3D;&quot;z-entity z-name z-tag z-toml&quot;&gt;compiletest-use-stage0-libtest&lt;/span&gt;&lt;/span&gt; &lt;span class&#x3D;&quot;z-punctuation z-definition z-key-value z-toml&quot;&gt;&#x3D;&lt;/span&gt; &lt;span class&#x3D;&quot;z-constant z-language z-toml&quot;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that as a trade-off, we do check this force-stage0-libtest configuration in PR CI. This means that there are possible windows of time where libtest may be modified before bumping stage 0 compiler, which may require the PR author modifying libtest to add &lt;code&gt;cfg(bootstrap)&lt;/code&gt;/&lt;code&gt;cfg(not(bootstrap))&lt;/code&gt; to compiletest bits depending libtest programmatic API as suitable. This is done under the assumption that libtest programmatic API changes are comparatively much less frequent. If this proves to be a significant burden, the bootstrap team would be open to revisiting this scheme.&lt;/p&gt;
+&lt;p&gt;Note in over the long term, we&#x27;d like to migrate away from depending on in-tree libtest (both to render this hack unnecessary and to have more control over test execution).&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;bootstrap-s-config-toml-has-been-renamed-bootstrap-toml&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#bootstrap-s-config-toml-has-been-renamed-bootstrap-toml&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+bootstrap&#x27;s &lt;code&gt;config.toml&lt;/code&gt; has been renamed &lt;code&gt;bootstrap.toml&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Previously, &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/bootstrap&quot;&gt;bootstrap&lt;/a&gt; used &lt;code&gt;config.toml&lt;/code&gt; as the configuration file under checkout root. This is potentially confusing since Cargo also uses &lt;code&gt;config.toml&lt;/code&gt; as its configuration file name. Now, &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/137081&quot;&gt;bootstrap instead uses &lt;code&gt;bootstrap.toml&lt;/code&gt; as the configuration file name&lt;/a&gt;. The example config file &lt;code&gt;config.example.toml&lt;/code&gt; has also been renamed to &lt;code&gt;bootstrap.example.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;config.toml&lt;/code&gt; is temporarily accepted as fallback config file to mitigate migration churn across different checkouts, but will be phased out in the future.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-enforces-stricter-parsing-of-diagnostics-kinds&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-enforces-stricter-parsing-of-diagnostics-kinds&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now enforces stricter parsing of diagnostics kinds&lt;/h3&gt;
+&lt;p&gt;Previously, &lt;code&gt;compiletest&lt;/code&gt; was very lax in the casing of diagnostic kinds (i.e. the &lt;code&gt;ERROR&lt;/code&gt;/&lt;code&gt;HELP&lt;/code&gt; portion of error annotations). This mean that annotations such as&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;rs&quot; class&#x3D;&quot;language-rs z-code&quot;&gt;&lt;code class&#x3D;&quot;language-rs&quot; data-lang&#x3D;&quot;rs&quot;&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;~ Error xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;~ Error: xxx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;were also accepted compared to the more common &lt;code&gt;//~ ERROR&lt;/code&gt; or &lt;code&gt;//~ error&lt;/code&gt; forms.&lt;/p&gt;
+&lt;p&gt;Eventually, we would like to canonicalize the error annotations into one form. To make this transition less abrupt, as an intermediate step, compiletest will now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enforce that error annotation diagnostic kinds must either be full caps (e.g. &lt;code&gt;ERROR&lt;/code&gt;) or lowercase (e.g. &lt;code&gt;error&lt;/code&gt;). Mixed cases like &lt;code&gt;//~ Error&lt;/code&gt; will now be rejected.&lt;/li&gt;
+&lt;li&gt;Empty diagnostics (such as empty &lt;code&gt;//~ NOTE&lt;/code&gt;) will no longer be silently ignored. These indicate silly empty diagnostic notes emitted by rustc which should be fixed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-enforces-that-error-annotations-are-required-even-if-error-pattern-directives-are-used&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-enforces-that-error-annotations-are-required-even-if-error-pattern-directives-are-used&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now enforces that error annotations are required even if &lt;code&gt;//@ error-pattern&lt;/code&gt; directives are used&lt;/h3&gt;
+&lt;p&gt;Related to previous &lt;code&gt;//~?&lt;/code&gt; improvements, compiletest will now also &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139137&quot;&gt;check for error annotations (&lt;code&gt;//~&lt;/code&gt;) in tests that use &lt;code&gt;//@ error-pattern&lt;/code&gt; to minimize risk of accidentally blessing away diagnostics, including diagnostics without associated line information for the main test file.&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;exceptional&lt;/em&gt; cases, the test writer may opt out of the error annotation checks via &lt;code&gt;//@ compile-flags: --error-format&#x3D;human&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-allows-opting-in-to-non-exhaustive-matching-of-a-specific-diagnostic-kind-via-new-directive-dont-require-annotations-diagnostic-kind&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-allows-opting-in-to-non-exhaustive-matching-of-a-specific-diagnostic-kind-via-new-directive-dont-require-annotations-diagnostic-kind&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now allows opting in to non-exhaustive matching of a specific diagnostic kind via new directive &lt;code&gt;//@ dont-require-annotations: DIAGNOSTIC_KIND&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;compiletest&lt;/code&gt; now has a &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139489&quot;&gt;new directive &lt;code&gt;//@ dont-require-annotations: DIAGNOSTIC_KIND&lt;/code&gt;&lt;/a&gt; (where &lt;code&gt;DIAGNOSTIC_KIND&lt;/code&gt; is e.g. &lt;code&gt;ERROR&lt;/code&gt;/&lt;code&gt;HELP&lt;/code&gt;/&lt;code&gt;SUGGESTION&lt;/code&gt;) to allow opting into non-exhaustive matching for the specified &lt;code&gt;DIAGNOSTIC_KIND&lt;/code&gt;. This includes the &lt;code&gt;ERROR&lt;/code&gt; diagnostic kind, where it was not possible to opt-out of exhaustive matching previously.&lt;/p&gt;
+&lt;p&gt;This directive should be used with caution and sparingly.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;compiletest-no-longer-accepts-true-false-as-revision-names&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-no-longer-accepts-true-false-as-revision-names&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; no longer accepts &lt;code&gt;{true, false}&lt;/code&gt; as revision names&lt;/h3&gt;
+&lt;p&gt;In test suites that support revisions, previously &lt;code&gt;//@ revisions: true&lt;/code&gt; and &lt;code&gt;//@ revisions: false&lt;/code&gt; were accepted as revision names. However, this is confusing because they will be automatically registered as &lt;code&gt;--cfg&#x3D;{true,false}&lt;/code&gt; to &lt;code&gt;rustc&lt;/code&gt;, but the test writer would have to use &lt;code&gt;cfg(r#true)&lt;/code&gt; and &lt;code&gt;cfg(r#false)&lt;/code&gt; in the test. Hence, &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138692&quot;&gt;the &lt;code&gt;{true,false}&lt;/code&gt; revision names are no longer permitted by compiletest&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-supports-a-needs-crate-type-directive&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-supports-a-needs-crate-type-directive&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now supports a &lt;code&gt;//@ needs-crate-type&lt;/code&gt; directive&lt;/h3&gt;
+&lt;p&gt;Test writers can now use a &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139469&quot;&gt;&lt;code&gt;//@ needs-crate-type&lt;/code&gt; directive&lt;/a&gt; to guard test execution based on whether the target platform supports all of the required crate types.&lt;/p&gt;
+&lt;p&gt;The directive accepts a comma-delimited list of valid crate types that are accepted by the &lt;code&gt;rustc --crate-type&lt;/code&gt; flag. E.g. &lt;code&gt;//@ needs-crate-type: dylib, proc-macro&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;rs&quot; class&#x3D;&quot;language-rs z-code&quot;&gt;&lt;code class&#x3D;&quot;language-rs&quot; data-lang&#x3D;&quot;rs&quot;&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt; This test would be ignored on targets e.g. &#x60;wasm32-unknown-unknown&#x60; that
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt; do not (currently) support &#x60;dylib&#x60; crate type.
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;@ needs-crate-type: dylib
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;@ compile-flags: --crate-type&#x3D;dylib
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;
+&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-storage z-type z-function z-rust&quot;&gt;fn&lt;/span&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-entity z-name z-function z-rust&quot;&gt;foo&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-parameters z-begin z-rust&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-parameters z-end z-rust&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt; &lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-function z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-begin z-rust&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-meta z-block z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-section z-block z-end z-rust&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-trims-whitespace-from-the-env-var-name-passed-to-unset-exec-rustc-env-directives&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-trims-whitespace-from-the-env-var-name-passed-to-unset-exec-rustc-env-directives&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now trims whitespace from the env var name passed to &lt;code&gt;//@ {unset,}-{exec,rustc}-env&lt;/code&gt; directives&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;compiletest&lt;/code&gt; has a &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/issues/132990&quot;&gt;long-standing quirk&lt;/a&gt; where&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;rs&quot; class&#x3D;&quot;language-rs z-code&quot;&gt;&lt;code class&#x3D;&quot;language-rs&quot; data-lang&#x3D;&quot;rs&quot;&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;@ rustc-env: RUSTC_BOOTSTRAP&#x3D;1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;was not the same as&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;rs&quot; class&#x3D;&quot;language-rs z-code&quot;&gt;&lt;code class&#x3D;&quot;language-rs&quot; data-lang&#x3D;&quot;rs&quot;&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;@ rustc-env:RUSTC_BOOTSTRAP&#x3D;1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where the former is treated as &lt;code&gt;⌴RUSTC_BOOTSTRAP&lt;/code&gt;. The same was true for &lt;code&gt;//@ exec-env&lt;/code&gt;, and the &lt;code&gt;//@ unset-{exec,rustc}-env&lt;/code&gt; directives.&lt;/p&gt;
+&lt;p&gt;This has now been fixed. &lt;code&gt;compiletest&lt;/code&gt; will now &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139507&quot;&gt;trim whitespace from the env var name&lt;/a&gt;, so that the aforementioned forms are now equivalent:&lt;/p&gt;
+&lt;pre data-lang&#x3D;&quot;rs&quot; class&#x3D;&quot;language-rs z-code&quot;&gt;&lt;code class&#x3D;&quot;language-rs&quot; data-lang&#x3D;&quot;rs&quot;&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;@ rustc-env: RUSTC_BOOTSTRAP&#x3D;1
+&lt;/span&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;z-source z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-comment z-line z-double-slash z-rust&quot;&gt;&lt;span class&#x3D;&quot;z-punctuation z-definition z-comment z-rust&quot;&gt;//&lt;/span&gt;@ rustc-env:RUSTC_BOOTSTRAP&#x3D;1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;both correspond to env var name &lt;code&gt;RUSTC_BOOTSTRAP&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;compiletest-now-enforces-that-edition-directive-must-be-used-instead-of-compile-flags-edition-xxx&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-now-enforces-that-edition-directive-must-be-used-instead-of-compile-flags-edition-xxx&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; now enforces that &lt;code&gt;//@ edition&lt;/code&gt; directive must be used instead of &lt;code&gt;//@ compile-flags: --edition&#x3D;xxx&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;compiletest&lt;/code&gt; has an &lt;code&gt;--edition&lt;/code&gt; flag that permits changing the default edition that tests are run with. However, no test suites currently pass with that set to non-2015-edition, but in the future we would like to be possible to run the test suites across all editions to ensure we have good test coverage over all editions (subject to further design concerns).&lt;/p&gt;
+&lt;p&gt;To make this remotely possible, we first need to ensure &lt;code&gt;compiletest&lt;/code&gt;&#x27;s &lt;code&gt;--edition&lt;/code&gt; override flag functions. This means that now, &lt;code&gt;compiletest&lt;/code&gt; will reject rustc &lt;code&gt;--edition&lt;/code&gt; flags passed via &lt;code&gt;//@ compile-flags&lt;/code&gt; in favor of the &lt;code&gt;//@ edition&lt;/code&gt; directive, to ensure that &lt;code&gt;compiletest&lt;/code&gt; can override the edition of the test.&lt;/p&gt;
+&lt;p&gt;If the test author needs to exercise the behavior of the &lt;code&gt;--edition&lt;/code&gt; rustc flag &lt;em&gt;itself&lt;/em&gt;, a &lt;code&gt;run-make&lt;/code&gt; test should be used.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;upcoming-changes&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#upcoming-changes&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Upcoming changes&lt;/h2&gt;
+&lt;p&gt;The following changes have not merged yet, but will merge in the near future or we are actively working towards them.&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;compiletest-will-soon-also-treat-suggestion-error-annotations-as-viral&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#compiletest-will-soon-also-treat-suggestion-error-annotations-as-viral&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;compiletest&lt;/code&gt; will soon also treat &lt;code&gt;SUGGESTION&lt;/code&gt; error annotations as viral&lt;/h3&gt;
+&lt;p&gt;Previously, if the test writer specifies &lt;code&gt;//~ HELP&lt;/code&gt; or &lt;code&gt;//~ NOTE&lt;/code&gt;, then &lt;code&gt;compiletest&lt;/code&gt; treated them as &lt;em&gt;viral&lt;/em&gt; -- if one is specified, then all &lt;code&gt;HELP&lt;/code&gt;/&lt;code&gt;NOTE&lt;/code&gt; diagnostics of the same diagnostic kind must be exhaustively specified. For consistency and to be more strict in checking what diagnostics the compiler emits, we &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139618&quot;&gt;plan to make &lt;code&gt;//~ SUGGESTION&lt;/code&gt; annotations also viral&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This viral exhaustive-matching behavior can be opt-out through the newly introduced &lt;code&gt;//@ dont-require-annotations: SUGGESTION&lt;/code&gt; (see the &lt;em&gt;Notable changes&lt;/em&gt; section for the description of this new directive).&lt;/p&gt;
+&lt;h3 id&#x3D;&quot;run-make-tests-and-the-run-make-support-library-will-soon-cross-compile-for-target-platform-by-default&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#run-make-tests-and-the-run-make-support-library-will-soon-cross-compile-for-target-platform-by-default&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+&lt;code&gt;run-make&lt;/code&gt; tests (and the &lt;code&gt;run-make-support&lt;/code&gt; library) will soon cross-compile for target platform by default&lt;/h3&gt;
+&lt;p&gt;We&#x27;re working on fixing the &lt;code&gt;run-make&lt;/code&gt; test suite and the &lt;code&gt;run-make-support&lt;/code&gt; library to properly test cross-compile target platform by default. Test authors would still be able to use &lt;code&gt;//@ ignore-cross-compile&lt;/code&gt; if the test can only work on host.&lt;/p&gt;
+&lt;p&gt;See &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138066&quot;&gt;https://github.com/rust-lang/rust/pull/138066&lt;/a&gt; and related work-in-progress efforts.&lt;/p&gt;
+&lt;h2 id&#x3D;&quot;pr-listing&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#pr-listing&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+PR listing&lt;/h2&gt;
+&lt;h3 id&#x3D;&quot;improvements&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#improvements&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Improvements&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/bootstrap&quot;&gt;bootstrap&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/137081&quot;&gt;Change &lt;code&gt;config.toml&lt;/code&gt; to &lt;code&gt;bootstrap.toml&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/bootstrap&quot;&gt;bootstrap&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139386&quot;&gt;Make it possible to use stage0 libtest on &lt;code&gt;compiletest&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/ci/citool&quot;&gt;citool&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138930&quot;&gt;Add bootstrap step diff to CI job analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/ci/citool&quot;&gt;citool&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139481&quot;&gt;Add job summary links to post-merge report&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/ci/citool&quot;&gt;citool&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138454&quot;&gt;Improve post-merge workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138858&quot;&gt;Say which test failed the &lt;code&gt;COMPILETEST_REQUIRE_ALL_LLVM_COMPONENTS&lt;/code&gt; assertion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138865&quot;&gt;Support matching on diagnostics without a span&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138999&quot;&gt;Report compiletest pass mode if forced&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139100&quot;&gt;Support matching diagnostics on lines below&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139137&quot;&gt;Require &lt;code&gt;//~&lt;/code&gt; annotations even if &lt;code&gt;error-pattern&lt;/code&gt; is specified&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139469&quot;&gt;Introduce a &lt;code&gt;//@ needs-crate-type&lt;/code&gt; &lt;code&gt;compiletest&lt;/code&gt; directive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139485&quot;&gt;Stricter parsing for diagnostic kinds&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139489&quot;&gt;Add directive &lt;code&gt;//@ dont-require-annotations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id&#x3D;&quot;fixes&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#fixes&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Fixes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/bootstrap&quot;&gt;bootstrap&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139347&quot;&gt;Only build &lt;code&gt;rust_test_helpers&lt;/code&gt; for &lt;code&gt;{incremental,ui}&lt;/code&gt; test suites&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138371&quot;&gt;Update &lt;code&gt;compiletest&lt;/code&gt;&#x27;s &lt;code&gt;has_asm_support&lt;/code&gt; to match &lt;code&gt;rustc&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138441&quot;&gt;Update error message&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138692&quot;&gt;Reject &lt;code&gt;{true,false}&lt;/code&gt; as revision names&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/04/13/test-infra-mar-2025/github.com/rust-lang/rust/pull/139507&quot;&gt;Trim whitespace from environment variable names&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139578&quot;&gt;Fix breakage when running &lt;code&gt;compiletest&lt;/code&gt; with &lt;code&gt;--test-args&#x3D;--edition&#x3D;2015&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/tests/run-make&quot;&gt;run-make&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/138652&quot;&gt;Reintroduce remote-test support in &lt;code&gt;run-make&lt;/code&gt; tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/run-make-support&quot;&gt;run-make-support&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139242&quot;&gt;Calculate artifact names for target platform, not host platform&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id&#x3D;&quot;cleanups&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#cleanups&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Cleanups&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139317&quot;&gt;Encapsulate all of the code that touches libtest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139520&quot;&gt;Sort deps and drop dep on &lt;code&gt;anyhow&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139528&quot;&gt;Remove the &lt;code&gt;--logfile&lt;/code&gt; flag&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139606&quot;&gt;Update compiletest to Edition 2024&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/pull/139609&quot;&gt;Don&#x27;t use stringly paths for &lt;code&gt;compose_and_run&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id&#x3D;&quot;documentation-updates&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#documentation-updates&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Documentation updates&lt;/h3&gt;
+&lt;p&gt;Note that since &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt; became a josh subtree in &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust&quot;&gt;rust-lang/rust&lt;/a&gt;, some doc updates are made alongside the &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust&quot;&gt;rust-lang/rust&lt;/a&gt; PR themselves (which are not redundantly listed here).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2314&quot;&gt;Test directive can appear anywhere in the file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2315&quot;&gt;Add some links about the &lt;code&gt;rustdoc-gui&lt;/code&gt; test suite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2299&quot;&gt;Slightly reorganize ecosystem tests, stub out codegen backend test pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2295&quot;&gt;Add new section on the &lt;code&gt;rustdoc&lt;/code&gt; test suite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2294&quot;&gt;Add Fuchsia ping group page and mention Fuchsia and RfL ping groups in integration test pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2025/04/13/test-infra-mar-2025/github.com/rust-lang/rustc-dev-guide/pull/2288&quot;&gt;Mention that &lt;code&gt;//@ known-bug&lt;/code&gt; test directive takes arguments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2287&quot;&gt;&quot;Running tests&quot; chapter cleaning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2284&quot;&gt;Remove the doc for &lt;code&gt;no-system-llvm&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide&quot;&gt;rustc-dev-guide&lt;/a&gt;: &lt;a href&#x3D;&quot;https://github.com/rust-lang/rustc-dev-guide/pull/2324&quot;&gt;Fix link to &lt;code&gt;rustc_*&lt;/code&gt; test attributes in &lt;code&gt;ui.md&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;footer class&#x3D;&quot;footnotes&quot;&gt;
+&lt;ol class&#x3D;&quot;footnotes-list&quot;&gt;
+&lt;li id&#x3D;&quot;fn-scope&quot;&gt;
+&lt;p&gt;The test infra here refers to the test harness &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/tools/compiletest&quot;&gt;compiletest&lt;/a&gt; and supporting components in our build system &lt;a href&#x3D;&quot;https://github.com/rust-lang/rust/tree/master/src/bootstrap&quot;&gt;bootstrap&lt;/a&gt;. This test infra is used mainly by rustc and rustdoc. Other tools like cargo, miri or rustfmt maintain their own test infra. &lt;a href&#x3D;&quot;#fr-scope-1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/footer&gt;
+</content>
+
+        <author>
+            <name>Jieyou Xu</name>
+        </author>
+    </entry>
+    <entry>
+        <title>March 2025 Project Director Update</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/04/03/project-director-update/" type="text/html" title="March 2025 Project Director Update" />
+        <published>2025-04-03T00:00:00+00:00</published>
+        <updated>2025-04-03T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/04/03/project-director-update/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/04/03/project-director-update/">&lt;p&gt;This is the fourth blog post in &lt;a href&#x3D;&quot;https://blog.rust-lang.org/inside-rust/2024/12/17/project-director-update.html&quot;&gt;the series started December
+2024&lt;/a&gt; where us Rust
+Foundation Project Directors will be sharing the highlights from last month’s Rust Foundation Board
+meeting. You’ll find the &lt;a href&#x3D;&quot;https://rustfoundation.org/resource/february-2025-board-meeting/&quot;&gt;full February 2025
+minutes&lt;/a&gt; on the Rust Foundation’s
+site!&lt;/p&gt;
+&lt;p&gt;Highlights from the February meeting include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It was Eli Gild’s first meeting; he’s the new Member Director for Google replacing Lars Bergstrom.&lt;/li&gt;
+&lt;li&gt;Paul Lenz, the Foundation’s Director of Finance &amp;amp; Funding, announced he’s planning to retire at
+the end of September. The Foundation is considering creating a slightly different role on the
+senior management team and will be getting feedback from project leadership before starting the
+recruitment process.&lt;/li&gt;
+&lt;li&gt;The Foundation presented the 2025 budget, which was a “business as usual” budget without any
+large changes from previous years. The board approved the budget.&lt;/li&gt;
+&lt;li&gt;Gracie announced the Foundation is planning on increasing its social media presence on Mastodon
+and Bluesky in the near future.&lt;/li&gt;
+&lt;li&gt;RustConf 2025’s location and dates were announced, and the RustConf team is looking at non-US
+venues for RustConf 2026.&lt;/li&gt;
+&lt;li&gt;Project Director Ryan Levick was elected Vice Chair of the Board. Congrats, Ryan!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As always, if you have any comments, questions, or suggestions, please
+email all of the project directors via project-directors at rust-lang.org or join us in &lt;a href&#x3D;&quot;https://rust-lang.zulipchat.com/#narrow/channel/335408-foundation&quot;&gt;the
+#foundation channel on the Rust Zulip&lt;/a&gt;.&lt;/p&gt;
+</content>
+
+        <author>
+            <name>Carol Nichols</name>
+        </author>
+    </entry>
+    <entry>
+        <title>Leadership Council March 2025 Representative Selections</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/03/26/leadership-council-repr-selection/" type="text/html" title="Leadership Council March 2025 Representative Selections" />
+        <published>2025-03-26T00:00:00+00:00</published>
+        <updated>2025-03-26T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/03/26/leadership-council-repr-selection/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/03/26/leadership-council-repr-selection/">&lt;p&gt;The March 2025 selections for &lt;a href&#x3D;&quot;https://www.rust-lang.org/governance/teams/leadership-council&quot;&gt;Leadership Council&lt;/a&gt; representatives have been finalized. The compiler team has chosen &lt;a href&#x3D;&quot;https://github.com/cuviper&quot;&gt;Josh Stone&lt;/a&gt; as their new representative. &lt;a href&#x3D;&quot;https://github.com/ehuss&quot;&gt;Eric Huss&lt;/a&gt; and &lt;a href&#x3D;&quot;https://github.com/jamesmunns&quot;&gt;James Munns&lt;/a&gt; will continue to represent &lt;a href&#x3D;&quot;https://www.rust-lang.org/governance/teams/dev-tools&quot;&gt;Devtools&lt;/a&gt; and &lt;a href&#x3D;&quot;https://forge.rust-lang.org/governance/council.html#the-launching-pad-top-level-team&quot;&gt;Launching Pad&lt;/a&gt; respectively.&lt;/p&gt;
+&lt;p&gt;We&#x27;d like to give our thanks to the outgoing representative &lt;a href&#x3D;&quot;https://github.com/eholk&quot;&gt;Eric Holk&lt;/a&gt; for his many substantial and valuable contributions since the foundation of the Council. Eric helped to establish some of the core values of the Council, including transparency and accessibility of Council members. He drove the initial Project Director elections, and also strongly supported using project resources to advance the project, such as through project grants and developing support staff.&lt;/p&gt;
+&lt;p&gt;Thanks to everyone who participated in the process! The next representative selections will be in September 2025 for the other half of the Council.&lt;/p&gt;
+</content>
+
+        <author>
+            <name>Eric Huss</name>
+        </author>
+    </entry>
+    <entry>
+        <title>Hiring for Rust program management</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/inside-rust/2025/03/18/hiring-for-program-management/" type="text/html" title="Hiring for Rust program management" />
+        <published>2025-03-18T00:00:00+00:00</published>
+        <updated>2025-03-18T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/inside-rust/2025/03/18/hiring-for-program-management/</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/inside-rust/2025/03/18/hiring-for-program-management/">&lt;h1 id&#x3D;&quot;hiring-for-rust-program-management&quot;&gt;&lt;a class&#x3D;&quot;anchor&quot; href&#x3D;&quot;#hiring-for-rust-program-management&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/a&gt;
+Hiring for Rust program management&lt;/h1&gt;
+&lt;p&gt;Within the Rust Project, we&#x27;ve recently been doing more explicit program management.  This work supports our efforts on &lt;a href&#x3D;&quot;https://doc.rust-lang.org/nightly/edition-guide/&quot;&gt;Editions&lt;/a&gt; and on &lt;a href&#x3D;&quot;https://rust-lang.github.io/rust-project-goals/&quot;&gt;Project Goals&lt;/a&gt;, and in particular, it was critical for the recent successful release of &lt;a href&#x3D;&quot;/2025/02/20/Rust-1.85.0/&quot;&gt;Rust 2024&lt;/a&gt;.  Better program management helps teams within the project better effect their priorities, and it helps ensure that contributors who are trying to get work done get the resources that they need.&lt;/p&gt;
+&lt;p&gt;We&#x27;ve seen a lot of value from this work, and we want to expand our capacity for it.  In support of that, we&#x27;re looking to hire one or more people to help in doing this work.  For details on the role and how to contact us about it, see this document:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https://hackmd.io/VGauVVEyTN2M7pS6d9YTEA&quot;&gt;Role: Rust program manager&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you know of someone who might be great for this, please encourage that person to reach out, and please reach out to us with your experiences in working with the person.&lt;/p&gt;
+</content>
+
+        <author>
+            <name>TC</name>
+        </author>
+    </entry>
+</feed>

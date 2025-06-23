@@ -1,8 +1,14 @@
-requests==2.31.0
+accelerate==0.30.1
+aiohttp==3.9.5
 beautifulsoup4==4.12.3
-glob2
-whoosh
-flask
-flask-cors
-transformers
-torch 
+Flask==3.0.3
+Flask-Cors==4.0.1
+python-dateutil==2.9.0
+redis==5.0.4
+requests==2.32.3
+torch==2.3.1
+transformers==4.41.2
+whoosh==2.7.2
+lxml==5.2.2
+
+# shutil is standard -> no need to add 

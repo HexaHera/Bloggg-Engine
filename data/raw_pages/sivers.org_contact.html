@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contact | Derek Sivers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/style2.css">
+</head>
+<body id="">
+<section id="masthead">
+<h1><a href="/" title="Derek Sivers">Derek Sivers</a></h1>
+</section>
+<div id="content">
+
+<h1>Contact</h1>
+
+<h2>First, who are you?</h2>
+<style>input#url {display: none}</style>
+<form action="/contact" method="post">
+<label for="name">your full name</label>
+<input type="text" name="name" id="name" autocomplete="name">
+<br>
+<label for="email">your email address</label>
+<input type="email" name="email" id="email" autocomplete="email">
+<br>
+<label for="sivers">prove you are human:<br>type MY last name (shown above)</label>
+<input type="text" id="sivers" name="sivers" required>
+<input id="url" type="url" name="url" autocomplete="off">
+<br>&nbsp;<br>
+<input type="submit" name="submit" value="OK - now what?">
+</form>
+
+
+</div>
+</body>
+</html>
