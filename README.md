@@ -13,6 +13,7 @@ The system works by crawling a list of seed URLs, discovering new pages, and the
 -   **Intelligent Ranking:** Results are ranked using the industry-standard Okapi BM25F algorithm, which intelligently scores documents based on term frequency and document length. Title matches are given a boost to prioritize relevance.
 -   **Scalable, Concurrent Crawling:** The architecture uses Redis as a message queue for URLs to be crawled. This allows multiple crawler processes to run concurrently—either on a single machine or distributed across several—dramatically speeding up the data collection process.
 -   **Highlighted Snippets:** The search results page displays contextual snippets from the article body with the search terms highlighted, showing exactly why a result is relevant.
+-   **Pagination and Result Count:** The search results page shows the total number of results and supports pagination, so you can easily browse through large result sets without being overwhelmed.
 
 ## Tech Stack
 
@@ -47,31 +48,18 @@ For other operating systems, please follow the official Redis installation guide
 Install the required Python libraries using pip:
 `pip install -r requirements.txt`
 
-### 4. Seed the Crawler
-Before you can start crawling, you need to provide an initial list of URLs.
-1.  Open the `seed_urls.txt` file.
-2.  Add a few high-quality blog URLs that you want to start with (one URL per line).
-3.  Run the seeder script to populate the Redis queue:
-    `python3 run_pipeline.py --seed-only`
+### 4. Run the Full Data Pipeline
+This single command will run all the necessary steps: seeding the crawler, crawling pages, classifying the results, and building the search index.
 
-### 5. Run the Data Pipeline
-This is a three-step process to crawl, classify, and index the content.
+1.  **Prepare Seeds:** Open the `seeds.txt` file and add the initial blog URLs you want to start crawling from (one URL per line).
 
--   **Step 1: Crawl the Web**
-    Run the crawler. You can run this command in multiple terminal windows to crawl in parallel and speed up the process.
-    `python3 search_engine/crawler.py`
-    Let this run for a while to collect a good amount of data. Press `CTRL+C` to stop the crawlers when you're done.
+2.  **Run the Pipeline:** Execute the main pipeline script. You can control how many pages to crawl with the `--max_pages` argument. For a quick first run, 100 pages is a good start.
+    `python3 run_pipeline.py --max_pages 100`
 
--   **Step 2: Classify and Filter Content**
-    This script processes the raw downloaded pages and keeps only the ones identified as personal blogs or articles.
-    `python3 search_engine/classifier.py`
+    The script will print its progress for each stage.
 
--   **Step 3: Build the Search Index**
-    Finally, create the search index from the classified articles. The `--rebuild` flag ensures you start with a fresh index.
-    `python3 search_engine/indexer.py --rebuild`
-
-### 6. Start the Server
-Now you can start the Flask web server to use the search engine.
+### 5. Start the Server
+Once the pipeline is complete, you can start the Flask web server to use the search engine.
 `python3 search_api.py`
 
 Open your web browser and navigate to **`http://127.0.0.1:5050`** to see the application.
@@ -83,4 +71,14 @@ This project is designed to be run locally. Once the server is running, you can 
 -   On macOS or Linux, find your IP with `ifconfig | grep "inet "`.
 -   On Windows, use `ipconfig`.
 
-The URL would look something like `http://192.168.1.10:5050`. 
+The URL would look something like `http://192.168.1.10:5050`.
+
+## Assumptions and Limitations
+
+-   The search engine is designed to index only personal blogs and articles. Corporate, commercial, or heavily SEO-optimized sites are filtered out as much as possible using a set of heuristics.
+-   Every page to be indexed must have a valid `.meta` file containing the canonical URL in JSON format. If a `.meta` file is missing or invalid, that page will be skipped during indexing.
+-   The system assumes that Redis is running locally and accessible.
+-   The project is intended for local or personal use, not for public deployment at scale.
+-   Relative canonical URLs are resolved to absolute URLs during indexing to avoid duplicates or missed pages.
+-   The search ranking logic is designed to prioritize results whose titles exactly or closely match the search query, so searching for a specific article title should bring that article to the top of the results.
+-   Pagination is supported in the search results, and the total number of results is displayed to help with navigation. 
