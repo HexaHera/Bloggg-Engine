@@ -79,6 +79,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Personal Blog Search Web App & API')
     parser.add_argument('--index-dir', type=str, default=INDEX_DIR, help='Index directory')
     parser.add_argument('--host', type=str, default='0.0.0.0', help='Host to run the server on')
-    parser.add_argument('--port', type=int, default=5050, help='Port to run the server on')
+    parser.add_argument('--port', type=int, default=8080, help='Port to run the server on')
     args = parser.parse_args()
     app.run(debug=True, host=args.host, port=args.port) 

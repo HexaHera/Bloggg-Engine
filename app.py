@@ -156,5 +156,5 @@ def search():
 if __name__ == '__main__':
     build_in_memory_index()
     print("Starting Personal Blog Search Engine server...")
-    print("Server is running on http://127.0.0.1:5050")
-    app.run(host='0.0.0.0', port=5050, debug=False, use_reloader=False) 
+    print("Server is running on http://127.0.0.1:8080")
+    app.run(host='0.0.0.0', port=8080, debug=False, use_reloader=False) 
